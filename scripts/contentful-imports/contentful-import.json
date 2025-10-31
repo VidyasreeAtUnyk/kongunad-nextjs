@@ -1,0 +1,227 @@
+{
+  "entries": [
+    {
+      "sys": {
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "doctor"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Dr. John Smith"
+        },
+        "specialization": {
+          "en-US": "Cardiology"
+        },
+        "qualification": {
+          "en-US": "MBBS, MD"
+        },
+        "experience": {
+          "en-US": "15 years"
+        },
+        "bio": {
+          "en-US": "Experienced cardiologist with expertise in interventional cardiology."
+        },
+        "availability": {
+          "en-US": "Mon-Fri: 9AM-5PM"
+        },
+        "image": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "doctor-image-1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Cardiology Center"
+        },
+        "description": {
+          "en-US": "State-of-the-art cardiology facility with advanced equipment."
+        },
+        "category": {
+          "en-US": "Cardiology"
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "facility-icon-1"
+            }
+          }
+        },
+        "images": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "facility-image-1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "sys": {
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "healthPackage"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "Complete Health Checkup"
+        },
+        "description": {
+          "en-US": "Comprehensive health screening package for adults."
+        },
+        "price": {
+          "en-US": 2500
+        },
+        "discount": {
+          "en-US": 20
+        },
+        "category": {
+          "en-US": "General Health"
+        },
+        "testList": {
+          "en-US": [
+            {
+              "title": "Complete Haemogram + ESR",
+              "tests": [
+                "WBC", "HGB", "HCT", "RBC count", "Platelet count", 
+                "DC - Neu %", "ym % Mon %", "Mon %", "Eos %", "Bas %", 
+                "MCV", "MCH", "MCHC", "Neu", "Lym", "Mon", "Eos", "Bas", 
+                "RDW-SD", "RDW-CV", "MPV", "Erythrocyte Semimentation Rate - 1/2 hr, 1 hr"
+              ]
+            },
+            "CRP",
+            "RA TEST",
+            "Random Blood Sugar",
+            "Serum Calcium",
+            "Serum Uric Acid"
+          ]
+        },
+        "notes": {
+          "en-US": [
+            "Patient should come on empty stomach at 8.00am (except Sunday)",
+            "An attender should accompany the patient",
+            "Any other investigation other than tests 30% concession"
+          ]
+        },
+        "special": {
+          "en-US": [
+            "Breast USG is included in the package above. If a mammogram is required, it will be provided at an additional cost of ₹500/-"
+          ]
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "package-icon-1"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "sys": {
+        "id": "doctor-image-1"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Dr. John Smith"
+        },
+        "file": {
+          "en-US": {
+            "url": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face",
+            "details": {
+              "size": 50000,
+              "image": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "fileName": "doctor-john-smith.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-icon-1"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Cardiology Icon"
+        },
+        "file": {
+          "en-US": {
+            "url": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop",
+            "details": {
+              "size": 10000,
+              "image": {
+                "width": 100,
+                "height": 100
+              }
+            },
+            "fileName": "cardiology-icon.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "package-icon-1"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Health Package Icon"
+        },
+        "file": {
+          "en-US": {
+            "url": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=200&h=200&fit=crop",
+            "details": {
+              "size": 20000,
+              "image": {
+                "width": 200,
+                "height": 200
+              }
+            },
+            "fileName": "health-package-icon.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2104 @@
+{
+  "entries": [
+    {
+      "sys": {
+        "id": "facility-pharmacy",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Pharmacy"
+        },
+        "category": {
+          "en-US": "Supportive Medical Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Pharmacy at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-dietary-department",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Dietary Department"
+        },
+        "category": {
+          "en-US": "Supportive Medical Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Dietary Department at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-mrd",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "MRD"
+        },
+        "category": {
+          "en-US": "Supportive Medical Departments"
+        },
+        "description": {
+          "en-US": "Learn more about MRD at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-medical-insurances-department",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Medical Insurances Department"
+        },
+        "category": {
+          "en-US": "Supportive Medical Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Medical Insurances Department at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-blood-bank",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Blood Bank"
+        },
+        "category": {
+          "en-US": "Supportive Medical Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Blood Bank at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-biomedical-engineer",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Biomedical Engineer"
+        },
+        "category": {
+          "en-US": "Supportive Medical Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Biomedical Engineer at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-ambulance",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Ambulance"
+        },
+        "category": {
+          "en-US": "Supportive Medical Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Ambulance at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-digital-x-rays",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Digital X-Rays"
+        },
+        "category": {
+          "en-US": "Radiology and Imaging"
+        },
+        "description": {
+          "en-US": "Learn more about Digital X-Rays at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "59EV4uAHow4lc7dNXsPcvY"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-mobile-x-ray-unit",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Mobile X-Ray Unit"
+        },
+        "category": {
+          "en-US": "Radiology and Imaging"
+        },
+        "description": {
+          "en-US": "Learn more about Mobile X-Ray Unit at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "59EV4uAHow4lc7dNXsPcvY"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-c-arm",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "C-Arm"
+        },
+        "category": {
+          "en-US": "Radiology and Imaging"
+        },
+        "description": {
+          "en-US": "Learn more about C-Arm at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "59EV4uAHow4lc7dNXsPcvY"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-ultrasound-scan",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Ultrasound Scan"
+        },
+        "category": {
+          "en-US": "Radiology and Imaging"
+        },
+        "description": {
+          "en-US": "Learn more about Ultrasound Scan at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "59EV4uAHow4lc7dNXsPcvY"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-echo-transesophageal-echo",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "ECHO / Transesophageal ECHO"
+        },
+        "category": {
+          "en-US": "Radiology and Imaging"
+        },
+        "description": {
+          "en-US": "Learn more about ECHO / Transesophageal ECHO at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "59EV4uAHow4lc7dNXsPcvY"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-cath-lab",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Cath Lab"
+        },
+        "category": {
+          "en-US": "Radiology and Imaging"
+        },
+        "description": {
+          "en-US": "Learn more about Cath Lab at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "59EV4uAHow4lc7dNXsPcvY"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-ct",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "CT"
+        },
+        "category": {
+          "en-US": "Radiology and Imaging"
+        },
+        "description": {
+          "en-US": "Learn more about CT at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "59EV4uAHow4lc7dNXsPcvY"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-mri",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "MRI"
+        },
+        "category": {
+          "en-US": "Radiology and Imaging"
+        },
+        "description": {
+          "en-US": "Learn more about MRI at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "59EV4uAHow4lc7dNXsPcvY"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-intensive-care-services",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Intensive Care Services"
+        },
+        "category": {
+          "en-US": "Inpatient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Intensive Care Services at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-room-services",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Room Services"
+        },
+        "category": {
+          "en-US": "Inpatient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Room Services at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-emergency-services",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Emergency Services"
+        },
+        "category": {
+          "en-US": "Inpatient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Emergency Services at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-operation-theatre-services",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Operation Theatre Services"
+        },
+        "category": {
+          "en-US": "Inpatient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Operation Theatre Services at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-dialysis-services",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Dialysis Services"
+        },
+        "category": {
+          "en-US": "Inpatient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Dialysis Services at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-uroflow-studies",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Uroflow Studies"
+        },
+        "category": {
+          "en-US": "Other Diagnostic Facilities"
+        },
+        "description": {
+          "en-US": "Learn more about Uroflow Studies at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-tmt",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "TMT"
+        },
+        "category": {
+          "en-US": "Other Diagnostic Facilities"
+        },
+        "description": {
+          "en-US": "Learn more about TMT at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-holder-monitor",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Holder Monitor"
+        },
+        "category": {
+          "en-US": "Other Diagnostic Facilities"
+        },
+        "description": {
+          "en-US": "Learn more about Holder Monitor at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-ppg",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "PPG"
+        },
+        "category": {
+          "en-US": "Other Diagnostic Facilities"
+        },
+        "description": {
+          "en-US": "Learn more about PPG at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-ecg",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "ECG"
+        },
+        "category": {
+          "en-US": "Other Diagnostic Facilities"
+        },
+        "description": {
+          "en-US": "Learn more about ECG at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-eeg",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "EEG"
+        },
+        "category": {
+          "en-US": "Other Diagnostic Facilities"
+        },
+        "description": {
+          "en-US": "Learn more about EEG at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-emg",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "EMG"
+        },
+        "category": {
+          "en-US": "Other Diagnostic Facilities"
+        },
+        "description": {
+          "en-US": "Learn more about EMG at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-spirometry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Spirometry"
+        },
+        "category": {
+          "en-US": "Other Diagnostic Facilities"
+        },
+        "description": {
+          "en-US": "Learn more about Spirometry at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-administrative-director",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Administrative Director"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Administrative Director at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-ceo-chief-excecutive-officer",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "CEO – Chief Excecutive Officer"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about CEO – Chief Excecutive Officer at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-pro-public-relation-officer",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "PRO – Public Relation Officer"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about PRO – Public Relation Officer at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-hrd-human-resources-department",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "HRD – Human Resources Department"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about HRD – Human Resources Department at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-reception-front-office",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Reception / Front Office"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Reception / Front Office at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-admission-department",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Admission Department"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Admission Department at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-office",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Office"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Office at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-biomedical-waste-management",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Biomedical Waste Management"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Biomedical Waste Management at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-maintenance-department",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Maintenance Department"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Maintenance Department at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-security",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Security"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Security at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-house-keeping",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "House Keeping"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about House Keeping at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-canteen",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Canteen"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Canteen at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-coffee-bar-fruit-stall",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Coffee Bar & Fruit Stall"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Coffee Bar & Fruit Stall at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-fire-safety-department",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Fire Safety Department"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Fire Safety Department at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-lift-service",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Lift Service"
+        },
+        "category": {
+          "en-US": "Non Medical Supportive Departments"
+        },
+        "description": {
+          "en-US": "Learn more about Lift Service at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-main-opd",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Main opd"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Main opd at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-emergency-opd-casualty",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Emergency OPD (Casualty)"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Emergency OPD (Casualty) at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-cardiac-opd",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Cardiac OPD"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Cardiac OPD at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-surgeons-opd-surgical",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Surgeons OPD (Surgical)"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Surgeons OPD (Surgical) at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-physicians-opd-medical",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Physicians OPD (Medical)"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Physicians OPD (Medical) at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-pediatric-opd",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Pediatric OPD"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Pediatric OPD at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-orthopaedic-opd",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Orthopaedic OPD"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Orthopaedic OPD at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-obstetrics-gynacology-opd",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Obstetrics & Gynacology OPD"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Obstetrics & Gynacology OPD at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-speciality-opd",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Speciality OPD"
+        },
+        "category": {
+          "en-US": "Out Patient Services"
+        },
+        "description": {
+          "en-US": "Learn more about Speciality OPD at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3goaONHvLF8V6Ia7NiMXM4"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-haematology",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Haematology"
+        },
+        "category": {
+          "en-US": "Laboratory Services"
+        },
+        "description": {
+          "en-US": "Learn more about Haematology at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "1tM8z9kooAqdHw9qBRrB4G"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-biochemistry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Biochemistry"
+        },
+        "category": {
+          "en-US": "Laboratory Services"
+        },
+        "description": {
+          "en-US": "Learn more about Biochemistry at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "1tM8z9kooAqdHw9qBRrB4G"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-microbiology",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Microbiology"
+        },
+        "category": {
+          "en-US": "Laboratory Services"
+        },
+        "description": {
+          "en-US": "Learn more about Microbiology at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "1tM8z9kooAqdHw9qBRrB4G"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-histopathology",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Histopathology"
+        },
+        "category": {
+          "en-US": "Laboratory Services"
+        },
+        "description": {
+          "en-US": "Learn more about Histopathology at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "1tM8z9kooAqdHw9qBRrB4G"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-upper-gi-scopy",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Upper GI Scopy"
+        },
+        "category": {
+          "en-US": "Endoscopy Services"
+        },
+        "description": {
+          "en-US": "Learn more about Upper GI Scopy at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-colonoscopy",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Colonoscopy"
+        },
+        "category": {
+          "en-US": "Endoscopy Services"
+        },
+        "description": {
+          "en-US": "Learn more about Colonoscopy at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-bronchoscopy",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Bronchoscopy"
+        },
+        "category": {
+          "en-US": "Endoscopy Services"
+        },
+        "description": {
+          "en-US": "Learn more about Bronchoscopy at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    },
+    {
+      "sys": {
+        "id": "facility-ercp",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "facility"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "ERCP"
+        },
+        "category": {
+          "en-US": "Endoscopy Services"
+        },
+        "description": {
+          "en-US": "Learn more about ERCP at Kongunad Hospital."
+        },
+        "icon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "7E8IMlYUWRsLnvwcAVanEA"
+            }
+          }
+        },
+        "images": {
+          "en-US": []
+        }
+      }
+    }
+  ]
+}

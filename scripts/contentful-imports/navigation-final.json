@@ -1,0 +1,948 @@
+{
+  "entries": [
+    {
+      "sys": {
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "navigation"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Primary Left Navigation"
+        },
+        "type": {
+          "en-US": "primary"
+        },
+        "position": {
+          "en-US": "left"
+        },
+        "items": {
+          "en-US": [
+            {
+              "title": "About us",
+              "linkTo": "/about-us/"
+            },
+            {
+              "title": "Education Institution",
+              "linkTo": "/education-institution/"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "sys": {
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "navigation"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Primary Right Navigation"
+        },
+        "type": {
+          "en-US": "primary"
+        },
+        "position": {
+          "en-US": "right"
+        },
+        "items": {
+          "en-US": [
+            {
+              "title": "Book a Checkup",
+              "linkTo": "/book-a-health-checkup/"
+            },
+            {
+              "title": "Find a Doctor",
+              "linkTo": "/find-a-doctor/"
+            },
+            {
+              "title": "Cashless Treatment",
+              "linkTo": "/cashless-treatment/"
+            },
+            {
+              "title": "Job Vacancies",
+              "linkTo": "/job-vacancies/"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "sys": {
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "navigation"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Secondary Left Logos"
+        },
+        "type": {
+          "en-US": "secondary"
+        },
+        "position": {
+          "en-US": "left"
+        },
+        "items": {
+          "en-US": [
+            {
+              "title": "KNH Logo",
+              "linkTo": "/",
+              "isLogo": true,
+              "icon": {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Asset",
+                  "id": "2M2rzbrcuVQX2p2NI3nZYu"
+                }
+              }
+            },
+            {
+              "title": "NABH Logo",
+              "linkTo": "/",
+              "isLogo": true,
+              "icon": {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Asset",
+                  "id": "1uX2L3tEhZGbyCpuZOM7HV"
+                }
+              }
+            },
+            {
+              "title": "Years Logo",
+              "linkTo": "/",
+              "isLogo": true,
+              "icon": {
+                "sys": {
+                  "type": "Link",
+                  "linkType": "Asset",
+                  "id": "4zd5lZwJ9p4eaRy3y9o0lF"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "sys": {
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "navigation"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Secondary Right Navigation"
+        },
+        "type": {
+          "en-US": "secondary"
+        },
+        "position": {
+          "en-US": "right"
+        },
+        "items": {
+          "en-US": [
+            {
+              "title": "Home",
+              "linkTo": "/"
+            },
+            {
+              "title": "Facilities",
+              "linkTo": "/facilities/",
+              "hasDropdown": true,
+              "dropdown": [
+                {
+                  "title": "Supportive Medical Departments",
+                  "to": "/facilities/supportive-medical-departments/",
+                  "iconAlt": "Supportive Medical Departments",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "7E8IMlYUWRsLnvwcAVanEA"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Pharmacy",
+                      "to": "/facilities/supportive-medical-departments/pharmacy/"
+                    },
+                    {
+                      "title": "Dietary Department",
+                      "to": "/facilities/supportive-medical-departments/dietary-department/"
+                    },
+                    {
+                      "title": "MRD",
+                      "to": "/facilities/supportive-medical-departments/mrd/"
+                    },
+                    {
+                      "title": "Medical Insurances Department",
+                      "to": "/facilities/supportive-medical-departments/medical-insurances-department/"
+                    },
+                    {
+                      "title": "Blood Bank",
+                      "to": "/facilities/supportive-medical-departments/blood-bank/"
+                    },
+                    {
+                      "title": "Biomedical Engineer",
+                      "to": "/facilities/supportive-medical-departments/biomedical-engineer/"
+                    },
+                    {
+                      "title": "Ambulance",
+                      "to": "/facilities/supportive-medical-departments/ambulance/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Radiology and Imaging",
+                  "to": "/facilities/radiology-imaging-services/",
+                  "iconAlt": "Radiology and Imaging",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "59EV4uAHow4lc7dNXsPcvY"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Digital X-Rays",
+                      "to": "/facilities/radiology-imaging-services/digital-x-rays/"
+                    },
+                    {
+                      "title": "Mobile X-Ray Unit",
+                      "to": "/facilities/radiology-imaging-services/mobile-x-ray-unit/"
+                    },
+                    {
+                      "title": "C-Arm",
+                      "to": "/facilities/radiology-imaging-services/c-arm/"
+                    },
+                    {
+                      "title": "Ultrasound Scan",
+                      "to": "/facilities/radiology-imaging-services/ultrasound-scan/"
+                    },
+                    {
+                      "title": "ECHO / Transesophageal ECHO",
+                      "to": "/facilities/radiology-imaging-services/echo-transesophageal-echo/"
+                    },
+                    {
+                      "title": "Cath Lab",
+                      "to": "/facilities/radiology-imaging-services/cath-lab/"
+                    },
+                    {
+                      "title": "CT",
+                      "to": "/facilities/radiology-imaging-services/ct/"
+                    },
+                    {
+                      "title": "MRI",
+                      "to": "/facilities/radiology-imaging-services/mri/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Inpatient Services",
+                  "to": "/facilities/inpatient-services/",
+                  "iconAlt": "Inpatient Services",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Intensive Care Services",
+                      "to": "/facilities/inpatient-services/intensive-care-services/"
+                    },
+                    {
+                      "title": "Room Services",
+                      "to": "/facilities/inpatient-services/room-services/"
+                    },
+                    {
+                      "title": "Emergency Services",
+                      "to": "/facilities/inpatient-services/emergency-services/"
+                    },
+                    {
+                      "title": "Operation Theatre Services",
+                      "to": "/facilities/inpatient-services/operation-theatre-services/"
+                    },
+                    {
+                      "title": "Dialysis Services",
+                      "to": "/facilities/inpatient-services/dialysis-services/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Other Diagnostic Facilities",
+                  "to": "/facilities/other-diagnostic-facilities/",
+                  "iconAlt": "Other Diagnostic Facilities",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "7E8IMlYUWRsLnvwcAVanEA"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Uroflow Studies",
+                      "to": "/facilities/other-diagnostic-facilities/uroflow-studies/"
+                    },
+                    {
+                      "title": "TMT",
+                      "to": "/facilities/other-diagnostic-facilities/tmt/"
+                    },
+                    {
+                      "title": "Holder Monitor",
+                      "to": "/facilities/other-diagnostic-facilities/holder-monitor/"
+                    },
+                    {
+                      "title": "PPG",
+                      "to": "/facilities/other-diagnostic-facilities/ppg/"
+                    },
+                    {
+                      "title": "ECG",
+                      "to": "/facilities/other-diagnostic-facilities/ecg/"
+                    },
+                    {
+                      "title": "EEG",
+                      "to": "/facilities/other-diagnostic-facilities/eeg/"
+                    },
+                    {
+                      "title": "EMG",
+                      "to": "/facilities/other-diagnostic-facilities/emg/"
+                    },
+                    {
+                      "title": "Spirometry",
+                      "to": "/facilities/other-diagnostic-facilities/spirometry/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Non Medical Supportive Departments",
+                  "to": "/facilities/non-medical-supportive-departments/",
+                  "iconAlt": "Non Medical Supportive Departments",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "7E8IMlYUWRsLnvwcAVanEA"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Administrative Director",
+                      "to": "/facilities/non-medical-supportive-departments/administrative-director/"
+                    },
+                    {
+                      "title": "CEO – Chief Excecutive Officer",
+                      "to": "/facilities/non-medical-supportive-departments/ceo-chief-excecutive-officer/"
+                    },
+                    {
+                      "title": "PRO – Public Relation Officer",
+                      "to": "/facilities/non-medical-supportive-departments/pro-public-relation-officer/"
+                    },
+                    {
+                      "title": "HRD – Human Resources Department",
+                      "to": "/facilities/non-medical-supportive-departments/hrd-human-resources-department/"
+                    },
+                    {
+                      "title": "Reception / Front Office",
+                      "to": "/facilities/non-medical-supportive-departments/reception-front-office/"
+                    },
+                    {
+                      "title": "Admission Department",
+                      "to": "/facilities/non-medical-supportive-departments/admission-department/"
+                    },
+                    {
+                      "title": "Office",
+                      "to": "/facilities/non-medical-supportive-departments/office/"
+                    },
+                    {
+                      "title": "Biomedical Waste Management",
+                      "to": "/facilities/non-medical-supportive-departments/biomedical-waste-management/"
+                    },
+                    {
+                      "title": "Maintenance Department",
+                      "to": "/facilities/non-medical-supportive-departments/maintenance-department/"
+                    },
+                    {
+                      "title": "Security",
+                      "to": "/facilities/non-medical-supportive-departments/security/"
+                    },
+                    {
+                      "title": "House Keeping",
+                      "to": "/facilities/non-medical-supportive-departments/house-keeping/"
+                    },
+                    {
+                      "title": "Canteen",
+                      "to": "/facilities/non-medical-supportive-departments/canteen/"
+                    },
+                    {
+                      "title": "Coffee Bar & Fruit Stall",
+                      "to": "/facilities/non-medical-supportive-departments/coffee-bar-fruit-stall/"
+                    },
+                    {
+                      "title": "Fire Safety Department",
+                      "to": "/facilities/non-medical-supportive-departments/fire-safety-department/"
+                    },
+                    {
+                      "title": "Lift Service",
+                      "to": "/facilities/non-medical-supportive-departments/lift-service/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Out Patient Services",
+                  "to": "/facilities/out-patient-services/",
+                  "iconAlt": "out patient services",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Main opd",
+                      "to": "/facilities/out-patient-services/main-opd"
+                    },
+                    {
+                      "title": "Emergency OPD (Casualty)",
+                      "to": "/facilities/out-patient-services/emergency-opd-casualty/"
+                    },
+                    {
+                      "title": "Cardiac OPD",
+                      "to": "/facilities/out-patient-services/cardiac-opd/"
+                    },
+                    {
+                      "title": "Surgeons OPD (Surgical)",
+                      "to": "/facilities/out-patient-services/surgeons-opd-surgical/"
+                    },
+                    {
+                      "title": "Physicians OPD (Medical)",
+                      "to": "/facilities/out-patient-services/physicians-opd-medical/"
+                    },
+                    {
+                      "title": "Pediatric OPD",
+                      "to": "/facilities/out-patient-services/pediatric-opd/"
+                    },
+                    {
+                      "title": "Orthopaedic OPD",
+                      "to": "/facilities/out-patient-services/orthopaedic-opd/"
+                    },
+                    {
+                      "title": "Obstetrics & Gynacology OPD",
+                      "to": "/facilities/out-patient-services/obstetrics-gynacology-opd/"
+                    },
+                    {
+                      "title": "Speciality OPD",
+                      "to": "/facilities/out-patient-services/speciality-opd/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Laboratory Services",
+                  "to": "/facilities/laboratory-services/",
+                  "iconAlt": "Laboratory Services",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "1tM8z9kooAqdHw9qBRrB4G"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Haematology",
+                      "to": "/facilities/laboratory-services/haematology/"
+                    },
+                    {
+                      "title": "Biochemistry",
+                      "to": "/facilities/laboratory-services/biochemistry/"
+                    },
+                    {
+                      "title": "Microbiology",
+                      "to": "/facilities/laboratory-services/microbiology/"
+                    },
+                    {
+                      "title": "Histopathology",
+                      "to": "/facilities/laboratory-services/histopathlogy/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Endoscopy Services",
+                  "to": "/facilities/endoscopy-services/",
+                  "iconAlt": "Endoscopy Services",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "7E8IMlYUWRsLnvwcAVanEA"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Upper GI Scopy",
+                      "to": "/facilities/endoscopy-services/upper-gi-scopy/"
+                    },
+                    {
+                      "title": "Colonoscopy",
+                      "to": "/facilities/endoscopy-services/colonoscopy/"
+                    },
+                    {
+                      "title": "Bronchoscopy",
+                      "to": "/facilities/endoscopy-services/bronchoscopy/"
+                    },
+                    {
+                      "title": "ERCP",
+                      "to": "/facilities/endoscopy-services/ercp/"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Specialities",
+              "linkTo": "/specialities/"
+            },
+            {
+              "title": "Research",
+              "linkTo": "/research/"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "sys": {
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "navigation"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Mobile Navigation"
+        },
+        "type": {
+          "en-US": "mobile"
+        },
+        "position": {
+          "en-US": "mobile"
+        },
+        "items": {
+          "en-US": [
+            {
+              "title": "Home",
+              "linkTo": "/"
+            },
+            {
+              "title": "Facilities",
+              "linkTo": "/facilities/",
+              "hasDropdown": true,
+              "dropdown": [
+                {
+                  "title": "Out Patient Services",
+                  "to": "/facilities/out-patient-services/",
+                  "iconAlt": "out patient services",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Main opd",
+                      "to": "/facilities/out-patient-services/main-opd"
+                    },
+                    {
+                      "title": "Emergency OPD (Casualty)",
+                      "to": "/facilities/out-patient-services/emergency-opd-casualty/"
+                    },
+                    {
+                      "title": "Cardiac OPD",
+                      "to": "/facilities/out-patient-services/cardiac-opd/"
+                    },
+                    {
+                      "title": "Surgeons OPD (Surgical)",
+                      "to": "/facilities/out-patient-services/surgeons-opd-surgical/"
+                    },
+                    {
+                      "title": "Physicians OPD (Medical)",
+                      "to": "/facilities/out-patient-services/physicians-opd-medical/"
+                    },
+                    {
+                      "title": "Pediatric OPD",
+                      "to": "/facilities/out-patient-services/pediatric-opd/"
+                    },
+                    {
+                      "title": "Orthopaedic OPD",
+                      "to": "/facilities/out-patient-services/orthopaedic-opd/"
+                    },
+                    {
+                      "title": "Obstetrics & Gynacology OPD",
+                      "to": "/facilities/out-patient-services/obstetrics-gynacology-opd/"
+                    },
+                    {
+                      "title": "Speciality OPD",
+                      "to": "/facilities/out-patient-services/speciality-opd/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Supportive Medical Departments",
+                  "to": "/facilities/supportive-medical-departments/",
+                  "iconAlt": "Supportive Medical Departments",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "7E8IMlYUWRsLnvwcAVanEA"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Pharmacy",
+                      "to": "/facilities/supportive-medical-departments/pharmacy/"
+                    },
+                    {
+                      "title": "Dietary Department",
+                      "to": "/facilities/supportive-medical-departments/dietary-department/"
+                    },
+                    {
+                      "title": "MRD",
+                      "to": "/facilities/supportive-medical-departments/mrd/"
+                    },
+                    {
+                      "title": "Medical Insurances Department",
+                      "to": "/facilities/supportive-medical-departments/medical-insurances-department/"
+                    },
+                    {
+                      "title": "Blood Bank",
+                      "to": "/facilities/supportive-medical-departments/blood-bank/"
+                    },
+                    {
+                      "title": "Biomedical Engineer",
+                      "to": "/facilities/supportive-medical-departments/biomedical-engineer/"
+                    },
+                    {
+                      "title": "Ambulance",
+                      "to": "/facilities/supportive-medical-departments/ambulance/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Radiology and Imaging",
+                  "to": "/facilities/radiology-imaging-services/",
+                  "iconAlt": "Radiology and Imaging",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "59EV4uAHow4lc7dNXsPcvY"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Digital X-Rays",
+                      "to": "/facilities/radiology-imaging-services/digital-x-rays/"
+                    },
+                    {
+                      "title": "Mobile X-Ray Unit",
+                      "to": "/facilities/radiology-imaging-services/mobile-x-ray-unit/"
+                    },
+                    {
+                      "title": "C-Arm",
+                      "to": "/facilities/radiology-imaging-services/c-arm/"
+                    },
+                    {
+                      "title": "Ultrasound Scan",
+                      "to": "/facilities/radiology-imaging-services/ultrasound-scan/"
+                    },
+                    {
+                      "title": "ECHO / Transesophageal ECHO",
+                      "to": "/facilities/radiology-imaging-services/echo-transesophageal-echo/"
+                    },
+                    {
+                      "title": "Cath Lab",
+                      "to": "/facilities/radiology-imaging-services/cath-lab/"
+                    },
+                    {
+                      "title": "CT",
+                      "to": "/facilities/radiology-imaging-services/ct/"
+                    },
+                    {
+                      "title": "MRI",
+                      "to": "/facilities/radiology-imaging-services/mri/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Non Medical Supportive Departments",
+                  "to": "/facilities/non-medical-supportive-departments/",
+                  "iconAlt": "Non Medical Supportive Departments",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "7E8IMlYUWRsLnvwcAVanEA"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Administrative Director",
+                      "to": "/facilities/non-medical-supportive-departments/administrative-director/"
+                    },
+                    {
+                      "title": "CEO – Chief Excecutive Officer",
+                      "to": "/facilities/non-medical-supportive-departments/ceo-chief-excecutive-officer/"
+                    },
+                    {
+                      "title": "PRO – Public Relation Officer",
+                      "to": "/facilities/non-medical-supportive-departments/pro-public-relation-officer/"
+                    },
+                    {
+                      "title": "HRD – Human Resources Department",
+                      "to": "/facilities/non-medical-supportive-departments/hrd-human-resources-department/"
+                    },
+                    {
+                      "title": "Reception / Front Office",
+                      "to": "/facilities/non-medical-supportive-departments/reception-front-office/"
+                    },
+                    {
+                      "title": "Admission Department",
+                      "to": "/facilities/non-medical-supportive-departments/admission-department/"
+                    },
+                    {
+                      "title": "Office",
+                      "to": "/facilities/non-medical-supportive-departments/office/"
+                    },
+                    {
+                      "title": "Biomedical Waste Management",
+                      "to": "/facilities/non-medical-supportive-departments/biomedical-waste-management/"
+                    },
+                    {
+                      "title": "Maintenance Department",
+                      "to": "/facilities/non-medical-supportive-departments/maintenance-department/"
+                    },
+                    {
+                      "title": "Security",
+                      "to": "/facilities/non-medical-supportive-departments/security/"
+                    },
+                    {
+                      "title": "House Keeping",
+                      "to": "/facilities/non-medical-supportive-departments/house-keeping/"
+                    },
+                    {
+                      "title": "Canteen",
+                      "to": "/facilities/non-medical-supportive-departments/canteen/"
+                    },
+                    {
+                      "title": "Coffee Bar & Fruit Stall",
+                      "to": "/facilities/non-medical-supportive-departments/coffee-bar-fruit-stall/"
+                    },
+                    {
+                      "title": "Fire Safety Department",
+                      "to": "/facilities/non-medical-supportive-departments/fire-safety-department/"
+                    },
+                    {
+                      "title": "Lift Service",
+                      "to": "/facilities/non-medical-supportive-departments/lift-service/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Inpatient Services",
+                  "to": "/facilities/inpatient-services/",
+                  "iconAlt": "Inpatient Services",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Intensive Care Services",
+                      "to": "/facilities/inpatient-services/intensive-care-services/"
+                    },
+                    {
+                      "title": "Room Services",
+                      "to": "/facilities/inpatient-services/room-services/"
+                    },
+                    {
+                      "title": "Emergency Services",
+                      "to": "/facilities/inpatient-services/emergency-services/"
+                    },
+                    {
+                      "title": "Operation Theatre Services",
+                      "to": "/facilities/inpatient-services/operation-theatre-services/"
+                    },
+                    {
+                      "title": "Dialysis Services",
+                      "to": "/facilities/inpatient-services/dialysis-services/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Other Diagnostic Facilities",
+                  "to": "/facilities/other-diagnostic-facilities/",
+                  "iconAlt": "Other Diagnostic Facilities",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "7E8IMlYUWRsLnvwcAVanEA"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Uroflow Studies",
+                      "to": "/facilities/other-diagnostic-facilities/uroflow-studies/"
+                    },
+                    {
+                      "title": "TMT",
+                      "to": "/facilities/other-diagnostic-facilities/tmt/"
+                    },
+                    {
+                      "title": "Holder Monitor",
+                      "to": "/facilities/other-diagnostic-facilities/holder-monitor/"
+                    },
+                    {
+                      "title": "PPG",
+                      "to": "/facilities/other-diagnostic-facilities/ppg/"
+                    },
+                    {
+                      "title": "ECG",
+                      "to": "/facilities/other-diagnostic-facilities/ecg/"
+                    },
+                    {
+                      "title": "EEG",
+                      "to": "/facilities/other-diagnostic-facilities/eeg/"
+                    },
+                    {
+                      "title": "EMG",
+                      "to": "/facilities/other-diagnostic-facilities/emg/"
+                    },
+                    {
+                      "title": "Spirometry",
+                      "to": "/facilities/other-diagnostic-facilities/spirometry/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Laboratory Services",
+                  "to": "/facilities/laboratory-services/",
+                  "iconAlt": "Laboratory Services",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "1tM8z9kooAqdHw9qBRrB4G"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Haematology",
+                      "to": "/facilities/laboratory-services/haematology/"
+                    },
+                    {
+                      "title": "Biochemistry",
+                      "to": "/facilities/laboratory-services/biochemistry/"
+                    },
+                    {
+                      "title": "Microbiology",
+                      "to": "/facilities/laboratory-services/microbiology/"
+                    },
+                    {
+                      "title": "Histopathology",
+                      "to": "/facilities/laboratory-services/histopathlogy/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Endoscopy Services",
+                  "to": "/facilities/endoscopy-services/",
+                  "iconAlt": "Endoscopy Services",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "7E8IMlYUWRsLnvwcAVanEA"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Upper GI Scopy",
+                      "to": "/facilities/endoscopy-services/upper-gi-scopy/"
+                    },
+                    {
+                      "title": "Colonoscopy",
+                      "to": "/facilities/endoscopy-services/colonoscopy/"
+                    },
+                    {
+                      "title": "Bronchoscopy",
+                      "to": "/facilities/endoscopy-services/bronchoscopy/"
+                    },
+                    {
+                      "title": "ERCP",
+                      "to": "/facilities/endoscopy-services/ercp/"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Specialities",
+              "linkTo": "/specialities/"
+            },
+            {
+              "title": "Research",
+              "linkTo": "/research/"
+            },
+            {
+              "title": "Find a Doctor",
+              "linkTo": "/find-a-doctor/"
+            },
+            {
+              "title": "Cashless Treatment",
+              "linkTo": "/cashless-treatment/"
+            },
+            {
+              "title": "Job Vacancies",
+              "linkTo": "/job-vacancies/"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
