@@ -19,8 +19,10 @@ import { FacilitiesSection } from '@/components/content/FacilitiesSection'
 import { DoctorsSection } from '@/components/content/DoctorsSection'
 import { QuickLinksSection } from '@/components/content/QuickLinksSection'
 import { SearchBar } from '@/components/ui/SearchBar'
-import { getDoctors, getFacilities, getHealthPackages, getBuildingImages, getAboutContent, getLeadership } from '@/lib/contentful'
+import { getDoctorsCached, getFacilitiesCached, getHealthPackagesCached, getBuildingImagesCached, getAboutContentCached, getLeadershipCached } from '@/lib/contentful'
 import { Doctor, Facility, HealthPackage, BuildingImage, AboutContent, Leadership } from '@/types/contentful'
+
+export const revalidate = 300
 
 export default async function HomePage() {
   // Fetch data from Contentful (with fallback for development)
@@ -30,12 +32,12 @@ export default async function HomePage() {
   
   try {
     const [doctorsData, facilitiesData, healthPackagesData, buildingImagesData, aboutContentData, leadershipData] = await Promise.all([
-      getDoctors(6), // Limit to 6 for homepage
-      getFacilities(6),
-      getHealthPackages(6),
-      getBuildingImages(),
-      getAboutContent(),
-      getLeadership(),
+      getDoctorsCached(6), // Limit to 6 for homepage
+      getFacilitiesCached(6),
+      getHealthPackagesCached(6),
+      getBuildingImagesCached(),
+      getAboutContentCached(),
+      getLeadershipCached(),
     ])
     
     doctors = doctorsData as unknown as Doctor[]

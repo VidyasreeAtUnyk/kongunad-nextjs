@@ -8,7 +8,7 @@ import {
   Link,
 } from '@mui/material'
 import { FacilityCard } from '@/components/content/FacilityCard'
-import { getFacilities } from '@/lib/contentful'
+import { getFacilitiesCached } from '@/lib/contentful'
 import { Facility } from '@/types/contentful'
 
 interface FacilitiesPageProps {
@@ -22,10 +22,12 @@ export const metadata: Metadata = {
   description: 'Explore our state-of-the-art medical facilities and equipment at Kongunad Hospital.',
 }
 
+export const revalidate = 300
+
 export default async function FacilitiesPage({ searchParams }: FacilitiesPageProps) {
   try {
     const { category } = await searchParams
-    const facilities = await getFacilities() as unknown as Facility[]
+    const facilities = await getFacilitiesCached() as unknown as Facility[]
     const selectedCategory = category
 
     // Filter facilities by category if specified

@@ -1,4 +1,5 @@
 import { createClient } from 'contentful'
+import { unstable_cache as nextCache } from 'next/cache'
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || process.env.CONTENTFUL_SPACE_ID || 'demo-space',
@@ -23,6 +24,17 @@ export async function getDoctors(limit?: number) {
   return entries.items
 }
 
+// Cached variants with ISR
+export function getDoctorsCached(limit?: number) {
+  return nextCache(
+    async () => {
+      return await getDoctors(limit)
+    },
+    ['contentful:doctors', String(limit || 100)],
+    { revalidate: 300, tags: ['doctors'] }
+  )()
+}
+
 export async function getFacilities(limit?: number) {
   const client = getClient()
   const entries = await client.getEntries({
@@ -30,6 +42,16 @@ export async function getFacilities(limit?: number) {
     limit: limit || 100,
   })
   return entries.items
+}
+
+export function getFacilitiesCached(limit?: number) {
+  return nextCache(
+    async () => {
+      return await getFacilities(limit)
+    },
+    ['contentful:facilities', String(limit || 100)],
+    { revalidate: 300, tags: ['facilities'] }
+  )()
 }
 
 export async function getHealthPackages(limit?: number) {
@@ -41,12 +63,32 @@ export async function getHealthPackages(limit?: number) {
   return entries.items
 }
 
+export function getHealthPackagesCached(limit?: number) {
+  return nextCache(
+    async () => {
+      return await getHealthPackages(limit)
+    },
+    ['contentful:healthPackages', String(limit || 100)],
+    { revalidate: 300, tags: ['healthPackages'] }
+  )()
+}
+
 export async function getBuildingImages() {
   const client = getClient()
   const entries = await client.getEntries({
     content_type: 'buildingImage',
   })
   return entries.items
+}
+
+export function getBuildingImagesCached() {
+  return nextCache(
+    async () => {
+      return await getBuildingImages()
+    },
+    ['contentful:buildingImages'],
+    { revalidate: 300, tags: ['buildingImages'] }
+  )()
 }
 
 // Fetch Offers Marquee items
@@ -59,6 +101,16 @@ export async function getOffers() {
   return entries.items
 }
 
+export function getOffersCached() {
+  return nextCache(
+    async () => {
+      return await getOffers()
+    },
+    ['contentful:offers'],
+    { revalidate: 300, tags: ['offers'] }
+  )()
+}
+
 export async function getAboutContent() {
   const client = getClient()
   const entries = await client.getEntries({
@@ -66,6 +118,16 @@ export async function getAboutContent() {
     limit: 1,
   })
   return entries.items[0] || null
+}
+
+export function getAboutContentCached() {
+  return nextCache(
+    async () => {
+      return await getAboutContent()
+    },
+    ['contentful:aboutContent'],
+    { revalidate: 300, tags: ['aboutContent'] }
+  )()
 }
 
 export async function getNavigation() {
@@ -120,6 +182,16 @@ export async function getNavigation() {
   }
 }
 
+export function getNavigationCached() {
+  return nextCache(
+    async () => {
+      return await getNavigation()
+    },
+    ['contentful:navigation'],
+    { revalidate: 300, tags: ['navigation'] }
+  )()
+}
+
 export default client
 
 // Leadership fetcher (singleton)
@@ -136,6 +208,16 @@ export async function getLeadership() {
     console.warn('getLeadership(): returning null. Reason:', (error as any)?.message || error)
     return null
   }
+}
+
+export function getLeadershipCached() {
+  return nextCache(
+    async () => {
+      return await getLeadership()
+    },
+    ['contentful:leadership'],
+    { revalidate: 300, tags: ['leadership'] }
+  )()
 }
 
 // Fetch a single asset URL by asset ID (Delivery API)

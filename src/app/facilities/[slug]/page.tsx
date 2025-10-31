@@ -14,7 +14,7 @@ import {
   ListItem,
   ListItemText,
 } from '@mui/material'
-import { getFacilities } from '@/lib/contentful'
+import { getFacilitiesCached } from '@/lib/contentful'
 import { Facility } from '@/types/contentful'
 
 interface FacilityPageProps {
@@ -26,7 +26,7 @@ interface FacilityPageProps {
 export async function generateMetadata({ params }: FacilityPageProps): Promise<Metadata> {
   try {
     const { slug } = await params
-    const facilities = await getFacilities() as unknown as Facility[]
+    const facilities = await getFacilitiesCached() as unknown as Facility[]
     const facility = facilities.find(f => 
       f.fields.name.toLowerCase().replace(/\s+/g, '-') === slug
     )
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: FacilityPageProps): Promise<M
 
 export async function generateStaticParams() {
   try {
-    const facilities = await getFacilities() as unknown as Facility[]
+    const facilities = await getFacilitiesCached() as unknown as Facility[]
     
     return facilities.map((facility) => ({
       slug: facility.fields.name.toLowerCase().replace(/\s+/g, '-'),
@@ -65,7 +65,7 @@ export async function generateStaticParams() {
 export default async function FacilityPage({ params }: FacilityPageProps) {
   try {
     const { slug } = await params
-    const facilities = await getFacilities() as unknown as Facility[]
+    const facilities = await getFacilitiesCached() as unknown as Facility[]
     const facility = facilities.find(f => 
       f.fields.name.toLowerCase().replace(/\s+/g, '-') === slug
     )

@@ -1,0 +1,16 @@
+# Generated files
+coverage/
+playwright-report/
+test-results/
+
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+build/
+
+# Config files (jest.config.js uses CommonJS)
+jest.config.js
+
