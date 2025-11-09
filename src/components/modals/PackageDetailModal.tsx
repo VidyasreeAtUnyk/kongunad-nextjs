@@ -24,12 +24,14 @@ interface PackageDetailModalProps {
   packageId: string
   open: boolean
   onClose: () => void
+  onBookNow?: () => void
 }
 
 export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
   packageId,
   open,
   onClose,
+  onBookNow,
 }) => {
   const router = useRouter()
   const [healthPackage, setHealthPackage] = useState<HealthPackage | null>(null)
@@ -93,7 +95,11 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
 
   const handleBookNow = () => {
     if (healthPackage) {
-      router.push('/book-a-checkup/')
+      if (onBookNow) {
+        onBookNow()
+      } else {
+        router.push('/book-a-checkup/')
+      }
       onClose()
     }
   }
@@ -157,16 +163,17 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
             p: { xs: 2, md: 3 },
             gap: 3,
             flex: 1,
-            overflow: 'hidden',
+            overflow: { xs: 'auto', md: 'hidden' },
+            overflowX: 'hidden',
+            WebkitOverflowScrolling: 'touch',
             minHeight: 0,
           }}>
             {/* Left Column - Tests */}
             <Box sx={{ 
               flex: { xs: '1 1 100%', md: '1 1 65%' },
-              overflowY: 'auto',
+              overflowY: { md: 'auto' },
               overflowX: 'hidden',
               pr: { md: 2 },
-              minHeight: 0,
             }}>
               <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
                 Tests Included ({getTestCount()})
@@ -256,7 +263,7 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
               flexDirection: 'column',
               maxWidth: { md: '280px' },
               alignSelf: 'flex-start',
-              overflowY: 'auto',
+              overflowY: { md: 'auto' },
               overflowX: 'hidden',
               minHeight: 0,
             }}>
