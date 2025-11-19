@@ -6,6 +6,7 @@ import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
 import { Offer } from '@/components/content/Offer'
 import { ModalContainer } from '@/components/modals/ModalContainer'
+import { BottomSheetContainer } from '@/components/ui/BottomSheetContainer'
 import { getOffers } from '@/lib/contentful'
 import './globals.css'
 
@@ -66,6 +67,7 @@ export default async function RootLayout({
             {children}
             <Footer />
             <ModalContainer />
+            <BottomSheetContainer />
           </ThemeProvider>
         </ReduxProvider>
       </body>

@@ -143,19 +143,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
-                fontSize: { xs: '18px', md: '20px' },
-                color: 'text.primary',
-                lineHeight: 1.65,
               }}
             >
               {/* Description */}
               <Typography
                 component="div"
-                variant="body1"
+                variant="subtitle1"
                 id={descId}
                 sx={{
-                  fontSize: 'inherit',
-                  lineHeight: 'inherit',
                   '& strong': {
                     fontWeight: 700,
                     color: 'primary.main',
@@ -167,12 +162,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               {/* Highlights */}
               <Box component="div">
                 <Typography
-                  variant="body1"
+                  variant="subtitle2"
                   component="p"
                   sx={{
-                    fontWeight: 600,
                     mb: 1.5,
-                    fontSize: 'inherit',
                   }}
                 >
                   Key highlights include:
@@ -185,15 +178,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                     m: 0,
                     '& li': {
                       mb: 1,
-                      fontSize: 'inherit',
-                      lineHeight: 'inherit',
                     },
                   }}
                 >
                   {highlights.map((highlight, index) => (
-                    <Box key={index} component="li">
+                    <Typography key={index} component="li" variant="body1">
                       {highlight}
-                    </Box>
+                    </Typography>
                   ))}
                 </Box>
               </Box>
@@ -207,9 +198,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                     width: 'fit-content',
                     px: 3,
                     py: 1.25,
-                    textTransform: 'none',
-                    fontSize: '1rem',
-                    fontWeight: 500,
                     borderRadius: 2,
                     borderWidth: 2,
                     '&:hover': {

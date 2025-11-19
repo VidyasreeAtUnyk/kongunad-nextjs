@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { openBottomSheet } from '@/store/bottomSheetSlice'
 import {
   Dialog,
   Box,
@@ -24,14 +25,16 @@ interface PackageDetailModalProps {
   packageId: string
   open: boolean
   onClose: () => void
+  onBookNow?: () => void
 }
 
 export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
   packageId,
   open,
   onClose,
+  onBookNow,
 }) => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
   const [healthPackage, setHealthPackage] = useState<HealthPackage | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -93,7 +96,12 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
 
   const handleBookNow = () => {
     if (healthPackage) {
-      router.push('/book-a-checkup/')
+      if (onBookNow) {
+        onBookNow()
+      } else {
+        // Open bottom sheet via Redux
+        dispatch(openBottomSheet({ packageName: healthPackage.fields.title }))
+      }
       onClose()
     }
   }
@@ -157,16 +165,16 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
             p: { xs: 2, md: 3 },
             gap: 3,
             flex: 1,
-            overflow: 'hidden',
+            overflow: 'auto',
+            overflowX: 'hidden',
+            WebkitOverflowScrolling: 'touch',
             minHeight: 0,
           }}>
             {/* Left Column - Tests */}
             <Box sx={{ 
-              flex: { xs: '1 1 100%', md: '1 1 65%' },
-              overflowY: 'auto',
-              overflowX: 'hidden',
+              flex: { xs: '0 1 auto', md: '1 1 65%' },
+              overflow: 'visible',
               pr: { md: 2 },
-              minHeight: 0,
             }}>
               <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
                 Tests Included ({getTestCount()})
@@ -234,7 +242,6 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
                                   py: 0.5,
                                   bgcolor: 'grey.100',
                                   borderRadius: 1,
-                                  fontSize: '0.85rem',
                                 }}
                               >
                                 {test}
@@ -251,14 +258,12 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
 
             {/* Right Column - Info */}
             <Box sx={{ 
-              flex: { xs: '1 1 100%', md: '0 0 35%' },
+              flex: { xs: '0 1 auto', md: '0 0 35%' },
               display: 'flex',
               flexDirection: 'column',
               maxWidth: { md: '280px' },
-              alignSelf: 'flex-start',
-              overflowY: 'auto',
-              overflowX: 'hidden',
-              minHeight: 0,
+              alignSelf: { xs: 'stretch', md: 'flex-start' },
+              overflow: 'visible',
             }}>
               {/* Category Badge */}
               {/* {healthPackage.fields.category && (
@@ -275,7 +280,7 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
               {/* Description */}
               {/* {healthPackage.fields.description && (
                 <Box sx={{ mb: 2 }}>
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.875rem', lineHeight: 1.6 }}>
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
                     {healthPackage.fields.description}
                   </Typography>
                 </Box>
@@ -291,7 +296,7 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
                   </Typography>
                   {healthPackage.fields.notes.map((note, index) => (
                     <Box key={index} sx={{ mb: 1, p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
-                      <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>{note}</Typography>
+                      <Typography variant="body2">{note}</Typography>
                     </Box>
                   ))}
                 </Box>
@@ -305,7 +310,7 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
                   </Typography>
                   {healthPackage.fields.special.map((special, index) => (
                     <Box key={index} sx={{ mb: 1, p: 1.5, bgcolor: 'primary.50', borderRadius: 1 }}>
-                      <Typography variant="body2" sx={{ fontStyle: 'italic', color: 'primary.dark', fontSize: '0.875rem' }}>
+                      <Typography variant="body2" sx={{ fontStyle: 'italic', color: 'primary.dark' }}>
                         {special}
                       </Typography>
                     </Box>
@@ -353,7 +358,6 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
                 onClick={handleBookNow}
                 sx={{
                   py: 1.25,
-                  fontSize: '1rem',
                   fontWeight: 600,
                   borderRadius: 2,
                 }}

@@ -93,12 +93,23 @@ export function useSearch() {
       setResults(searchResults)
       setError(null) // Clear any previous errors on success
     } catch (err: any) {
-      if (err.name === 'AbortError') {
-        return // Request was cancelled, ignore silently
+      // Request was cancelled, ignore silently
+      if (err instanceof Error && err.name === 'AbortError') {
+        return
       }
       
-      // Use a stable generic error message for UI/tests
-      const errorMessage = 'Failed to search. Please try again.'
+      // Provide more specific error messages based on error type
+      let errorMessage = 'Failed to search. Please try again.'
+      
+      if (err instanceof Error) {
+        if (err.message.includes('fetch') || err.message.includes('network')) {
+          errorMessage = 'Network error. Please check your connection and try again.'
+        } else if (err.message.includes('timeout')) {
+          errorMessage = 'Request timed out. Please try again.'
+        } else {
+          errorMessage = err.message || errorMessage
+        }
+      }
       
       setError(errorMessage)
       setResults([])

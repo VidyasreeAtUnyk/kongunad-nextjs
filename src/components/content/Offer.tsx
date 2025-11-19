@@ -18,10 +18,9 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
     // Create a reusable offer item component
     const OfferItem = ({ item, index, isLast }: { item: OfferItemType; index: number; isLast: boolean }) => (
         <Typography
+            variant="body1"
             sx={{
-                fontSize: 16,
                 fontWeight: 600,
-                lineHeight: '19px',
                 color: 'white',
                 position: 'relative',
                 ...(isLast ? {} : {
@@ -43,11 +42,10 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
             {item.flash && (
                 <Typography
                     component='span'
+                    variant="body1"
                     sx={{
                         color: 'info.main',
-                        fontSize: 16,
                         fontWeight: 900,
-                        lineHeight: '19px',
                         ml: 0.5,
                         animation: 'flash 1s linear infinite',
                     }}
@@ -65,12 +63,13 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
         for (let setIndex = 0; setIndex < 3; setIndex++) {
             sets.push(
                 <Box key={`set-${setIndex}`} sx={{ display: 'flex', gap: 2, alignItems: 'center', whiteSpace: 'nowrap' }}>
-                    <Typography sx={{
-                        color: 'info.main',
-                        fontSize: 16,
-                        fontWeight: 900,
-                        lineHeight: '19px',
-                    }}>
+                    <Typography 
+                        variant="body1"
+                        sx={{
+                            color: 'info.main',
+                            fontWeight: 900,
+                        }}
+                    >
                         EXCLUSIVE OFFERS:
                     </Typography>
                     {lists.map((item, index) => (
@@ -117,12 +116,13 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
                         display: 'none',
                     },
                 }}>
-                    <Typography sx={{
-                        color: 'info.main',
-                        fontSize: 16,
-                        fontWeight: 900,
-                        lineHeight: '19px',
-                    }}>
+                    <Typography 
+                        variant="body1"
+                        sx={{
+                            color: 'info.main',
+                            fontWeight: 900,
+                        }}
+                    >
                         EXCLUSIVE OFFERS:
                     </Typography>
                     {lists.map((item, index) => (

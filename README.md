@@ -54,6 +54,9 @@ CONTENTFUL_PREVIEW_ACCESS_TOKEN=your_preview_token_here
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_SITE_NAME=Kongunad Hospital
 
+# Google reCAPTCHA (for forms)
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key_here
+
 # Development
 NODE_ENV=development
 ```

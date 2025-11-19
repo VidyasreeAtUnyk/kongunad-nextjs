@@ -19,18 +19,21 @@ import { HealthPackage } from '@/types/contentful'
 interface HealthPackageCardProps {
   healthPackage: HealthPackage
   onClick?: () => void
+  onKnowMore?: () => void
+  onBookNow?: () => void
 }
 
 export const HealthPackageCard: React.FC<HealthPackageCardProps> = ({ 
   healthPackage, 
-  onClick 
+  onClick,
+  onKnowMore,
+  onBookNow
 }) => {
   const { fields } = healthPackage
   
   return (
     <Card 
       sx={{ 
-        maxWidth: 300, 
         cursor: 'pointer',
         height: '100%',
         display: 'flex',
@@ -43,153 +46,113 @@ export const HealthPackageCard: React.FC<HealthPackageCardProps> = ({
       }}
       onClick={onClick}
     >
+      {/* Icon on top */}
       {fields.icon?.fields?.file?.url ? (
-        <CardMedia
-          component="img"
-          height="150"
-          image={`https:${fields.icon.fields.file.url}`}
-          alt={fields.title}
-          sx={{ objectFit: 'cover' }}
-        />
+        <Box
+          sx={{
+            width: 'auto',
+            height: 80,
+            backgroundColor: 'grey.50',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'left',
+            p: 2,
+          }}
+        >
+          <Box
+            component="img"
+            src={`https:${fields.icon.fields.file.url}`}
+            alt={fields.title}
+            sx={{ 
+              width: 'auto',
+              height: '100%',
+              maxWidth: '100%',
+              objectFit: 'contain',
+            }}
+          />
+        </Box>
       ) : (
         <Box
           sx={{
-            height: 150,
+            width: 'auto',
+            height: 80,
             backgroundColor: 'grey.100',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'left',
             color: 'text.secondary'
           }}
         >
-          <Typography variant="h6">No Image</Typography>
+          <Typography variant="caption">No Icon</Typography>
         </Box>
       )}
-      <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-        <Typography variant="h6" component="div" gutterBottom>
-          {fields.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary" gutterBottom>
-          {fields.description}
-        </Typography>
-        
-        <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
-          <Chip 
-            label={fields.category} 
-            size="small" 
-            color="primary" 
-            variant="outlined" 
-          />
-          {fields.strikePrice && fields.strikePrice > 0 && fields.price > 0 && (
-            <Chip 
-              label={`${Math.round(((fields.strikePrice - fields.price) / fields.strikePrice) * 100)}% OFF`} 
-              size="small" 
-              color="error" 
-              variant="filled" 
-            />
-          )}
-        </Box>
-
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-          <Typography variant="h5" color="primary" fontWeight="bold">
-            ₹{fields.price}
+      
+      {/* Content on bottom */}
+      <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', p: 2, '&:last-child': { pb: 2 } }}>
+        <Box>
+          <Typography variant="h5" component="div" gutterBottom>
+            {fields.title}
           </Typography>
-          {fields.strikePrice && fields.strikePrice > 0 && (
-            <Typography variant="body2" color="text.secondary" sx={{ textDecoration: 'line-through' }}>
-              ₹{fields.strikePrice}
+          
+          <Box sx={{ display: 'flex', gap: 1, mb: 1, flexWrap: 'wrap' }}>
+            <Chip 
+              label={fields.category} 
+              size="small" 
+              color="primary" 
+              variant="outlined" 
+            />
+            {fields.strikePrice && fields.strikePrice > 0 && fields.price > 0 && (
+              <Chip 
+                label={`${Math.round(((fields.strikePrice - fields.price) / fields.strikePrice) * 100)}% OFF`} 
+                size="small" 
+                color="error" 
+                variant="filled" 
+              />
+            )}
+          </Box>
+
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+            <Typography variant="h5" color="primary" fontWeight="bold">
+              ₹{fields.price}
             </Typography>
+            {fields.strikePrice && fields.strikePrice > 0 && (
+              <Typography variant="body2" color="text.secondary" sx={{ textDecoration: 'line-through' }}>
+                ₹{fields.strikePrice}
+              </Typography>
+            )}
+          </Box>
+
+          {fields.testList && fields.testList.length > 0 && (
+            <Box>
+              <Typography variant="caption" color="text.secondary">
+                {fields.testList.length} tests included
+              </Typography>
+            </Box>
           )}
         </Box>
 
-        {fields.testList && fields.testList.length > 0 && (
-          <Box sx={{ mt: 'auto' }}>
-            <Typography variant="caption" color="text.secondary" gutterBottom>
-              Includes {fields.testList.length} tests:
-            </Typography>
-            <List dense sx={{ py: 0 }}>
-              {fields.testList.slice(0, 3).map((test, index) => (
-                <ListItem key={index} sx={{ py: 0 }}>
-                  <ListItemText 
-                    primary={typeof test === 'string' ? test : test.title}
-                    primaryTypographyProps={{ variant: 'caption' }}
-                  />
-                </ListItem>
-              ))}
-              {fields.testList.length > 3 && (
-                <ListItem sx={{ py: 0 }}>
-                  <ListItemText 
-                    primary={`+${fields.testList.length - 3} more tests`}
-                    primaryTypographyProps={{ variant: 'caption', color: 'text.secondary' }}
-                  />
-                </ListItem>
-              )}
-            </List>
-          </Box>
-        )}
-
-        {fields.notes && fields.notes.length > 0 && (
-          <Box sx={{ mt: 1 }}>
-            <Typography variant="caption" color="text.secondary" gutterBottom>
-              Important Notes:
-            </Typography>
-            <List dense sx={{ py: 0 }}>
-              {fields.notes.slice(0, 2).map((note, index) => (
-                <ListItem key={index} sx={{ py: 0 }}>
-                  <ListItemText 
-                    primary={`• ${note}`}
-                    primaryTypographyProps={{ variant: 'caption' }}
-                  />
-                </ListItem>
-              ))}
-              {fields.notes.length > 2 && (
-                <ListItem sx={{ py: 0 }}>
-                  <ListItemText 
-                    primary={`+${fields.notes.length - 2} more notes`}
-                    primaryTypographyProps={{ variant: 'caption', color: 'text.secondary' }}
-                  />
-                </ListItem>
-              )}
-            </List>
-          </Box>
-        )}
-
-        {fields.special && fields.special.length > 0 && (
-          <Box sx={{ mt: 1 }}>
-            <Typography variant="caption" color="primary" gutterBottom>
-              Special Features:
-            </Typography>
-            <List dense sx={{ py: 0 }}>
-              {fields.special.slice(0, 1).map((special, index) => (
-                <ListItem key={index} sx={{ py: 0 }}>
-                  <ListItemText 
-                    primary={`• ${special}`}
-                    primaryTypographyProps={{ variant: 'caption' }}
-                  />
-                </ListItem>
-              ))}
-              {fields.special.length > 1 && (
-                <ListItem sx={{ py: 0 }}>
-                  <ListItemText 
-                    primary={`+${fields.special.length - 1} more features`}
-                    primaryTypographyProps={{ variant: 'caption', color: 'text.secondary' }}
-                  />
-                </ListItem>
-              )}
-            </List>
-          </Box>
-        )}
-
-        <Button 
-          variant="contained" 
-          fullWidth 
-          sx={{ mt: 2 }}
-          onClick={(e) => {
-            e.stopPropagation()
-            // Handle booking logic
-          }}
-        >
-          Book Package
-        </Button>
+        <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
+          <Button 
+            variant="outlined" 
+            fullWidth
+            onClick={(e) => {
+              e.stopPropagation()
+              if (onKnowMore) onKnowMore()
+            }}
+          >
+            Know More
+          </Button>
+          <Button 
+            variant="contained" 
+            fullWidth
+            onClick={(e) => {
+              e.stopPropagation()
+              if (onBookNow) onBookNow()
+            }}
+          >
+            Book Now
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   )

@@ -18,6 +18,48 @@ import {
 } from '@mui/icons-material'
 import { Navigation, NavigationItem } from '@/types/contentful'
 
+// Simple Logo component - fixed dimensions prevent layout shift without skeleton
+// Navigation logos are small and load quickly, skeleton causes more issues than it solves
+const LogoWithSkeleton: React.FC<{
+  src: string | null
+  alt: string
+  width: number
+  height: number
+  preserveAspectRatio?: boolean
+}> = ({ src, alt, width, height, preserveAspectRatio = false }) => {
+  if (!src) {
+    // Reserve space even if no image
+    return <Box sx={{ width, height, flexShrink: 0 }} />
+  }
+
+  return (
+    <Box 
+      sx={{ 
+        width: preserveAspectRatio ? 'auto' : width, 
+        height, 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexShrink: 0,
+        minWidth: preserveAspectRatio ? width : undefined,
+      }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading="eager"
+        fetchPriority="high"
+        style={{
+          width: preserveAspectRatio ? 'auto' : '100%',
+          height: '100%',
+          objectFit: 'contain',
+          display: 'block',
+        }}
+      />
+    </Box>
+  )
+}
+
 const normalizePath = (href?: string | null): string | undefined => {
   if (!href) return href as any
   try {
@@ -86,18 +128,20 @@ export const NavigationClient: React.FC<NavigationClientProps> = ({
           }}
         >
           {/* Mobile Logos */}
-          <Box sx={{ display: 'flex', gap: 2 }}>
-            {groupedNav['secondary-left']?.[0]?.fields.items.map((item, index) => (
-              <Box key={index} sx={{ width: 40, height: 40 }}>
-                {(item.icon as any)?.resolvedUrl && (
-                  <img
-                    src={(item.icon as any).resolvedUrl}
-                    alt={item.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                  />
-                )}
-              </Box>
-            ))}
+          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+            {groupedNav['secondary-left']?.[0]?.fields.items.map((item, index) => {
+              const icon = item.icon as any
+              const iconUrl = icon?.resolvedUrl || null
+              return (
+                <LogoWithSkeleton
+                  key={index}
+                  src={iconUrl}
+                  alt={item.title || 'Logo'}
+                  width={40}
+                  height={40}
+                />
+              )
+            })}
           </Box>
 
           {/* Mobile Menu Button */}
@@ -184,18 +228,21 @@ export const NavigationClient: React.FC<NavigationClientProps> = ({
             <Container maxWidth="lg">
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 {/* Secondary Left - Logos */}
-                <Box sx={{ display: 'flex', gap: 2 }}>
-                  {groupedNav['secondary-left']?.[0]?.fields.items.map((item, index) => (
-                    <Box key={index} sx={{ height: 50 }}>
-                      {(item.icon as any)?.resolvedUrl && (
-                        <img
-                          src={(item.icon as any).resolvedUrl}
-                          alt={item.title}
-                          style={{ height: '100%', objectFit: 'contain' }}
-                        />
-                      )}
-                    </Box>
-                  ))}
+                <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+                  {groupedNav['secondary-left']?.[0]?.fields.items.map((item, index) => {
+                    const icon = item.icon as any
+                    const iconUrl = icon?.resolvedUrl || null
+                    return (
+                      <LogoWithSkeleton
+                        key={index}
+                        src={iconUrl}
+                        alt={item.title || 'Logo'}
+                        width={50}
+                        height={50}
+                        preserveAspectRatio
+                      />
+                    )
+                  })}
                 </Box>
 
                 {/* Secondary Right - Main Navigation */}

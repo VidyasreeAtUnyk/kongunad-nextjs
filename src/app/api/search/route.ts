@@ -26,6 +26,10 @@ export async function GET(request: NextRequest) {
 
     const client = getClient()
 
+    // Get limit parameter (default to 5 for dropdown, higher for full page)
+    const limitParam = searchParams.get('limit')
+    const limit = limitParam ? Math.min(parseInt(limitParam, 10) || 5, 100) : 5
+
     // Search across all content types in parallel
     // Using Contentful's full-text search with query parameter
     // Limiting results and fields fetched for better performance
@@ -33,7 +37,7 @@ export async function GET(request: NextRequest) {
       client.getEntries({
         content_type: 'doctor',
         query: sanitizedQuery,
-        limit: 5,
+        limit: limit,
       }).catch((err) => {
         console.error('Doctor search error:', err)
         return { items: [] }
@@ -42,7 +46,7 @@ export async function GET(request: NextRequest) {
       client.getEntries({
         content_type: 'facility',
         query: sanitizedQuery,
-        limit: 5,
+        limit: limit,
       }).catch((err) => {
         console.error('Facility search error:', err)
         return { items: [] }
@@ -51,7 +55,7 @@ export async function GET(request: NextRequest) {
       client.getEntries({
         content_type: 'healthPackage',
         query: sanitizedQuery,
-        limit: 5,
+        limit: limit,
       }).catch((err) => {
         console.error('Package search error:', err)
         return { items: [] }

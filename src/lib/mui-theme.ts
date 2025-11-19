@@ -28,42 +28,112 @@ export const theme = createTheme({
   typography: {
     fontFamily: '"Avenir Next", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
-      fontSize: '2.5rem',
+      fontSize: '1.75rem',
       fontWeight: 600,
       lineHeight: 1.2,
+      '@media (min-width:600px)': {
+        fontSize: '2rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '2.5rem',
+      },
     },
     h2: {
-      fontSize: '2rem',
+      fontSize: '1.75rem',
       fontWeight: 600,
       lineHeight: 1.3,
+      '@media (min-width:600px)': {
+        fontSize: '1.875rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '2rem',
+      },
     },
     h3: {
-      fontSize: '1.75rem',
-      fontWeight: 500,
-      lineHeight: 1.4,
-    },
-    h4: {
       fontSize: '1.5rem',
       fontWeight: 500,
       lineHeight: 1.4,
+      '@media (min-width:600px)': {
+        fontSize: '1.625rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.75rem',
+      },
     },
-    h5: {
+    h4: {
       fontSize: '1.25rem',
       fontWeight: 500,
+      lineHeight: 1.4,
+      '@media (min-width:600px)': {
+        fontSize: '1.375rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.5rem',
+      },
+    },
+    h5: {
+      fontSize: '1.125rem',
+      fontWeight: 500,
       lineHeight: 1.5,
+      '@media (min-width:600px)': {
+        fontSize: '1.1875rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.25rem',
+      },
     },
     h6: {
-      fontSize: '1rem',
+      fontSize: '0.9375rem',
       fontWeight: 500,
       lineHeight: 1.6,
+      '@media (min-width:600px)': {
+        fontSize: '0.96875rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1rem',
+      },
     },
     body1: {
-      fontSize: '1rem',
+      fontSize: '0.9375rem',
       lineHeight: 1.6,
+      '@media (min-width:600px)': {
+        fontSize: '0.96875rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1rem',
+      },
     },
     body2: {
-      fontSize: '0.875rem',
+      fontSize: '0.8125rem',
       lineHeight: 1.6,
+      '@media (min-width:600px)': {
+        fontSize: '0.84375rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '0.875rem',
+      },
+    },
+    subtitle1: {
+      fontSize: '1rem',
+      lineHeight: 1.65,
+      fontWeight: 400,
+      '@media (min-width:600px)': {
+        fontSize: '1.0625rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1.125rem',
+      },
+    },
+    subtitle2: {
+      fontSize: '0.9375rem',
+      lineHeight: 1.6,
+      fontWeight: 500,
+      '@media (min-width:600px)': {
+        fontSize: '0.96875rem',
+      },
+      '@media (min-width:900px)': {
+        fontSize: '1rem',
+      },
     },
   },
   components: {
