@@ -239,6 +239,30 @@ export interface Leadership {
   }
 }
 
+// Research Program (DNB programs)
+export interface ResearchProgram {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    title: string // e.g., "DNB - General Surgery"
+    slug: string // e.g., "dnb-general-surgery"
+    description: string
+    shortDescription?: string // Brief description for cards
+    duration?: string // e.g., "3 years"
+    requirements?: string[] // List of requirements
+    curriculum?: string[] // List of curriculum items
+    icon?: ContentfulAsset // Program icon
+    contactPerson?: string // e.g., "Dr. Karthikeyan Ms."
+    contactPhone?: string
+    contactEmail?: string
+    order?: number // For sorting
+    active?: boolean // Whether program is currently accepting applications
+  }
+}
+
 
 
 

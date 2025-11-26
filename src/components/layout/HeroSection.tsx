@@ -250,7 +250,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ buildingImages }) => {
             ].map((stat, index) => (
               <Box key={index} sx={{ textAlign: 'center' }}>
                 <Typography 
-                  variant="h3" 
+                  variant="h2" 
                   sx={{ 
                     fontWeight: 800,
                     color: 'primary.main',

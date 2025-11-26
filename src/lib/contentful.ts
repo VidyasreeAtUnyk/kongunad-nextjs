@@ -233,3 +233,46 @@ export async function getAssetUrlById(assetId: string) {
     return null
   }
 }
+
+// Research Programs
+export async function getResearchPrograms(limit?: number) {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'researchProgram',
+    limit: limit || 100,
+    order: ['fields.order'],
+    include: 2, // Include linked assets
+  })
+  return entries.items
+}
+
+export function getResearchProgramsCached(limit?: number) {
+  return nextCache(
+    async () => {
+      return await getResearchPrograms(limit)
+    },
+    ['contentful:researchPrograms', String(limit || 100)],
+    { revalidate: 300, tags: ['researchPrograms'] }
+  )()
+}
+
+export async function getResearchProgramBySlug(slug: string) {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'researchProgram',
+    'fields.slug': slug,
+    limit: 1,
+    include: 2,
+  })
+  return entries.items[0] || null
+}
+
+export function getResearchProgramBySlugCached(slug: string) {
+  return nextCache(
+    async () => {
+      return await getResearchProgramBySlug(slug)
+    },
+    ['contentful:researchProgram', slug],
+    { revalidate: 300, tags: ['researchProgram', `researchProgram:${slug}`] }
+  )()
+}

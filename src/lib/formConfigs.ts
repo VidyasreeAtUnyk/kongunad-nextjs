@@ -200,13 +200,23 @@ export const bookHealthCheckupFormConfig: FormConfig = {
 /**
  * Research form configuration
  * Note: Can be used in multiple pages
+ * Course options should be passed dynamically via ResearchForm component
  */
 export const researchFormConfig: FormConfig = {
   id: 'research',
-  title: 'Research Form',
-  description: 'Please provide your details for research purposes.',
-  submitLabel: 'Submit',
+  title: 'Research Application Form',
+  description: 'Please provide your details to apply for our research programs.',
+  submitLabel: 'Submit Application',
   fields: [
+    {
+      name: 'courseName',
+      label: 'Select Course',
+      type: 'select',
+      required: true,
+      options: [], // Will be populated dynamically
+      placeholder: 'Select a research program',
+      gridProps: { xs: 12 },
+    },
     {
       name: 'firstName',
       label: 'First Name',

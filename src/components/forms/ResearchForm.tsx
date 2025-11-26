@@ -18,6 +18,7 @@ interface ResearchFormProps {
   initialValues?: Record<string, any>
   title?: string
   description?: string
+  courseOptions?: string[] // Array of course names for the dropdown
 }
 
 export const ResearchForm: React.FC<ResearchFormProps> = ({
@@ -27,12 +28,23 @@ export const ResearchForm: React.FC<ResearchFormProps> = ({
   initialValues,
   title,
   description,
+  courseOptions = [],
 }) => {
+  // Update the courseName field with dynamic options
   const config = {
     ...researchFormConfig,
     onSubmit,
     ...(title && { title }),
     ...(description && { description }),
+    fields: researchFormConfig.fields.map((field) => {
+      if (field.name === 'courseName') {
+        return {
+          ...field,
+          options: courseOptions.length > 0 ? courseOptions : field.options || [],
+        }
+      }
+      return field
+    }),
   }
 
   return (
