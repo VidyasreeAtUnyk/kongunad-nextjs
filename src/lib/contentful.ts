@@ -276,3 +276,46 @@ export function getResearchProgramBySlugCached(slug: string) {
     { revalidate: 300, tags: ['researchProgram', `researchProgram:${slug}`] }
   )()
 }
+
+// Job Vacancies
+export async function getJobVacancies(limit?: number) {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'jobVacancy',
+    limit: limit || 100,
+    order: ['fields.order', '-sys.createdAt'],
+    include: 2, // Include linked assets
+  })
+  return entries.items
+}
+
+export function getJobVacanciesCached(limit?: number) {
+  return nextCache(
+    async () => {
+      return await getJobVacancies(limit)
+    },
+    ['contentful:jobVacancies', String(limit || 100)],
+    { revalidate: 300, tags: ['jobVacancies'] }
+  )()
+}
+
+export async function getJobVacancyBySlug(slug: string) {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'jobVacancy',
+    'fields.slug': slug,
+    limit: 1,
+    include: 2,
+  })
+  return entries.items[0] || null
+}
+
+export function getJobVacancyBySlugCached(slug: string) {
+  return nextCache(
+    async () => {
+      return await getJobVacancyBySlug(slug)
+    },
+    ['contentful:jobVacancy', slug],
+    { revalidate: 300, tags: ['jobVacancy', `jobVacancy:${slug}`] }
+  )()
+}

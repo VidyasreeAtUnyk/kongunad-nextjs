@@ -263,6 +263,34 @@ export interface ResearchProgram {
   }
 }
 
+// Job Vacancy
+export interface JobVacancy {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    title: string // e.g., "Staff Nurse"
+    slug: string // e.g., "staff-nurse"
+    designation: string // e.g., "Staff Nurse" (for form dropdown)
+    department?: string // e.g., "Nursing"
+    description: string // Full job description
+    shortDescription?: string // Brief description for cards
+    requirements?: string[] // List of requirements
+    responsibilities?: string[] // List of responsibilities
+    qualifications?: string[] // Required qualifications
+    experience?: string // e.g., "2-5 years"
+    location?: string // e.g., "Coimbatore"
+    employmentType?: string // e.g., "Full-time", "Part-time"
+    salaryRange?: string // e.g., "₹20,000 - ₹40,000"
+    active: boolean // Whether position is currently open
+    order?: number // For sorting
+    postedDate?: string // Date posted
+    closingDate?: string // Application deadline
+  }
+}
+
 
 
 

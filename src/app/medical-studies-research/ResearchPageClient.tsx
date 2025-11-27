@@ -94,7 +94,6 @@ export const ResearchPageClient: React.FC<ResearchPageClientProps> = ({
                 color="primary" 
                 sx={{ 
                   fontWeight: 800,
-                  fontSize: { xs: '2rem', md: '3.5rem' },
                 }}
               >
                 Medical Studies & Research
@@ -103,7 +102,7 @@ export const ResearchPageClient: React.FC<ResearchPageClientProps> = ({
             <Typography 
               variant="h5" 
               color="text.secondary" 
-              sx={{ mb: 2, fontWeight: 300, fontSize: { xs: '1.25rem', md: '1.5rem' } }}
+              sx={{ mb: 2, fontWeight: 300 }}
             >
               Kongunad Post Graduate Institute of Medical Studies and Research Centre
             </Typography>
@@ -156,7 +155,7 @@ export const ResearchPageClient: React.FC<ResearchPageClientProps> = ({
                           key={program.sys.id}
                           fallback={
                             <Card sx={{ p: 2 }}>
-                              <Alert severity="warning" sx={{ fontSize: '0.875rem' }}>
+                              <Alert severity="warning">
                                 This program card could not be displayed.
                               </Alert>
                             </Card>

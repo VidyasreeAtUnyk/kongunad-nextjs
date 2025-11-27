@@ -1,24 +1,21 @@
 /**
- * Research Form Component
- * A wrapper component around FormBuilder with research-specific configuration
- * Can be used across multiple pages
+ * Research Form Component V2 - Using React Hook Form + Zod
  */
 
 'use client'
 
 import React from 'react'
-import { Paper, Typography } from '@mui/material'
-import { FormBuilder } from '@/components/ui/FormBuilder'
-import { researchFormConfig } from '@/lib/formConfigs'
+import { FormBuilderV2, FormFieldConfig } from '@/components/ui/FormBuilderV2'
+import { researchConfig } from '@/lib/formConfigsV2'
 
 interface ResearchFormProps {
-  onSubmit: (data: Record<string, any>) => Promise<void> | void
+  onSubmit: (data: any) => Promise<void> | void
   onSubmitSuccess?: () => void
   onSubmitError?: (error: Error) => void
-  initialValues?: Record<string, any>
+  initialValues?: any
   title?: string
   description?: string
-  courseOptions?: string[] // Array of course names for the dropdown
+  courseOptions?: readonly string[] // Array of course names for the dropdown (if needed in future)
 }
 
 export const ResearchForm: React.FC<ResearchFormProps> = ({
@@ -28,44 +25,31 @@ export const ResearchForm: React.FC<ResearchFormProps> = ({
   initialValues,
   title,
   description,
-  courseOptions = [],
+  courseOptions,
 }) => {
-  // Update the courseName field with dynamic options
-  const config = {
-    ...researchFormConfig,
-    onSubmit,
-    ...(title && { title }),
-    ...(description && { description }),
-    fields: researchFormConfig.fields.map((field) => {
-      if (field.name === 'courseName') {
-        return {
-          ...field,
-          options: courseOptions.length > 0 ? courseOptions : field.options || [],
-        }
-      }
+  // Update fields if courseOptions are provided (for future use)
+  const fields = React.useMemo(() => {
+    if (!courseOptions) return researchConfig.fields
+    
+    return researchConfig.fields.map(field => {
+      // If courseName field is added in the future, handle it here
+      // For now, just return the field as-is
       return field
-    }),
-  }
+    })
+  }, [courseOptions])
 
   return (
-    <Paper elevation={0} sx={{ p: 4 }}>
-      <Typography variant="h1" gutterBottom color="primary" sx={{ fontWeight: 800, mb: 1 }}>
-        {config.title}
-      </Typography>
-      
-      {config.description && (
-        <Typography variant="body1" sx={{ mb: 4, color: 'text.secondary', lineHeight: 1.8 }}>
-          {config.description}
-        </Typography>
-      )}
-      
-      <FormBuilder 
-        config={config}
-        initialValues={initialValues}
-        onSubmitSuccess={onSubmitSuccess}
-        onSubmitError={onSubmitError}
-      />
-    </Paper>
+    <FormBuilderV2
+      schema={researchConfig.schema}
+      fields={fields}
+      title={title || 'Research Program Application'}
+      description={description || 'Fill in the details below to apply for the research program.'}
+      submitLabel="Submit Application"
+      onSubmit={onSubmit}
+      onSubmitSuccess={onSubmitSuccess}
+      onSubmitError={onSubmitError}
+      initialValues={initialValues}
+    />
   )
 }
 
