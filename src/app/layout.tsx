@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { ReduxProvider } from '@/components/providers/ReduxProvider'
+import { ToastProvider } from '@/components/ui/Toast'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
 import { Offer } from '@/components/content/Offer'
@@ -62,12 +63,14 @@ export default async function RootLayout({
       <body className={inter.className}>
         <ReduxProvider>
           <ThemeProvider>
-            <Navigation />
-            <Offer lists={offers} />
-            {children}
-            <Footer />
-            <ModalContainer />
-            <BottomSheetContainer />
+            <ToastProvider>
+              <Navigation />
+              <Offer lists={offers} />
+              {children}
+              <Footer />
+              <ModalContainer />
+              <BottomSheetContainer />
+            </ToastProvider>
           </ThemeProvider>
         </ReduxProvider>
       </body>

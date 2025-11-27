@@ -119,13 +119,13 @@ export function FormBuilderV2({
     try {
       await onSubmit(data)
       
+      // Reset form after successful submission
+      reset()
+      
       if (onSubmitSuccess) {
         onSubmitSuccess()
-      } else {
-        // Default success behavior
-        alert('Form submitted successfully!')
-        reset()
       }
+      // Note: Success message should be handled by parent component via onSubmitSuccess
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'An error occurred'
       

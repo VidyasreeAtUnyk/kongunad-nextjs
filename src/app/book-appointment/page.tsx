@@ -3,25 +3,26 @@
 import React from 'react'
 import { Box, Container, Typography, Breadcrumbs, Link } from '@mui/material'
 import { MakeAppointmentFormV2 as MakeAppointmentForm } from '@/components/forms/MakeAppointmentFormV2'
+import { useToast } from '@/components/ui/Toast'
 
 export default function BookAppointmentPage() {
+  const { showSuccess, showError } = useToast()
+
   const handleSubmit = async (data: Record<string, any>) => {
-    // TODO: Implement API call to submit appointment data
-    console.log('Appointment data:', data)
-    // Example API call:
-    // await fetch('/api/appointments', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data),
-    // })
+    const { submitForm } = await import('@/lib/form-submission')
+    const result = await submitForm('appointment', data)
     
-    // For now, just show success
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        alert('Appointment request submitted successfully! We will contact you shortly.')
-        resolve()
-      }, 500)
-    })
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to submit appointment request. Please try again.')
+    }
+  }
+
+  const handleSuccess = () => {
+    showSuccess('Appointment request submitted successfully! We will contact you shortly.')
+  }
+
+  const handleError = (error: Error) => {
+    showError(error.message || 'Failed to submit appointment request. Please try again.')
   }
 
   return (
@@ -34,9 +35,8 @@ export default function BookAppointmentPage() {
         
         <MakeAppointmentForm 
           onSubmit={handleSubmit}
-          onSubmitSuccess={() => {
-            // FormBuilder already handles the default success message
-          }}
+          onSubmitSuccess={handleSuccess}
+          onSubmitError={handleError}
         />
       </Container>
     </Box>

@@ -22,7 +22,7 @@ async function ResearchProgramsContent() {
             program.fields &&
             program.sys?.id &&
             program.fields.active !== false
-        )
+    )
         .slice(0, 100) // Limit to prevent excessive rendering
     }
   } catch {

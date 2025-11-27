@@ -7,14 +7,17 @@ import { BottomSheet } from './BottomSheet'
 import { BookHealthCheckupFormV2 } from '@/components/forms/BookHealthCheckupFormV2'
 import { ResearchForm } from '@/components/forms/ResearchForm'
 import { ErrorBoundary } from './ErrorBoundary'
+import { useToast } from './Toast'
 import { Alert, Box, Skeleton, Typography } from '@mui/material'
-import { getResearchPrograms } from '@/lib/contentful'
-import { ResearchProgram } from '@/types/contentful'
+import { getResearchPrograms, getHealthPackages } from '@/lib/contentful'
+import { ResearchProgram, HealthPackage } from '@/types/contentful'
 
 export const BottomSheetContainer: React.FC = () => {
   const { isOpen, type, packageName, courseName } = useAppSelector((state) => state.bottomSheet)
   const dispatch = useAppDispatch()
+  const { showSuccess, showError } = useToast()
   const [researchPrograms, setResearchPrograms] = useState<ResearchProgram[]>([])
+  const [healthPackages, setHealthPackages] = useState<HealthPackage[]>([])
   const [loadingPrograms, setLoadingPrograms] = useState(false)
 
   // Fetch research programs when research form is opened
@@ -34,6 +37,23 @@ export const BottomSheetContainer: React.FC = () => {
     }
   }, [isOpen, type])
 
+  // Fetch health packages when health checkup form is opened
+  useEffect(() => {
+    if (isOpen && type === 'healthCheckup') {
+      setLoadingPrograms(true)
+      getHealthPackages()
+        .then((packages) => {
+          setHealthPackages(packages as unknown as HealthPackage[])
+        })
+        .catch(() => {
+          // Silently handle error - form will still work with empty options
+        })
+        .finally(() => {
+          setLoadingPrograms(false)
+        })
+    }
+  }, [isOpen, type])
+
   const handleClose = () => {
     dispatch(closeBottomSheet())
   }
@@ -43,29 +63,46 @@ export const BottomSheetContainer: React.FC = () => {
   }
 
   const handleHealthCheckupSubmit = async (data: Record<string, any>) => {
-    // TODO: Implement API call to submit health checkup data
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        alert('Health checkup booking submitted successfully! We will contact you shortly.')
-        handleFormSuccess()
-        resolve()
-      }, 500)
-    })
+    const { submitForm } = await import('@/lib/form-submission')
+    const result = await submitForm('checkup', data)
+    
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to submit health checkup booking. Please try again.')
+    }
+  }
+
+  const handleHealthCheckupSuccess = () => {
+    showSuccess('Health checkup booking submitted successfully! We will contact you shortly.')
+    handleFormSuccess()
+  }
+
+  const handleHealthCheckupError = (error: Error) => {
+    showError(error.message || 'Failed to submit health checkup booking. Please try again.')
   }
 
   const handleResearchSubmit = async (data: Record<string, any>) => {
-    // TODO: Implement API call to submit research application data
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        alert('Research application submitted successfully! We will contact you shortly.')
-        handleFormSuccess()
-        resolve()
-      }, 500)
-    })
+    const { submitForm } = await import('@/lib/form-submission')
+    const result = await submitForm('research', data)
+    
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to submit research application. Please try again.')
+    }
+  }
+
+  const handleResearchSuccess = () => {
+    showSuccess('Research application submitted successfully! We will contact you shortly.')
+    handleFormSuccess()
+  }
+
+  const handleResearchError = (error: Error) => {
+    showError(error.message || 'Failed to submit research application. Please try again.')
   }
 
   // Package options for health checkup dropdown
-  const packageOptions: string[] = []
+  const packageOptions = healthPackages
+    .map((pkg) => pkg.fields.title)
+    .filter((title): title is string => Boolean(title))
+    .sort()
 
   // Course options for research form
   const courseOptions = researchPrograms.map((program) => program.fields.title)
@@ -129,16 +166,30 @@ export const BottomSheetContainer: React.FC = () => {
                 onSubmit={handleResearchSubmit}
                 initialValues={courseName ? { courseName } : {}}
                 courseOptions={courseOptions}
-                onSubmitSuccess={handleFormSuccess}
+                onSubmitSuccess={handleResearchSuccess}
+                onSubmitError={handleResearchError}
               />
             )
           ) : (
-            <BookHealthCheckupFormV2
-              onSubmit={handleHealthCheckupSubmit}
-              initialValues={packageName ? { packageType: packageName } : {}}
-              packageOptions={packageOptions}
-              onSubmitSuccess={handleFormSuccess}
-            />
+            loadingPrograms ? (
+              <Box sx={{ p: 4 }}>
+                <Skeleton variant="text" width="60%" height={40} sx={{ mb: 2 }} />
+                <Skeleton variant="text" width="80%" height={24} sx={{ mb: 4 }} />
+                <Skeleton variant="rectangular" width="100%" height={56} sx={{ mb: 2, borderRadius: 1 }} />
+                <Skeleton variant="rectangular" width="100%" height={56} sx={{ mb: 2, borderRadius: 1 }} />
+                <Skeleton variant="rectangular" width="100%" height={56} sx={{ mb: 2, borderRadius: 1 }} />
+                <Skeleton variant="rectangular" width="100%" height={56} sx={{ mb: 2, borderRadius: 1 }} />
+                <Skeleton variant="rectangular" width="100%" height={48} sx={{ borderRadius: 1 }} />
+              </Box>
+            ) : (
+              <BookHealthCheckupFormV2
+                onSubmit={handleHealthCheckupSubmit}
+                initialValues={packageName ? { packageType: packageName } : {}}
+                packageOptions={packageOptions}
+                onSubmitSuccess={handleHealthCheckupSuccess}
+                onSubmitError={handleHealthCheckupError}
+              />
+            )
           )}
         </ErrorBoundary>
       </BottomSheet>

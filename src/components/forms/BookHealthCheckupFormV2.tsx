@@ -25,7 +25,10 @@ export const BookHealthCheckupFormV2: React.FC<BookHealthCheckupFormV2Props> = (
 }) => {
   // Update packageType field to be a select with dynamic options
   const fieldsWithPackageSelect = React.useMemo(() => {
-    if (!packageOptions) return bookHealthCheckupConfig.fields
+    // Only convert to select if we have package options
+    if (!packageOptions || packageOptions.length === 0) {
+      return bookHealthCheckupConfig.fields
+    }
     
     return bookHealthCheckupConfig.fields.map(field => {
       if (field.name === 'packageType') {

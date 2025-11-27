@@ -15,6 +15,7 @@ import {
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { JobVacancyForm } from '@/components/forms/JobVacancyForm'
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary'
+import { useToast } from '@/components/ui/Toast'
 
 interface JobApplicationClientProps {
   initialDesignation?: string
@@ -26,26 +27,28 @@ export const JobApplicationClient: React.FC<JobApplicationClientProps> = ({
   designationOptions = [],
 }) => {
   const router = useRouter()
+  const { showSuccess, showError } = useToast()
 
   const handleSubmit = async (data: Record<string, any>) => {
-    try {
-      // TODO: Implement API call to submit job application data
-      // For now, simulate API call
-      await new Promise<void>((resolve) => {
-        setTimeout(() => {
-          resolve()
-        }, 500)
-      })
-      // Success will be handled by onSubmitSuccess callback
-    } catch (error) {
-      throw new Error('Failed to submit application. Please try again.')
+    const { submitForm } = await import('@/lib/form-submission')
+    const result = await submitForm('job', data)
+    
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to submit application. Please try again.')
     }
   }
 
   const handleSuccess = useCallback(() => {
-    // Show success message before navigation
-    router.push('/job-vacancies')
-  }, [router])
+    showSuccess('Job application submitted successfully! We will contact you shortly.')
+    // Navigate after a short delay to show the toast
+    setTimeout(() => {
+      router.push('/job-vacancies')
+    }, 2000)
+  }, [router, showSuccess])
+
+  const handleError = useCallback((error: Error) => {
+    showError(error.message || 'Failed to submit application. Please try again.')
+  }, [showError])
 
   const handleBack = useCallback(() => {
     router.push('/job-vacancies/current-openings')
@@ -110,6 +113,7 @@ export const JobApplicationClient: React.FC<JobApplicationClientProps> = ({
                 initialValues={initialDesignation ? { designation: initialDesignation } : {}}
                 designationOptions={designationOptions}
                 onSubmitSuccess={handleSuccess}
+                onSubmitError={handleError}
               />
             </Paper>
           </ErrorBoundary>
