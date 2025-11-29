@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.25 }}>
                   <MuiLink href="/about-us" color="inherit" underline="hover">About us</MuiLink>
                   <MuiLink href="/facilities" color="inherit" underline="hover">Facilities</MuiLink>
-                  <MuiLink href="/doctors" color="inherit" underline="hover">Find a Doctor</MuiLink>
+                  <MuiLink href="/find-a-doctor" color="inherit" underline="hover">Find a Doctor</MuiLink>
                 </Box>
               </Box>
               <Box sx={{ flex: '1 1 200px', minWidth: 200 }}>

@@ -102,7 +102,7 @@ export const DoctorsSection: React.FC<DoctorsSectionProps> = ({ doctors, leaders
         <Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
             <Typography variant="h3" color="primary">Meet our Specialists</Typography>
-            <Typography component="a" href="/doctors" sx={{ textDecoration: 'none', fontWeight: 600, color: 'primary.main' }}>View All</Typography>
+            <Typography component="a" href="/find-a-doctor" sx={{ textDecoration: 'none', fontWeight: 600, color: 'primary.main' }}>View All</Typography>
           </Box>
           {doctors && doctors.length > 0 ? (
             <MultiItemCarousel autoplay itemGap={16} sidePadding={16} prevAriaLabel="Previous doctors" nextAriaLabel="Next doctors">

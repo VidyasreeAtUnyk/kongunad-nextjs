@@ -76,7 +76,7 @@ export default async function HomePage() {
       <QuickLinksSection
         links={[
           { title: 'Book Appointment', to: '/book-appointment' },
-          { title: 'Find a Doctor', to: '/doctors' },
+          { title: 'Find a Doctor', to: '/find-a-doctor' },
           { title: 'Health Checkup', to: '/book-a-health-checkup' },
           { title: 'Emergency', to: 'tel:+91-422-1234567' },
         ]}
@@ -153,7 +153,7 @@ export default async function HomePage() {
                 <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
                   Search for specialists by department
                 </Typography>
-                <Button variant="contained" fullWidth href="/doctors">
+                <Button variant="contained" fullWidth href="/find-a-doctor">
                   Search Doctors
                 </Button>
               </CardContent>

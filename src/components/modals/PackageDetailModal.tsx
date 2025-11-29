@@ -7,7 +7,6 @@ import {
   Dialog,
   Box,
   Typography,
-  CircularProgress,
   IconButton,
   Accordion,
   AccordionSummary,
@@ -16,6 +15,7 @@ import {
   Paper,
   Chip,
   Divider,
+  Skeleton,
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -124,8 +124,104 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
       }}
     >
       {loading ? (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 8, minHeight: 400 }}>
-          <CircularProgress />
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
+          {/* Header Skeleton */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            p: 2, 
+            pb: 1, 
+            position: 'relative',
+            flexShrink: 0,
+          }}>
+            <Skeleton variant="text" width={250} height={40} sx={{ mx: 'auto' }} />
+            <IconButton 
+              disabled
+              size="small"
+              sx={{ position: 'absolute', right: 16 }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Box>
+
+          {/* Main Content Skeleton - Two Column Layout */}
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', md: 'row' },
+            p: { xs: 2, md: 3 },
+            gap: 3,
+            flex: 1,
+            overflow: 'auto',
+            overflowX: 'hidden',
+            minHeight: 0,
+          }}>
+            {/* Left Column - Tests Skeleton */}
+            <Box sx={{ 
+              flex: { xs: '0 1 auto', md: '1 1 65%' },
+              overflow: 'visible',
+              pr: { md: 2 },
+            }}>
+              <Skeleton variant="text" width={180} height={28} sx={{ mb: 2 }} />
+              <Box>
+                {[1, 2, 3, 4].map((idx) => (
+                  <Box 
+                    key={idx} 
+                    sx={{ 
+                      mb: 1, 
+                      pl: 2, 
+                      borderLeft: '2px solid', 
+                      borderColor: 'grey.200',
+                      py: 1,
+                    }}
+                  >
+                    <Skeleton variant="text" width="80%" height={24} />
+                    <Skeleton variant="text" width="60%" height={20} sx={{ mt: 0.5 }} />
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+
+            {/* Right Column - Info Skeleton */}
+            <Box sx={{ 
+              flex: { xs: '0 1 auto', md: '0 0 35%' },
+              display: 'flex',
+              flexDirection: 'column',
+              maxWidth: { md: '280px' },
+              alignSelf: { xs: 'stretch', md: 'flex-start' },
+              overflow: 'visible',
+            }}>
+              {/* Notes Skeleton */}
+              <Box sx={{ mb: 2 }}>
+                <Skeleton variant="text" width={120} height={16} sx={{ mb: 1 }} />
+                <Box sx={{ mb: 1, p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
+                  <Skeleton variant="text" width="100%" height={20} />
+                  <Skeleton variant="text" width="90%" height={20} sx={{ mt: 0.5 }} />
+                </Box>
+              </Box>
+
+              {/* Price Card Skeleton */}
+              <Paper sx={{ 
+                p: 2.5, 
+                mb: 2,
+                bgcolor: 'grey.50',
+                border: '1px solid',
+                borderColor: 'grey.300',
+                borderRadius: 2,
+              }}>
+                <Skeleton variant="text" width={100} height={20} sx={{ mb: 2 }} />
+                <Skeleton variant="text" width={150} height={40} />
+              </Paper>
+
+              {/* Book Now Button Skeleton */}
+              <Skeleton 
+                variant="rectangular" 
+                width="100%" 
+                height={48}
+                sx={{ borderRadius: 2 }}
+              />
+            </Box>
+          </Box>
         </Box>
       ) : error ? (
         <Box sx={{ textAlign: 'center', p: 6 }}>

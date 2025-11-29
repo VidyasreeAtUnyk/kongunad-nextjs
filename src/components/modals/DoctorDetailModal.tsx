@@ -5,9 +5,9 @@ import {
   Dialog,
   Box,
   Typography,
-  CircularProgress,
   IconButton,
   Paper,
+  Skeleton,
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
@@ -134,8 +134,92 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
       }}
     >
       {loading ? (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 8, minHeight: 400 }}>
-          <CircularProgress />
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
+          {/* Header Skeleton */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            p: 2, 
+            pb: 1, 
+            position: 'relative',
+            flexShrink: 0,
+          }}>
+            <Skeleton variant="text" width={200} height={40} sx={{ mx: 'auto' }} />
+            <IconButton 
+              disabled
+              size="small"
+              sx={{ position: 'absolute', right: 16 }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Box>
+
+          {/* Main Content Skeleton */}
+          <Box sx={{ 
+            p: { xs: 2, md: 4 },
+            flex: 1,
+            overflow: 'hidden',
+            minHeight: 0,
+            display: 'flex',
+            flexDirection: 'column',
+          }}>
+            <Box sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', md: 'row' },
+              gap: 4,
+              flex: 1,
+              minHeight: 0,
+            }}>
+              {/* Doctor Photo Skeleton */}
+              <Box sx={{ 
+                flexShrink: 0,
+                width: { xs: '100%', md: '250px' },
+                aspectRatio: '3/4',
+                borderRadius: 3,
+                overflow: 'hidden',
+              }}>
+                <Skeleton variant="rectangular" width="100%" height="100%" />
+              </Box>
+
+              {/* Fields Grid Skeleton */}
+              <Box sx={{ 
+                flex: 1, 
+                minHeight: 0,
+                overflowY: 'auto',
+                overflowX: 'hidden',
+              }}>
+                <Box sx={{ 
+                  display: 'grid',
+                  gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+                  gap: 2,
+                }}>
+                  {[1, 2, 3, 4].map((idx) => (
+                    <Paper
+                      key={idx}
+                      elevation={0}
+                      sx={{
+                        p: 2,
+                        height: '100%',
+                        border: '1px solid',
+                        borderColor: 'grey.200',
+                        borderRadius: 2,
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 2,
+                      }}
+                    >
+                      <Skeleton variant="circular" width={24} height={24} sx={{ flexShrink: 0 }} />
+                      <Box sx={{ flex: 1 }}>
+                        <Skeleton variant="text" width="40%" height={16} sx={{ mb: 0.5 }} />
+                        <Skeleton variant="text" width="80%" height={20} />
+                      </Box>
+                    </Paper>
+                  ))}
+                </Box>
+              </Box>
+            </Box>
+          </Box>
         </Box>
       ) : error ? (
         <Box sx={{ textAlign: 'center', p: 6 }}>
