@@ -54,6 +54,115 @@ export function getFacilitiesCached(limit?: number) {
   )()
 }
 
+// Get facilities by category slug
+export async function getFacilitiesByCategory(categorySlug: string) {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'facility',
+    'fields.categorySlug': categorySlug,
+    limit: 100,
+    order: ['fields.order'],
+  })
+  return entries.items
+}
+
+export function getFacilitiesByCategoryCached(categorySlug: string) {
+  return nextCache(
+    async () => {
+      return await getFacilitiesByCategory(categorySlug)
+    },
+    ['contentful:facilities:category', categorySlug],
+    { revalidate: 300, tags: ['facilities', `facilities:${categorySlug}`] }
+  )()
+}
+
+// Get facility by category and slug
+export async function getFacilityByCategoryAndSlug(categorySlug: string, slug: string) {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'facility',
+    'fields.categorySlug': categorySlug,
+    'fields.slug': slug,
+    limit: 1,
+  })
+  return entries.items[0] || null
+}
+
+export function getFacilityByCategoryAndSlugCached(categorySlug: string, slug: string) {
+  return nextCache(
+    async () => {
+      return await getFacilityByCategoryAndSlug(categorySlug, slug)
+    },
+    ['contentful:facility', categorySlug, slug],
+    { revalidate: 300, tags: ['facilities', `facilities:${categorySlug}`, `facility:${categorySlug}:${slug}`] }
+  )()
+}
+
+// Get all unique facility categories
+export async function getFacilityCategories() {
+  const facilities = await getFacilitiesCached()
+  const categories = new Map<string, { name: string; slug: string }>()
+  
+  facilities.forEach((facility: any) => {
+    if (facility.fields.category && facility.fields.categorySlug) {
+      categories.set(facility.fields.categorySlug, {
+        name: facility.fields.category,
+        slug: facility.fields.categorySlug,
+      })
+    }
+  })
+  
+  return Array.from(categories.values()).sort((a, b) => a.name.localeCompare(b.name))
+}
+
+// Specialty functions
+export async function getSpecialties(type?: 'medical' | 'surgical', limit?: number) {
+  const client = getClient()
+  const query: any = {
+    content_type: 'specialty',
+    limit: limit || 100,
+    order: ['fields.order'],
+  }
+  
+  if (type) {
+    query['fields.type'] = type
+  }
+  
+  const entries = await client.getEntries(query)
+  return entries.items
+}
+
+export function getSpecialtiesCached(type?: 'medical' | 'surgical', limit?: number) {
+  return nextCache(
+    async () => {
+      return await getSpecialties(type, limit)
+    },
+    ['contentful:specialties', type || 'all', String(limit || 100)],
+    { revalidate: 300, tags: ['specialties', type ? `specialties:${type}` : 'specialties'] }
+  )()
+}
+
+export async function getSpecialtyByTypeAndSlug(type: 'medical' | 'surgical', slug: string) {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'specialty',
+    'fields.type': type,
+    'fields.slug': slug,
+    limit: 1,
+  })
+  return entries.items[0] || null
+}
+
+export function getSpecialtyByTypeAndSlugCached(type: 'medical' | 'surgical', slug: string) {
+  return nextCache(
+    async () => {
+      return await getSpecialtyByTypeAndSlug(type, slug)
+    },
+    ['contentful:specialty', type, slug],
+    { revalidate: 300, tags: ['specialties', `specialties:${type}`, `specialty:${type}:${slug}`] }
+  )()
+}
+
 export async function getHealthPackages(limit?: number) {
   const client = getClient()
   const entries = await client.getEntries({

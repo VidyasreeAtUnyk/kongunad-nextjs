@@ -16,6 +16,18 @@ const ICON_MAP = {
   'labIcon': '1tM8z9kooAqdHw9qBRrB4G', // Laboratory Services
 };
 
+// Category to categorySlug mapping
+const CATEGORY_SLUG_MAP = {
+  'Supportive Medical Departments': 'supportive-medical-departments',
+  'Radiology and Imaging': 'radiology-imaging-services',
+  'Inpatient Services': 'inpatient-services',
+  'Other Diagnostic Facilities': 'other-diagnostic-facilities',
+  'Non Medical Supportive Departments': 'non-medical-supportive-departments',
+  'Out Patient Services': 'out-patient-services',
+  'Laboratory Services': 'laboratory-services',
+  'Endoscopy Services': 'endoscopy-services',
+};
+
 // Facilities data from navigation
 const facilitiesData = [
   {
@@ -144,8 +156,58 @@ function generateEntryId(name) {
     .substring(0, 50);
 }
 
-function createFacilityEntry(facilityName, category, iconId) {
+function generateSlug(name) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function getCategorySlug(categoryName) {
+  return CATEGORY_SLUG_MAP[categoryName] || generateSlug(categoryName);
+}
+
+function createFacilityEntry(facilityName, category, iconId, order = null) {
   const entryId = `facility-${generateEntryId(facilityName)}`;
+  const slug = generateSlug(facilityName);
+  const categorySlug = getCategorySlug(category);
+  
+  const fields = {
+    name: {
+      'en-US': facilityName
+    },
+    slug: {
+      'en-US': slug
+    },
+    category: {
+      'en-US': category
+    },
+    categorySlug: {
+      'en-US': categorySlug
+    },
+    description: {
+      'en-US': `Learn more about ${facilityName} at Kongunad Hospital.`
+    },
+    icon: iconId ? {
+      'en-US': {
+        sys: {
+          type: 'Link',
+          linkType: 'Asset',
+          id: iconId
+        }
+      }
+    } : undefined,
+    images: {
+      'en-US': []
+    }
+  };
+
+  // Add order field if provided
+  if (order !== null) {
+    fields.order = {
+      'en-US': order
+    };
+  }
   
   return {
     sys: {
@@ -158,29 +220,7 @@ function createFacilityEntry(facilityName, category, iconId) {
         }
       }
     },
-    fields: {
-      name: {
-        'en-US': facilityName
-      },
-      category: {
-        'en-US': category
-      },
-      description: {
-        'en-US': `Learn more about ${facilityName} at Kongunad Hospital.`
-      },
-      icon: iconId ? {
-        'en-US': {
-          sys: {
-            type: 'Link',
-            linkType: 'Asset',
-            id: iconId
-          }
-        }
-      } : undefined,
-      images: {
-        'en-US': []
-      }
-    }
+    fields
   };
 }
 
@@ -232,12 +272,14 @@ async function importFacilities() {
       */
 
       // Import children facilities
-      for (const child of category.children) {
+      for (let index = 0; index < category.children.length; index++) {
+        const child = category.children[index];
+        const order = index + 1;
         try {
-          const childEntry = createFacilityEntry(child.title, category.category, category.iconId);
+          const childEntry = createFacilityEntry(child.title, category.category, category.iconId, order);
           const entry = await environment.createEntry('facility', childEntry);
           await entry.publish();
-          console.log(`  ✅ Created: ${child.title}`);
+          console.log(`  ✅ Created: ${child.title} (slug: ${childEntry.fields.slug['en-US']}, categorySlug: ${childEntry.fields.categorySlug['en-US']})`);
           imported++;
         } catch (error) {
           if (error.sys?.id === 'VersionMismatch' || error.message?.includes('already exists')) {

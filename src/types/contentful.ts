@@ -11,6 +11,11 @@ export interface Doctor {
     speciality: string
     experience: number
     degrees: string[]
+    /**
+     * Facilities (by slug) this doctor is associated with.
+     * Example: ["uroflow-studies", "dialysis-services"]
+     */
+    facilitySlugs?: string[]
     photo: {
       fields: {
         file: {
@@ -71,8 +76,10 @@ export interface Facility {
   }
   fields: {
     name: string
+    slug: string // URL-friendly slug (e.g., "main-opd")
     description: string
-    category: string
+    category: string // Display name (e.g., "Out Patient Services")
+    categorySlug: string // URL-friendly category slug (e.g., "out-patient-services")
     icon: {
       fields: {
         file: {
@@ -86,10 +93,78 @@ export interface Facility {
         file: {
           url: string
         }
-        title: string
+        title?: string // Optional image title
       }
     }>
-    services?: string[] // Optional - not used in Contentful
+    services?: Array<{
+      title?: string // Optional service title
+      images?: Array<{
+        fields: {
+          file: {
+            url: string
+          }
+          title?: string // Optional image title
+        }
+      }> // Optional service images (can be single or multiple)
+      content?: string | string[] // Optional service description/content (can be string or array of strings)
+    }> | string[] // Can be array of objects or strings (for backward compatibility)
+    facilities?: string[] // Facilities of the department
+    hod?: string // Head of Department name (will be matched with Doctor content type)
+    hodSectionTitle?: string // Optional custom title for the doctors/HOD section (defaults to "Head of Department")
+    order?: number // For sorting within category
+  }
+}
+
+// Facility Category (for grouping facilities)
+export interface FacilityCategory {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    name: string // Display name (e.g., "Out Patient Services")
+    slug: string // URL-friendly slug (e.g., "out-patient-services")
+    description?: string // Category description
+    icon?: ContentfulAsset // Category icon
+    order?: number // For sorting
+  }
+}
+
+// Specialty (Medical or Surgical)
+export interface Specialty {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    name: string // Display name (e.g., "General Medicine")
+    slug: string // URL-friendly slug (e.g., "general-medicine")
+    type: 'medical' | 'surgical' // Specialty type
+    description: string // Full description
+    shortDescription?: string // Brief description for cards
+    icon?: ContentfulAsset // Specialty icon
+    doctors?: string[] // Array of doctor IDs (references)
+    services?: string[] // List of services offered
+    order?: number // For sorting within type
+    active?: boolean // Whether specialty is currently active
+  }
+}
+
+// Specialty Type (Medical Specialties or Surgical Specialties)
+export interface SpecialtyType {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    name: string // Display name (e.g., "Medical Specialties")
+    slug: string // URL-friendly slug (e.g., "medical-specialties")
+    type: 'medical' | 'surgical' // Type identifier
+    description?: string // Type description
+    order?: number // For sorting
   }
 }
 

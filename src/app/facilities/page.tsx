@@ -6,16 +6,12 @@ import {
   Typography,
   Breadcrumbs,
   Link,
+  Paper,
+  Card,
+  CardContent,
 } from '@mui/material'
-import { FacilityCard } from '@/components/content/FacilityCard'
-import { getFacilitiesCached } from '@/lib/contentful'
+import { getFacilitiesCached, getFacilityCategories } from '@/lib/contentful'
 import { Facility } from '@/types/contentful'
-
-interface FacilitiesPageProps {
-  searchParams: Promise<{
-    category?: string
-  }>
-}
 
 export const metadata: Metadata = {
   title: 'Our Facilities - Kongunad Hospital',
@@ -24,101 +20,204 @@ export const metadata: Metadata = {
 
 export const revalidate = 300
 
-export default async function FacilitiesPage({ searchParams }: FacilitiesPageProps) {
+// Category metadata mapping (descriptions and icons not stored in Contentful)
+const CATEGORY_METADATA: Record<string, { description: string; icon: string }> = {
+  'out-patient-services': {
+    description: 'Comprehensive outpatient care services',
+    icon: '🏥',
+  },
+  'inpatient-services': {
+    description: 'Complete inpatient care and room services',
+    icon: '🛏️',
+  },
+  'supportive-medical-departments': {
+    description: 'Essential support services for patient care',
+    icon: '💊',
+  },
+  'other-diagnostic-facilities': {
+    description: 'Advanced diagnostic and testing services',
+    icon: '🔬',
+  },
+  'radiology-imaging-services': {
+    description: 'State-of-the-art imaging and radiology',
+    icon: '📷',
+  },
+  'laboratory-services': {
+    description: 'Comprehensive laboratory testing',
+    icon: '🧪',
+  },
+  'endoscopy-services': {
+    description: 'Advanced endoscopic procedures',
+    icon: '🔍',
+  },
+  'non-medical-supportive-departments': {
+    description: 'Administrative and support services',
+    icon: '📋',
+  },
+}
+
+export default async function FacilitiesPage() {
   try {
-    const { category } = await searchParams
     const facilities = await getFacilitiesCached() as unknown as Facility[]
-    const selectedCategory = category
+    const categories = await getFacilityCategories()
+    
+    // Get facility counts per category
+    const categoryCounts = new Map<string, number>()
+    facilities.forEach((facility) => {
+      if (facility.fields.categorySlug) {
+        const count = categoryCounts.get(facility.fields.categorySlug) || 0
+        categoryCounts.set(facility.fields.categorySlug, count + 1)
+      }
+    })
 
-    // Filter facilities by category if specified
-    const filteredFacilities = selectedCategory 
-      ? facilities.filter(facility => 
-          facility.fields.category.toLowerCase() === selectedCategory.toLowerCase()
-        )
-      : facilities
-
-    // Get unique categories for filtering
-    const categories = Array.from(new Set(facilities.map(f => f.fields.category)))
+    // Enrich categories with metadata and filter to only show categories that exist in data
+    const enrichedCategories = categories
+      .map((category) => {
+        const metadata = CATEGORY_METADATA[category.slug]
+        if (!metadata) return null // Skip categories without metadata
+        
+        return {
+          ...category,
+          description: metadata.description,
+          icon: metadata.icon,
+        }
+      })
+      .filter((cat): cat is NonNullable<typeof cat> => cat !== null)
 
     return (
-      <Box>
-        <Container maxWidth="lg" sx={{ py: 4 }}>
-          {/* Breadcrumbs */}
-          <Breadcrumbs sx={{ mb: 3 }}>
-            <Link href="/" color="inherit">
-              Home
-            </Link>
+      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default' }}>
+        <Container maxWidth="lg">
+          <Breadcrumbs sx={{ py: 3 }}>
+            <Link href="/" color="inherit">Home</Link>
             <Typography color="text.primary">Facilities</Typography>
           </Breadcrumbs>
 
-          {/* Page Header */}
-          <Typography variant="h1" gutterBottom color="primary">
-            Our Facilities
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 4, color: 'text.secondary' }}>
-            State-of-the-art medical facilities and equipment designed to provide the best healthcare services.
-          </Typography>
-
-          {/* Category Filter */}
-          <Box sx={{ mb: 4 }}>
-            <Typography variant="h6" gutterBottom>
-              Filter by Category:
+          {/* Hero Section */}
+          <Paper
+            elevation={0}
+            sx={{
+              p: { xs: 4, md: 6 },
+              mb: 4,
+              borderRadius: 4,
+              background: 'linear-gradient(135deg, #ebf5ff 0%, #f0f7ff 100%)',
+            }}
+          >
+            <Typography 
+              variant="h1" 
+              color="primary" 
+              sx={{ 
+                fontWeight: 700, 
+                mb: 2,
+                fontSize: { xs: '2rem', md: '2.5rem' }
+              }}
+            >
+              Our Facilities
             </Typography>
-            <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-              <Link 
-                href="/facilities" 
-                sx={{ 
-                  textDecoration: 'none',
-                  px: 2, 
-                  py: 1, 
-                  borderRadius: 1,
-                  bgcolor: !selectedCategory ? 'primary.main' : 'grey.200',
-                  color: !selectedCategory ? 'white' : 'text.primary',
-                  '&:hover': {
-                    bgcolor: !selectedCategory ? 'primary.dark' : 'grey.300',
-                  }
-                }}
-              >
-                All Facilities
-              </Link>
-              {categories.map((category) => (
+            <Typography 
+              variant="h6" 
+              color="text.secondary" 
+              sx={{ 
+                fontSize: { xs: '1.1rem', md: '1.25rem' }
+              }}
+            >
+              State-of-the-art medical facilities and equipment designed to provide the best healthcare services.
+            </Typography>
+          </Paper>
+
+          {/* Categories Grid - 4 cards per row */}
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: '1fr',
+                sm: 'repeat(2, 1fr)',
+                md: 'repeat(4, 1fr)',
+              },
+              gap: 3,
+              mb: 6,
+            }}
+          >
+            {enrichedCategories.map((category) => {
+              const count = categoryCounts.get(category.slug) || 0
+              return (
                 <Link 
-                  key={category}
-                  href={`/facilities?category=${encodeURIComponent(category)}`}
-                  sx={{ 
-                    textDecoration: 'none',
-                    px: 2, 
-                    py: 1, 
-                    borderRadius: 1,
-                    bgcolor: selectedCategory === category ? 'primary.main' : 'grey.200',
-                    color: selectedCategory === category ? 'white' : 'text.primary',
-                    '&:hover': {
-                      bgcolor: selectedCategory === category ? 'primary.dark' : 'grey.300',
-                    }
-                  }}
+                  key={category.slug}
+                  href={`/facilities/${category.slug}`}
+                  style={{ textDecoration: 'none' }}
                 >
-                  {category}
+                  <Card
+                    sx={{
+                      height: '100%',
+                      minHeight: 280,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      transition: 'all 0.3s ease-in-out',
+                      '&:hover': {
+                        transform: 'translateY(-8px)',
+                        boxShadow: '0 12px 24px rgba(0,0,0,0.15)',
+                      },
+                    }}
+                  >
+                    <CardContent 
+                      sx={{ 
+                        p: 3,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        flex: 1,
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <Box>
+                        <Box
+                          sx={{
+                            fontSize: '3rem',
+                            mb: 2,
+                            textAlign: 'center',
+                          }}
+                        >
+                          {category.icon}
+                        </Box>
+                        <Typography 
+                          variant="h6" 
+                          fontWeight={600} 
+                          gutterBottom
+                          color="primary"
+                          sx={{
+                            textAlign: 'center',
+                            mb: 1,
+                          }}
+                        >
+                          {category.name}
+                        </Typography>
+                        <Typography 
+                          variant="body2" 
+                          color="text.secondary" 
+                          sx={{ 
+                            mb: 2,
+                            textAlign: 'center',
+                            minHeight: 40,
+                          }}
+                        >
+                          {category.description}
+                        </Typography>
+                      </Box>
+                      <Typography 
+                        variant="caption" 
+                        color="primary"
+                        sx={{ 
+                          fontWeight: 600,
+                          textAlign: 'center',
+                        }}
+                      >
+                        {count} {count === 1 ? 'facility' : 'facilities'} available
+                      </Typography>
+                    </CardContent>
+                  </Card>
                 </Link>
-              ))}
-            </Box>
+              )
+            })}
           </Box>
-
-          {/* Facilities Grid */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center' }}>
-            {filteredFacilities.map((facility) => (
-              <Box key={facility.sys.id} sx={{ width: { xs: '100%', sm: 'calc(50% - 16px)', md: 'calc(33.333% - 22px)' } }}>
-                <FacilityCard facility={facility} />
-              </Box>
-            ))}
-          </Box>
-
-          {filteredFacilities.length === 0 && (
-            <Box sx={{ textAlign: 'center', py: 8 }}>
-              <Typography variant="h6" color="text.secondary">
-                No facilities found for the selected category.
-              </Typography>
-            </Box>
-          )}
         </Container>
       </Box>
     )

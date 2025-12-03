@@ -19,16 +19,18 @@ interface FacilityCardProps {
 export const FacilityCard: React.FC<FacilityCardProps> = ({ facility, onClick, loadingPriority = 'auto' }) => {
   const { fields } = facility
   
-  // Create URL-friendly slug from facility name
-  const slug = fields.name.toLowerCase().replace(/\s+/g, '-')
+  // Use categorySlug and slug from Contentful, fallback to generated slug
+  const categorySlug = fields.categorySlug || fields.category?.toLowerCase().replace(/\s+/g, '-') || 'facilities'
+  const slug = fields.slug || fields.name.toLowerCase().replace(/\s+/g, '-')
   
   return (
-    <Link href={`/facilities/${slug}`} style={{ textDecoration: 'none' }}>
+    <Link href={`/facilities/${categorySlug}/${slug}`} style={{ textDecoration: 'none' }}>
       <Card 
         sx={{ 
           width: '100%',
           cursor: 'pointer',
           height: '100%',
+          minHeight: 280,
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
@@ -48,7 +50,7 @@ export const FacilityCard: React.FC<FacilityCardProps> = ({ facility, onClick, l
         }}
         onClick={onClick}
       >
-        <Box sx={{ position: 'relative' }}>
+        <Box sx={{ position: 'relative', width: '100%', height: 280 }}>
           {fields.icon?.fields?.file?.url ? (
             <CardMedia
               component="img"
@@ -56,7 +58,7 @@ export const FacilityCard: React.FC<FacilityCardProps> = ({ facility, onClick, l
               alt={fields.name}
               sx={{ 
                 width: '100%',
-                aspectRatio: '1 / 1',
+                height: '100%',
                 objectFit: 'cover',
                 display: 'block',
                 transition: 'transform 0.4s ease',
@@ -72,7 +74,7 @@ export const FacilityCard: React.FC<FacilityCardProps> = ({ facility, onClick, l
               {...({ fetchPriority: loadingPriority === 'eager' ? 'high' : 'auto' } as any)}
             />
           ) : (
-            <Skeleton variant="rounded" animation="wave" sx={{ width: '100%', height: { xs: 220, sm: 240, md: 260 }, borderRadius: 2 }} />
+            <Skeleton variant="rounded" animation="wave" sx={{ width: '100%', height: '100%', borderRadius: 2 }} />
           )}
           <Box
             sx={{

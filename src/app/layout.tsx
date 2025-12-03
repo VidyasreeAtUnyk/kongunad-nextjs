@@ -8,7 +8,9 @@ import { Footer } from '@/components/layout/Footer'
 import { Offer } from '@/components/content/Offer'
 import { ModalContainer } from '@/components/modals/ModalContainer'
 import { BottomSheetContainer } from '@/components/ui/BottomSheetContainer'
-import { getOffers } from '@/lib/contentful'
+import { FacilitiesProvider } from '@/components/providers/FacilitiesProvider'
+import { getOffers, getFacilitiesCached } from '@/lib/contentful'
+import { Facility } from '@/types/contentful'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -58,18 +60,29 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const offers = await getOfferLists()
+  
+  // Fetch facilities once at the app level (server-side)
+  let facilities: Facility[] = []
+  try {
+    facilities = (await getFacilitiesCached()) as unknown as Facility[]
+  } catch (error) {
+    console.error('Error fetching facilities in layout:', error)
+  }
+  
   return (
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>
           <ThemeProvider>
             <ToastProvider>
-              <Navigation />
-              <Offer lists={offers} />
-              {children}
-              <Footer />
-              <ModalContainer />
-              <BottomSheetContainer />
+              <FacilitiesProvider facilities={facilities}>
+                <Navigation />
+                <Offer lists={offers} />
+                {children}
+                <Footer />
+                <ModalContainer />
+                <BottomSheetContainer />
+              </FacilitiesProvider>
             </ToastProvider>
           </ThemeProvider>
         </ReduxProvider>

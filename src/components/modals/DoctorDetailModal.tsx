@@ -14,7 +14,9 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
 import SchoolIcon from '@mui/icons-material/School'
 import BadgeIcon from '@mui/icons-material/Badge'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import BusinessIcon from '@mui/icons-material/Business'
 import { Doctor } from '@/types/contentful'
+import { useFacilities } from '@/components/providers/FacilitiesProvider'
 
 interface DoctorDetailModalProps {
   doctorId: string
@@ -26,6 +28,7 @@ interface FieldTile {
   icon: React.ReactNode
   title: string
   content: string
+  fullWidth?: boolean // For fields that should span full width
 }
 
 export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
@@ -33,6 +36,7 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
   open,
   onClose,
 }) => {
+  const { facilities } = useFacilities()
   const [doctor, setDoctor] = useState<Doctor | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -66,6 +70,7 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
       setLoading(false)
     }
   }
+
 
   const getFieldData = (): FieldTile[] => {
     if (!doctor) return []
@@ -111,6 +116,23 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
         title: 'Availability',
         content: doctor.fields.availability,
       })
+    }
+
+    // Add facilities if available
+    if (doctor.fields.facilitySlugs && doctor.fields.facilitySlugs.length > 0 && facilities.length > 0) {
+      const matchedFacilities = facilities.filter(facility => 
+        doctor.fields.facilitySlugs?.includes(facility.fields.slug)
+      )
+      
+      if (matchedFacilities.length > 0) {
+        const facilitiesText = matchedFacilities.map(f => f.fields.name).join(', ')
+        fields.push({
+          icon: <BusinessIcon />,
+          title: 'Facilities',
+          content: facilitiesText,
+          fullWidth: true, // Facilities field spans full width
+        })
+      }
     }
 
     return fields
@@ -194,7 +216,7 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
                   gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
                   gap: 2,
                 }}>
-                  {[1, 2, 3, 4].map((idx) => (
+                  {[1, 2, 3, 4, 5].map((idx) => (
                     <Paper
                       key={idx}
                       elevation={0}
@@ -333,6 +355,7 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
                         alignItems: 'flex-start',
                         gap: 2,
                         transition: 'all 0.2s',
+                        gridColumn: field.fullWidth ? '1 / -1' : 'auto', // Full width for facilities
                         '&:hover': {
                           borderColor: 'primary.main',
                           bgcolor: 'primary.50',
