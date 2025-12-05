@@ -1,0 +1,708 @@
+{
+  "specialties": [
+    {
+      "name": "General Medicine",
+      "type": "medical",
+      "description": "",
+      "services": [{
+        "content": ["This unique platform covers the following diseases such as general medicine, diagnosis, primary care, epidemiology, pathogenesis, adolescent medicine, diabetes mellitus, metabolic syndrome, nonsurgical treatment, immunology infectious diseases, clinical immunology, hypertension, family medicine, multi-system disease, clinical pharmacy, health systems, infectious diseases, public health and preventive medicine, monitoring and treatment protocols.", "Focus of the high impact factor journal is the disease process explanation and organization procedures ensuring enhanced outcomes for the patient. Patient perspective satisfaction, healthy life, quality treatment, communication and health literacy and their role in developing new health care programs and clinical outcomes are major areas of interest for our department."]
+      }],
+      "facilities": ["General Medicine is the branch of medicine that deals with the diagnosis and nonsurgical treatment of diseases of the internal organs.", "Here you will find the causes, symptoms, diagnosis and treatment of a huge range of disorders affecting every part of the body."],
+      "imageUrls": []
+    },
+    {
+      "name": "Critical Care Medicine",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["We also regularly conduct BLS & ACLS programs to train our doctors and staff, which helps them to handle emergency life-threatening cases."]
+        },
+        {
+            "title": "Separate Intensive Care Units:",
+            "content": ["MICU – Medical Intensive Care Unit", "CCU – Coronary Intensive Care Unit", "RICU – Renal Intensive Care Unit", "SICU – Surgical Intensive Care Unit", "NICU – Neonatal Intensive Care Unit"]
+        },
+        {
+            "content": ["We have modern ventilators, high-flow oxygen machines, CPAP machines, dialysis machines, bedside echo machine, ECG machine, crash cart with defibrillators, syringe pumps, infusion pumps, centralized monitors, saturation probes, etc."]
+        }
+      ],
+      "facilities": ["Our Critical Care unit deals with a diversity of critical care patients, who are in need of continuous monitoring as well as acute phase attention.", "Our intensive care units are manned by full-time intensivists, specialist doctors, experienced doctors, well-trained staff nurses, and technicians."],
+      "imageUrls": []
+    },
+    {
+      "name": "Emergency Medicine",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "title": "Facilities of the Department:",
+            "content": ["Expert emergency medicine specialist doctors for 24-hour emergency care services.", "Well-trained qualified critical care nurses to handle emergency cases. Also, our staff are well trained in BLS and ACLS courses to provide resuscitation care for critical cases.", "Our Emergency Medical department is well facilitated to handle emergency cases such as poison cases, trauma cases, any sort of medical and surgical emergencies, pediatric emergencies, neuro and stroke emergencies, head and spinal injuries, allergic cases, respiratory cases, all system-related emergency cases.", "Sub-specializations of emergency medicine include disaster medicine, critical care medicine, hyperbaric medicine, sports medicine, palliative care, or aerospace medicine."]
+        },
+        {
+            "content": ["We have world-class equipment for any kind of medical and surgical emergencies such as advanced ventilators, defibrillators, crash cart trolleys, syringe pumps, infusion pumps, bedside ECHO, ECG, centralized monitors, PACS system, advanced applications for telemedicine."]
+        }
+      ],
+      "facilities": ["Kongunad Emergency Medicine Department is a world-class specialty center providing care for illnesses or injuries requiring immediate medical attention.", "Emergency physicians care for unscheduled and undifferentiated patients of all ages.", "As first-line providers, their primary responsibility is to initiate resuscitation and stabilization and to start investigations and interventions to diagnose and treat illnesses in the acute phase."],
+      "imageUrls": []
+    },
+    {
+      "name": "Neurology",
+      "type": "medical",
+      "description": "",
+      "services": [],
+      "facilities": ["Neurology provides advanced diagnostic treatments and consultative services in every aspect of neurological medicine.", "From well-known sicknesses like strokes and epilepsy to spinal cord and nerve root disease, peripheral nerve and muscle diseases to the more rare degenerative diseases of the brain.", "We also have a Rapid Response Team to handle any sort of medical and surgical emergencies.", "We will be activated in case of emergency case arrivals."],
+      "imageUrls": []
+    },
+    {
+      "name": "Dental",
+      "type": "medical",
+      "description": "",
+      "services": [],
+      "facilities": ["Our dental clinic is well facilitated in providing world-class treatment at affordable cost.", "We have specialized consultants for providing primary, secondary and tertiary care for all kinds of patients.", "It has modern imaging equipment that provides high-quality diagnostic images containing detailed information.", "With the aid of such advanced equipment, dental surgeons can perform complex operations."],
+      "imageUrls": [],
+      "hod": "Dr Karthik Ganesh Babu"
+    },
+    {
+      "name": "Cardiology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Cardiology is a specialty of internal medicine. To be a cardiologist in the United States, a three-year residency in internal medicine is followed by a three-year fellowship in cardiology. It is possible to specialize further in a sub-specialty."]
+        },
+        {
+            "content": ["The surgical aspects are not included in cardiology and are in the domain of cardiothoracic surgery."]
+        },
+        {
+            "title": "Specialties of Cardiac Services (Commitment to Better Health)",
+            "content": ["Cardiac electrophysiology: Study of the electrical properties and conduction diseases of the heart.", "Echocardiography: The use of ultrasound to study the mechanical function of the heart.", "Interventional cardiology: The use of catheters for the treatment of structural & ischemic diseases of the heart."]
+        }
+      ],
+      "facilities": ["Hospitals consist of departments, traditionally called wards, especially when they have beds for inpatients, when they are sometimes also called inpatient wards.", "Hospitals may have acute services such as an emergency department or specialist trauma center, burn unit, surgery, or urgent care."],
+      "imageUrls": []
+    },
+    {
+      "name": "Nephrology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "title": "Serving patients from across the country in all areas of kidney",
+            "content": ["Acute and chronic kidney diseases", "Diabetes Mellitus", "Fluid and electrolyte disorders", "Glomerulonephritis and glomerular diseases", "SLE", "Hypertension", "Kidney transplantation unit", "Kidney-related metabolic disorders", "Kidney stones", "Rare and genetic kidney diseases"]
+        },
+        {
+            "title": "Our Comprehensive Clinics and Services",
+            "content": ["Glomerular Diseases Clinic – focuses on kidney diseases that affect the glomeruli – small filter parts of the kidney.", "Inherited Kidney Diseases Clinic – helps diagnose and treat adults with genetically determined kidney diseases.", "Stone Prevention Clinic – performs thorough evaluations to determine risk factors for formation of new kidney stones.", "Outpatient Dialysis Program – dialysis care provided by a team of dedicated faculty, nurses and technicians at multiple locations.", "Inpatient Dialysis Program – a full-service, full-time acute dialysis unit providing renal replacement therapy.", "Interventional Nephrology – providing the latest dialysis access support for hemodialysis and peritoneal dialysis patients.", "Dialysis Vascular Access Service – a cooperative clinical service for responsive vascular access treatment.", "Young Adult Nephrology Clinic – comprehensive multidisciplinary care to young adults transitioning to adult health care."]
+        }
+      ],
+      "facilities": ["Many of the recent advances in the diagnosis and treatment of kidney disease require close collaboration between kidney specialists with diverse areas of expertise.", "In recognition of these advances, we have brought together a team of specialists to evaluate and treat patients with known or suspected kidney disease in a timely and coordinated manner."],
+      "imageUrls": []
+    },
+    {
+      "name": "Hepatology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["The Section of Hepatology offers advanced care for patients with all forms of liver disease. Liver disease is complicated, so it's important to get care at a center where you have access to experts in many different areas.", "Specialist doctors in the Hepatology department work closely with other specialists at Kongunad Hospital to ensure that patients benefit from the latest diagnostic techniques and treatments.", "For patients who need expert care in liver diseases."]
+        },
+        {
+            "content": ["Our expert doctors and nurses help to provide personalized care and education for patients before and after surgery.", "Hepatologists are active in clinical studies of new treatments for liver disease. This means patients have early access to the latest therapies."]
+        },
+        {
+            "title": "Conditions Treated",
+            "content": ["Alcoholic Liver Diseases", "Ascites", "Autoimmune Hepatitis", "Cirrhosis", "Fatty Liver Disease", "Hepatitis A", "Hepatitis B", "Hepatitis C", "Primary Biliary Cirrhosis", "Primary Sclerosing Cholangitis, etc."]
+        }
+      ],
+      "facilities": ["Our Hepatology unit is fully equipped with modern devices of latest technology.", "In addition to our outpatient clinic services, we also perform all kinds of endoscopic gastroenterology procedures for diagnosis and treatment purposes."],
+      "imageUrls": []
+    },
+    {
+      "name": "Medical Gastro Enterology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["A complete range of diagnostic and therapeutic endoscopic procedures are performed safely, successfully and as day care procedures on a regular basis.", "In addition, a wide range of non-endoscopic gastrointestinal and liver procedures are performed in the unit.", "Our clinical services include outpatient and inpatient services with ICU facilities for severely ill patients.", "The department's highly trained personnel work in close association with high-tech radiology department, excellent histopathology service and our dedicated nutrition unit."]
+        }
+      ],
+      "facilities": ["The center offers comprehensive clinical services in the diagnosis, treatment and prevention of gastrointestinal tract, pancreatic and liver diseases.", "The endoscopy unit is designed, equipped and staffed to provide excellent patient care."],
+      "imageUrls": []
+    },
+    {
+      "name": "Respiratory Medicine",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "title": "Key Features",
+            "content": ["World-class allergy treatment", "TB – Tuberculosis Treatment", "Respiratory failure cases", "Any sort of respiratory infections", "Any sort of obstructive respiratory diseases"]
+        }
+      ],
+      "facilities": ["The department of respiratory medicine is successfully running with expert consultants, doctors, staff and facilities of the department.", "We have world-class infrastructure for management of respiratory disorders.", "Digital Picture Archiving and Communication System (DPACS) for online storage and transfer of X-rays and blood investigations."],
+      "imageUrls": []
+    },
+    {
+      "name": "Rheumatology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["We are working hard to create awareness that when left untreated, it can lead to permanent damage of the articulations and involvement of the deeper organs.", "Now it is possible to treat any sort of rheumatoid diseases with our expert consultants, investigation facilities and specialist health care providers."]
+        }
+      ],
+      "facilities": ["The Rheumatology Service at Kongunad Hospital offers consultative diagnostic and therapeutic services for outpatients and inpatients with joint disorders and soft tissue injuries.", "We start special care from mild articular pain, stiffness at night and in the morning hours to severe damages of the deeper organs."],
+      "imageUrls": []
+    },
+    {
+      "name": "Oncology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["At the Oncology Department, where we serve patients with such an understanding, we are ready to meet the needs of our patients also at sub-branches such as:"]
+        },
+        {
+            "content": ["Medical Oncology", "Hematological Oncology", "Oncologic Screening Imaging", "Surgical Oncology"]
+        },
+        {
+            "content": ["We follow technological and scientific developments closely and offer the state-of-the-art treatment options to our patients.", "We know the importance of early diagnosis and effective treatment in cancer."]
+        },
+        {
+            "title": "The Clinical Activity of the Oncology Division Includes:",
+            "content": ["Screening", "Early diagnosis", "Chemotherapy administration", "Inpatient administration", "Adverse event management", "Follow-ups and long-term toxicities follow-up", "Palliative care", "Pain management"]
+        }
+      ],
+      "facilities": ["At the Oncology Department, we aim to provide the best medical services to our patients with our experienced team and multidisciplinary approach.", "As our hospital is committed to \"Patient-Oriented Centered Care\", we aim, in the first place, to make the patients and their relatives feel at home and not to lower their quality of life."],
+      "imageUrls": []
+    },
+    {
+      "name": "Pediatrics",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["We ensure primary pediatric care including emergency room care; surgical care including pediatric neurology; inpatient and outpatient care for sick children as well as paying particular attention to their developmental progress and their immunization."]
+        },
+        {
+            "content": ["We also provide primary neonatology care in our newborn nursery and special care nursery for sick and premature newborns."]
+        }
+      ],
+      "facilities": ["At our hospital, the central focus of our dedicated team of pediatric professionals is to maintain the health & medical well-being of your children from birth to adolescence.", "We are committed to providing your child with the greatest care by combining compassion and concern with medical and surgical expertise."],
+      "imageUrls": []
+    },
+    {
+      "name": "Dermatology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "title": "The Department Also Includes the Following:",
+            "content": ["The latest treatment techniques", "The latest diagnostic services", "A research component aimed at understanding the mechanisms of skin diseases and how to better treat them"]
+        }
+      ],
+      "facilities": ["Dermatologists are expert doctors who deal with skin, hair and nail diseases, including skin cancer.", "They have expertise in treating common conditions like psoriasis, and rare conditions like cutaneous T-cell lymphoma."],
+      "imageUrls": []
+    },
+    {
+      "name": "Psychology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["We are aware that the world is struggling with various stress-related psychiatric diseases because of advanced technologies and working conditions.", "We are here to help you come out from your issues.", "Our experts are providing advanced treatment and counseling services to handle such issues."]
+        }
+      ],
+      "facilities": ["We provide psychological consultations and psychotherapy treatment.", "We provide diagnostic services, consultations and short- and longer-term psychotherapy for children, adults and their families dealing with acute and chronic medical conditions and with mental health and psychiatric disorders."],
+      "imageUrls": []
+    },
+    {
+      "name": "Diabetology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["By integrating diet, oral medication or insulin, and patient education, the Diabetes Center works to achieve the best possible outcomes, helping people with diabetes to live long and healthy lives."]
+        },
+        {
+            "content": ["We also have separate counseling centers for diabetic cases such as:"]
+        },
+        {
+            "content": ["Insulin Counseling Center", "Diabetic Diet Counseling Center", "Diabetic Foot Care Center"]
+        }
+      ],
+      "facilities": ["Kongunad Diabetes Center is committed to helping you or your loved one successfully manage diabetes using the latest information, treatments, and technology available.", "While there is currently no cure for diabetes, it can be controlled, allowing people to have full, productive lives."],
+      "imageUrls": []
+    },
+    {
+      "name": "Radiology",
+      "type": "medical",
+      "description": "",
+      "services": ["Advanced Kongunad MRI Center", "Kongunad CT Center", "Kongunad Cath Lab Services", "Kongunad X-Ray Department", "Kongunad Scan Department", "Kongunad Echo Department", "Kongunad Transesophageal ECHO Department", "Kongunad ECG Department"],
+      "facilities": ["Kongunad Diagnostic Centre is well facilitated and supported with advanced laboratory and imaging services.", "Our radiologists, sonologists & technicians are highly trained health care professionals.", "They work as a cohesive team to provide interpretive diagnostic imaging reports and opinions to assist your doctor in making the best decisions to manage your treatment.", "We have modern equipped departments such as:"],
+      "imageUrls": []
+    },
+    {
+      "name": "Hematology",
+      "type": "medical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Our expert hematologists have experience with every sort of medical and surgical specialty for the care of adults and children with blood diseases, including various cancers of the blood and bone marrow.", "People with hematological conditions will receive accurate diagnoses and the most appropriate and current care."]
+        },
+        {
+            "content": ["Our hematologists strive hard to provide individualized care for patients, providing the right treatment for each person based on an accurate diagnosis and an assessment of each individual's needs."]
+        }
+      ],
+      "facilities": ["Kongunad Hematology Department is one of the leading medical facilities in the country for the diagnosis and management of various blood disorders.", "Our experts are at the leading edge of modern treatment to continuously improve diagnosis and treatment options."],
+      "imageUrls": []
+    },
+    {
+      "name": "Pathology",
+      "type": "medical",
+      "description": "",
+      "services": [],
+      "facilities": ["Our Pathology Department is a state-of-the-art laboratory whose main mission is to provide comprehensive and accurate clinical pathology services in a timely and efficient manner.", "The highest technology and quality standards available ensure patient's care and safety."],
+      "imageUrls": []
+    },
+    {
+      "name": "Plastic Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [],
+      "facilities": ["Expert team of surgeons for plastic and vascular surgeries.", "Also, our team of experts are well practiced in infection control practices."],
+      "imageUrls": []
+    },
+    {
+      "name": "General & Laparoscopy Surgery",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Our General Surgery department is running successfully with expert surgeons in all general and specialty surgeries.", "They are regularly updated with Continuing Medical Education programs."]
+        },
+        {
+            "content": ["In these areas, the surgeon will be able to recognize and treat a select group of conditions within a disease category."]
+        },
+        {
+            "content": ["Our surgeons have experience in all of the following content areas:"]
+        },
+        {
+            "content": ["Alimentary Tract (including Bariatric Surgery)", "Abdomen and its Contents", "Breast, Skin and Soft Tissue", "Endocrine System", "Kidney Organ Transplantation", "Pediatric Surgery", "Surgical Critical Care", "Surgical Oncology (including Head and Neck Surgery)", "Trauma/Burns and Emergency Surgery", "Vascular Surgery"]
+        },
+        {
+            "content": ["General surgery as a field comprises, but is not limited to, the performance of operations and procedures (including endoscopies) relevant to the content areas listed above."]
+        },
+        {
+            "content": ["Our surgeons' additional knowledge and experience in the areas includes:"]
+        },
+        {
+            "content": [
+                "Technical proficiency in the performance of essential operations/procedures in the above areas, plus knowledge, familiarity and in some cases technical proficiency with more uncommon and complex operations in each of the above areas.",
+                "Clinical knowledge, including epidemiology, anatomy, physiology, clinical presentation, and pathology (including neoplasia).",
+                "Knowledge of wound healing; infection; fluid management; shock and resuscitation; immunology; antibiotic usage; metabolism; management of postoperative pain; and use of enteral and parenteral nutrition.",
+                "Experience and skill in the following areas: clinical evaluation and management, or stabilization and referral, of patients with surgical diseases; management of preoperative, operative and postoperative care; management of comorbidities and complications; and knowledge of appropriate use and interpretation of radiologic and other diagnostic imaging."
+            ]
+        }
+      ],
+      "facilities": ["General surgery is a discipline that requires knowledge of and familiarity with a broad spectrum of diseases that may require surgical treatment.", "By necessity, the breadth and depth of this knowledge will vary by disease category.", "In most areas, the surgeon will be expected to be competent in diagnosing and treating the full spectrum of disease."],
+      "imageUrls": []
+    },
+    {
+      "name": "Anesthesiology",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Our Anesthesia team is available for 24 hours/day, seven days/week. We provide epidurals for pain relief as well as anesthesia for all procedures & surgeries based on patient condition."]
+        },
+        {
+            "content": ["For adults who want or need anesthesia for childbirth, an epidural offers the advantage of providing excellent pain relief without sedating."]
+        },
+        {
+            "content": ["Our Hospital anesthesiology department takes care of more than 1,000 pediatric patients – newborn through adolescence – each year."]
+        },
+        {
+            "content": ["Pediatric anesthesia is used for a variety of procedures and medical tests as well as for surgery."]
+        },
+        {
+            "content": ["No matter how small or how extensive the procedure may be, you can feel confident that we will monitor your child constantly, remaining with him/her the entire time."]
+        },
+        {
+            "content": ["If you are scheduled for a surgical procedure, an anesthesiologist will meet with you before you go into the operating room."]
+        },
+        {
+            "content": ["You'll discuss the form of anesthesia you are about to receive, how it is delivered, its risks, possible complications and alternative choices."]
+        },
+        {
+            "content": ["An anesthesiologist team member will be with you constantly, from the time you are taken into the operating room until you are safely handed over to the recovery room nurse."]
+        },
+        {
+            "content": ["When you are in recovery, your anesthesiologist will continue to receive information about your condition until you go home or to your hospital room."]
+        }
+      ],
+      "facilities": ["Our board-certified anesthesiologists and certified registered nurse-anesthetists work closely with surgeons, obstetricians and other doctors.", "They provide general, total intravenous and regional anesthesia for surgeries, childbirth and other medical procedures for people of all ages, children through seniors.", "Prior to the procedure, you'll be asked to sign an informed consent form that briefly describes various types of anesthetics and their possible merits and demerits."],
+      "imageUrls": []
+    },
+    {
+      "name": "Neuro Surgery",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["We treat adults and children for all cervical and lumbar spine conditions including herniated discs, spinal stenosis, spinal fractures, and malformations."]
+        },
+        {
+            "content": ["Our expertise also encompasses cranial disorders such as hydrocephalus, brain tumors, hematoma, and various head injuries."]
+        },
+        {
+            "content": ["The Neurosurgery team performs spine and skull-based surgeries, besides spinal implants.", "Head injuries of any nature are dealt with utmost care and efficiency."]
+        },
+        {
+            "content": [
+                "Our neurosurgeons utilize advanced technology such as Microscopic Neurosurgery to ensure accurate treatment of tiny nerves and vessels, and Minimally Invasive (Keyhole) Neurosurgery, allowing a safe and precise navigation path within the cranium and spine."
+            ]
+        }
+      ],
+      "facilities": ["The Neurosurgery department is specialized in diagnosis and treatment of brain, spine and nerves.", "We provide advanced diagnostic tests including EEG, EMG, nerve conduction studies, CT scan (16 multislices), and MRI (1.5 tesla)."],
+      "imageUrls": []
+    },
+    {
+      "name": "Eye Surgery",
+      "type": "surgical",
+      "description": "",
+      "services": [],
+      "facilities": ["As part of the eye surgery services offered by our hospital, specialists at the hospital undertake a broad range of surgical procedures and treatments.", "These include Laser Refractive Surgery, Vitreoretinal, Oculoplastics treatments, and Corneal procedures and conditions, such as Glaucoma."],
+      "imageUrls": []
+    },
+    {
+      "name": "ENT Surgery",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Our team excels in managing conditions such as:"]
+        },
+        {
+            "content": ["Common ear, nose and throat disorders and diseases in adults and children", "Dizziness", "Hearing loss", "Perforated ear drums", "Tinnitus", "Nasal and para-nasal sinus diseases", "Smell and taste disorders", "Snoring and obstructive sleep apnea", "Allergy", "Throat and voice disorders", "Aviation medicine"]
+        }
+      ],
+      "facilities": ["Our team consists of highly experienced physicians, audiologists, a speech therapist and practitioner nurses.", "Together, they provide a complete range of services for all ear, nose and throat conditions.", "Our facilities allow rapid access to the very latest technology for early assessment of patients.", "Our renowned ENT surgeons are performing efficient reconstructive and cosmetic surgery, facial plastic surgery, head and neck surgery, even neurotology, a subspecialty that blends ENT and neurology expertise."],
+      "imageUrls": []
+    },
+    {
+      "name": "Dental & Facio Maxillary Surgery",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Common services include surgical and non-surgical dental extractions, implant-supported prosthesis, oral prophylaxis, root planing, restorative procedures (aesthetic or cosmetic white fillings), teeth whitening, veneers, scaling to root planning, gum disease treatment, fluoride treatment, endodontics, root canal treatment and pediatric dentistry."]
+        },
+        {
+            "content": ["The clinic of oral and Maxillofacial surgery and implantology offers to its patients a wide range of activities ranging from simple tooth extraction to surgical extractions, transplantation of teeth, management of trauma and fractures to the facial skeleton, orthognathic surgeries for the correction of mal-facial skeleton, treatment of cleft lip and palate, lesions of the jaw bones and soft tissues and dental implants with reconstruction and augmentation of alveolar bones.", "These activities are performed under local or general anesthesia with the help of up-to-date dental technology in diagnosis and treatment of these problems."]
+        }
+      ],
+      "facilities": ["Dentists diagnose and treat problems with teeth and tissues in the mouth, along with giving advice and administering care to help prevent future problems.", "They provide instruction on diet, brushing, flossing, the use of fluorides, and other aspects of dental care."],
+      "imageUrls": []
+    },
+    {
+      "name": "Endocrine Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["We offer a wide range of surgery, from minimally invasive day operations to major cancer surgery.", "Our key services include surgery for:"]
+        },
+        {
+            "content": ["All thyroid diseases, including nodules, neck lumps, cancer, Graves' disease and thyroiditis", "Under- or overactive thyroid (parathyroid) and parathyroid cancer", "Adrenal cancer and conditions such as Cushing's and Conn's", "Rare and genetic diseases including Multiple Endocrine Neoplasia (MEN 1 and MEN2)."]
+        }
+      ],
+      "facilities": ["We provide complete high-level care for endocrine conditions needing surgery and work closely with non-surgical endocrinology, discussing and reviewing the treatment of patients with adrenal or thyroid conditions."],
+      "imageUrls": []
+    },
+    {
+      "name": "Cardio Thoracic Surgery",
+      "type": "surgical",
+      "description": "",
+      "services": [],
+      "facilities": ["Our cardiothoracic surgery team provides comprehensive treatments for coronary artery disease, valvular heart disease, congenital heart disease, thoracic and pulmonary disease, disease of the mediastinum pleura, chest wall and diaphragm.", "Our expert consultants are providing advanced treatments and care."],
+      "imageUrls": []
+    },
+    {
+      "name": "Interventional Cardiology",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Minimally Invasive Procedures to Evaluate and Treat Heart Disease"]
+        },
+        {
+            "content": ["Our hospital's interventional cardiologists use advanced, catheter-based procedures to treat and manage symptoms for people diagnosed with or suspected of having cardiovascular conditions such as:"]
+        },
+        {
+            "content": ["Advanced heart failure", "Coronary artery disease", "Heart rhythm disorders", "Heart valve disorders"]
+        },
+        {
+            "content": ["Minimally invasive procedures allow eligible patients to avoid open-heart surgery."]
+        },
+        {
+            "title": "Interventional Cardiology Procedures",
+            "content": ["Our interventional cardiologists perform a variety of minimally invasive procedures to diagnose and treat cardiovascular disease.", "These include:"]
+        },
+        {
+            "title": "Cardiac Catheterization Procedures", 
+            "content": ["In a cardiac catheterization, a cardiologist guides a catheter to the heart to perform diagnostic examinations and treatment procedures such as:"]
+        },
+        {
+            "content": ["Balloon angioplasty: The cardiologist guides a thin, flexible tube (catheter) with a tiny balloon at its tip to the site of a narrowed or blocked artery. The balloon is inflated to compress plaque against the artery wall to help restore blood flow.", "Catheter ablation: The cardiologist uses a catheter to deliver focused energy to specific areas of the heart, creating a tiny scar that stops irregular electrical impulses that originate in the pulmonary veins.", "Coronary stents: The cardiologist uses a catheter to insert a small, lattice-shaped metal tube at the site of a narrowed coronary artery to relieve narrowing. Some stents contain medications that can reduce the risk that the artery will become blocked again."]
+        },
+        {
+            "title": "Electrophysiology (EP) Studies",
+            "content": ["Using a catheter with electrodes at its tip, a cardiologist measures the heart's electrical impulses, pinpoints the injured heart muscle's precise location, and administers tiny electric impulses to affect heart rhythm problems to learn more about them."]
+        },
+        {
+            "title": "Electrical Cardioversion",
+            "content": ["Using a low-voltage electric current delivered to the chest with patches or paddles, a cardiologist can reset the heart rhythm to a normal pace.", "The procedure is used in conjunction with a short-acting anesthetic."]
+        },
+        {
+            "title": "Implantable Devices",
+            "content": ["Several small battery-operated devices implanted near the heart are used to treat heart rhythm disorders.", "These devices include:"]
+        },
+        {
+            "content": ["Implantable cardioverter defibrillator (ICD): ICDs continuously monitor cardiac rhythm and, when necessary, deliver an electric current to regulate it. The current is calibrated to respond differently when the rhythm needs to be slowed down or when defibrillation is needed to reset the heart to a normal rhythm.", "Implantable pacemaker: Pacemakers help prevent the heart from beating too slowly. Some pacemakers include heart rhythm sensors so that they can increase or decrease the heart rate as needed."]
+        }
+      ],
+      "facilities": ["The specialized interventional cardiologists at our hospital perform a number of sophisticated minimally invasive procedures to improve heart conditions and manage symptoms.", "From heart failure and rhythm disorders to coronary artery disease and valve conditions, our experienced team can evaluate and treat a wide range of cardiovascular concerns."],
+      "imageUrls": []
+    },
+    {
+      "name": "Surgical Gastro Enterology",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Our surgery team handles diseases of the esophagus, stomach, small intestine, colon and rectum, pancreas, gallbladder, bile ducts and liver.", "It includes the medical and surgical treatment of diseases such as colon polyps, gastrointestinal cancer, jaundice, cirrhosis of the liver, GERD (heartburn), ulcer diseases, gallbladder and biliary tract disease, nutritional diseases, (IBS), pancreatitis, etc."]
+        }
+      ],
+      "facilities": ["Our department of Gastroenterology is one of the best & top surgical gastroenterology hospitals in South India.", "Our surgeons offer expert care in both Medical and Surgical Gastroenterology."],
+      "imageUrls": []
+    },
+    {
+      "name": "Hepato Biliary Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "title": "Bile Duct Resection",
+            "content": ["A portion of the bile duct is removed to treat bile duct cancer.", "A bile duct is a tube-like structure that carries bile (a chemical used in digestion) to the small intestine."]
+        },
+        {
+            "title": "Chemoembolization",
+            "content": ["Chemotherapy is delivered directly to the tumor through a catheter (a thin, flexible tube).", "The procedure also cuts off the flow of blood and nutrients to the tumor and traps the chemotherapy drugs at the site, which makes them more effective."]
+        },
+        {
+            "title": "Cholecystectomy",
+            "content": ["This is removal of the gallbladder.", "It is usually done laparoscopically, through a very small incision."]
+        },
+        {
+            "title": "Gallstone Surgery",
+            "content": ["We perform both open and laparoscopic gallstone surgery."]
+        },
+        {
+            "title": "Liver Resection",
+            "content": ["A portion of the liver is removed.", "Our physicians are the only ones in the region performing laparoscopic liver resection, which can lead to shorter hospital stays and quicker recovery."]
+        },
+        {
+            "title": "Liver Transplant",
+            "content": ["A failing liver is replaced with a part or all of a healthy liver from a donor."]
+        },
+        {
+            "title": "Pancreas/Kidney Transplant",
+            "content": ["A failing pancreas or kidney is replaced with a healthy one from a donor."]
+        },
+        {
+            "title": "Pancreatic Resection",
+            "content": ["A portion of the pancreas is removed to treat pancreatic cancer."]
+        },
+        {
+            "title": "Radiofrequency Ablation",
+            "content": ["Cancerous or noncancerous growths are removed using radiofrequency energy.", "This can be performed through open, laparoscopic (small incision) or percutaneous (through the skin) surgery."]
+        },
+        {
+            "title": "Whipple Procedure (Pancreaticoduodenectomy)",
+            "content": ["This surgery treats cancer of the pancreas.", "Part or all of the pancreas is removed, as well as part of the stomach, small intestine and lymph nodes near the pancreas.", "The gallbladder and part of the bile duct are also removed.", "Our surgeons have extensive experience with pancreatic surgery."]
+        }
+      ],
+      "facilities": ["Surgical treatment for disorders of the liver, pancreas and biliary system", "Our hepatobiliary surgeons offer the most advanced, least invasive procedures."],
+      "imageUrls": []
+    },
+    {
+      "name": "Genito Urinary Surgery",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "title": "Services Available:",
+            "content": ["Stone Surgeries – Endourology, PCNL and ESWL", "Prostate Surgeries (TURP / Open Prostatectomy)", "Laparoscopic Urological Surgery", "CAPD Catheter Insertion", "Renal Transplantation", "Pediatric Urological Surgeries", "Reconstructive Urological Surgeries (Urethroplasty, Pyeloplasty, etc)", "Full Work Up and treatment for male infertility and Erectile Dysfunction"]
+        }
+      ],
+      "facilities": ["Our highly trained and experienced urology specialists provide today's most advanced treatments for urologic conditions that are both routine and complex."],
+      "imageUrls": []
+    },
+    {
+      "name": "Orthopedic Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Modern surgery has developed to such an extent that the body of knowledge and technical skills required have led to surgeons specializing in particular areas, usually an anatomical area of the body or occasionally in a particular technique or type of patient."]
+        },
+        {
+            "content": ["There are ten surgical specialties and this briefing covers orthopedic surgery."]
+        },
+        {
+            "title": "What Does Orthopedic Surgery Cover?",
+            "content": ["Orthopedic surgery is a specialty dealing with acute injuries, congenital and acquired disorders and chronic arthritic or overuse conditions of the bones, joints and their associated soft tissues, including ligaments, nerves and muscles."]
+        },
+        {
+            "content": ["Most consultants work alongside general surgeons in emergency trauma dealing with bony and soft tissue injuries admitted through their local A & E Departments.", "The vast majority also have a specialist interest in a particular orthopedic condition including the following:"]
+        },
+        {
+            "content": ["Joint reconstruction", "Particular anatomical region (e.g., arm)", "Spine (alongside neurosurgeons)", "Bone tumor surgery", "Rheumatoid surgery", "Sport surgery", "Complex trauma surgery"]
+        },
+        {
+            "content": ["Pediatric orthopedics require different fracture treatment due to growing bones and corrective treatment for childhood deformities."]
+        },
+        {
+            "title": "Main Operations",
+            "content": ["Among the main procedures undertaken by orthopedic surgeons are:"]
+        },
+        {
+            "content": ["Joint arthroscopy – a minimally invasive technique which involves inserting probes into the joint to diagnose and repair damaged joint tissue (e.g., to torn ligaments or floating cartilage).", "Fracture repair – a whole series of techniques are used depending on type, severity and location of fracture to ensure that bones are stable, heal correctly and patient retains function. This can include permanent pins and plates, immobilization, use of external pinning and frames.", "Arthroplasty – the replacement of whole joints, usually due to osteo- and rheumatoid arthritis. Hip and knee replacements are the most common operations.", "General repair procedures on damaged muscle or tendon.", "Corrective surgery – procedures aimed at correcting problems of anatomical alignment which either limit function or would cause long-term problems if left."]
+        },
+        {
+            "title": "Developments",
+            "content": ["Work into new joint replacement techniques include resurfacing of the hip and shoulder, which leaves patients with much more of their original bone than a total replacement.", "There is also work into different materials for replacements (including metals, plastics and ceramics)."]
+        },
+        {
+            "content": ["Biological repair is an area of much research, such as cartilage transplantation or using material grown from stem cells to replace damaged joint tissue (e.g., tendons and ligament)."]
+        },
+        {
+            "content": ["Computer-aided navigation enables 3D mapping of a joint and enables greater accuracy for incisions – more research is needed to see if this results in significant improvements for patients."]
+        }
+      ],
+      "facilities": ["Orthopedic surgery is a specialty dealing with acute injuries, congenital and acquired disorders and chronic arthritic or overuse conditions of the bones, joints and their associated soft tissues, including ligaments, nerves and muscles.", "Most consultants work alongside general surgeons in emergency trauma dealing with bony and soft tissue injuries admitted through their local A & E Departments."],
+      "imageUrls": []
+    },
+    {
+      "name": "Spine Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Conditions Treated:"]
+        },
+        {
+            "content": ["Disc removal", "Cervical disc herniation", "Gliomas (including astrocytoma, oligodendroglioma, ependymoma, and ganglioglioma)", "High cranial cervical junction instability", "Minimally invasive surgery", "Neurofibromas", "Schwannomas (neuromas)", "Scoliosis", "Spinal cord herniation", "Spinal synovial or ganglion cysts", "Spine deformities", "Spine fractures and other spine injuries", "Spinal stenosis", "Spine tumors"]
+        }
+      ],
+      "facilities": ["By bringing together orthopedic experts and neurosurgeons, we offer our patients an advanced multidisciplinary approach to spine care.", "From tumors to injuries to less-common ailments such as scoliosis, our experienced physicians work hard to ensure that all patients receive high-quality, highly personalized care."],
+      "imageUrls": []
+    },
+    {
+      "name": "Obstetrics & Gynaecology Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "title": "Services Are Offered:",
+            "content": ["Pre-Pregnancy Counseling", "Regular Antenatal Care", "Care of High Risk Pregnancies"]
+        },
+        {
+            "title": "Well Woman Clinic for All Age Groups, Including:",
+            "content": ["Breast exam", "Pelvic exam", "Screening for genital infections", "PAP Smear", "Colposcopy", "Ultrasound for pelvis", "Ultrasound for breasts", "Family planning", "Contraceptive advice", "Treatment of common gynecological infections", "Advanced & Innovative Technology Under One Roof", "Evaluation of menstrual irregularities by hormonal assessment", "Ultrasound and diagnostic laparoscopy", "Evaluation of infertile couples by Semen analysis", "HSG", "Hormonal Assay", "Diagnostic laparoscopy and chromopertubation", "Induction of ovulation", "Treatment of peri and postmenopausal conditions i.e. Hormone Replacement Therapy, prevention of osteoporosis", "IUCD insertion and removal, etc."]
+        }
+      ],
+      "facilities": ["The Obstetrics and Gynecology department is specialized in antenatal care of expectant mothers, gynecological problems, problems associated with menarche and menopause, infertility, loop insertion and removal, etc.", "An experienced team of doctors handle normal and operative deliveries.", "They perform surgeries like hysterectomy, ovarian cystectomy, surgery for ectopic pregnancy, tubal ligation, D & C, cervical biopsy, excision of vulval or vaginal cysts, colpoperineorrhaphy, etc."],
+      "imageUrls": []
+    },
+    {
+      "name": "Pediatric Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["We are providing expert care for pediatric cases, such as:"]
+        },
+        {
+            "content": ["Hernia", "Circumcisions", "Hemangiomas", "Bowel obstruction", "Gastrostomy", "Thyroid and Parathyroid Surgery", "Gallbladder surgery", "Pediatric Urology – Undescended testis, hypospadias, posterior urethral valve, pyeloplasty, Ureteric Reflux surgery, exstrophy", "Laparoscopy – Appendectomy, cholecystectomy, splenectomy, fundoplication, hernia, undescended testis."]
+        }
+      ],
+      "facilities": ["High-quality care is provided to children with all kinds of surgical illnesses inclusive of birth defects.", "Counseling for best management is also extended to parents with antenatally diagnosed surgical illnesses in their fetuses."],
+      "imageUrls": []
+    },
+    {
+      "name": "Vascular Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["The Vascular surgery division provides services for patients with different types of peripheral vascular disorders including the diagnosis and management of poor blood circulation to the legs, carotid artery disease, and abdominal aortic aneurysms."]
+        },
+        {
+            "content": ["Our team is equipped with cutting-edge technology which provides the latest treatment techniques for all patients with varicose veins and chronic venous insufficiency.", "Acting in close cooperation with the nephrology and dialysis Unit."]
+        },
+        {
+            "content": ["The vascular surgery center provides the highest quality of medical services."]
+        },
+        {
+            "content": ["Our staff provides a full scope of dialysis access procedures for patients with the end-stage renal disease."]
+        },
+        {
+            "content": ["The new technology of catheter-based interventions (minimally invasive endovascular procedures) can be offered to patients with peripheral vascular disease in Cath Lab."]
+        },
+        {
+            "title": "Services:", 
+            "content": ["Non-Invasive Testing for Vascular Disease (e.g., duplex ultrasound, ABI, segmental pressure study).", "Angiography (invasive imaging procedure for peripheral vascular disease).", "Endovenous laser treatment of Varicose Veins and Sclerotherapy of Spider Veins.", "Bypass Surgery for peripheral vascular disease (e.g., Claudication and Gangrene).", "Carotid endarterectomy for carotid disease and stroke prevention.", "Peripheral angioplasty and stenting (endovascular treatment of peripheral vascular disease).", "AV Fistula creation and permanent catheters placement for Hemodialysis access.", "Vena Cava Filters placement for pulmonary embolism prevention.", "Port catheters insertion for chemotherapy administration.", "Wound care – diabetic foot, chronic and non-healing wounds.", "DVT and Anticoagulation Management"]
+        }
+      ],
+      "facilities": ["The Vascular surgery division provides services for patients with different types of peripheral vascular disorders including the diagnosis and management of poor blood circulation to the legs, carotid artery disease, and abdominal aortic aneurysms."],
+      "imageUrls": []
+    },
+    {
+      "name": "Cancer Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Our Experts Deal With:"]
+        },
+        {
+            "content": ["Surgical Correction of Cancer", "Cancer Prevention", "Diagnosis", "Primary Treatment", "Relieving Symptoms or Side Effects"]
+        }
+      ],
+      "facilities": [],
+      "imageUrls": []
+    },
+    {
+      "name": "Transplant Surgeries",
+      "type": "surgical",
+      "description": "",
+      "services": [],
+      "facilities": ["Our transplant teams include physicians, surgeons, nurse practitioners and nurse coordinators, pharmacists, nutritionists, social workers, and support staff.", "They specialize in caring for transplant patients and guiding them through the transplant process, from the initial consultation through surgery and beyond."],
+      "imageUrls": []
+    },
+    {
+      "name": "Bariatric Surgery",
+      "type": "surgical",
+      "description": "",
+      "services": [
+        {
+            "content": ["Weight gain is a major issue in this modern world due to our food patterns and lifestyle.", "Many people are struggling with weight gain and trying a lot of various treatments.", "Our Bariatric Surgery Department is manned by an expert team of Gastro, General, Plastic and Vascular Surgeons.", "Also, we have an experienced Anesthesia team for handling such critical cases.", "We also have a modern major operation theatre to handle such cases, which is fully equipped with advanced surgical instruments."]
+        }
+      ],
+      "facilities": ["We are dealing with advanced surgical care (Bariatric Surgery) to treat weight gain.", "In this treatment, weight loss is achieved by reducing the size of the stomach with a gastric band.", "It can also be done through removal of a portion of the stomach (sleeve gastrectomy or biliopancreatic diversion with duodenal switch).", "Or by resecting and re-routing the small intestine to a small stomach pouch (gastric bypass surgery)."],
+      "imageUrls": []
+    }
+  ]
+}

@@ -16,6 +16,11 @@ export interface Doctor {
      * Example: ["uroflow-studies", "dialysis-services"]
      */
     facilitySlugs?: string[]
+    /**
+     * Specialties (by slug) this doctor is associated with.
+     * Example: ["general-medicine", "cardiology"]
+     */
+    specialtySlugs?: string[]
     photo: {
       fields: {
         file: {
@@ -141,14 +146,40 @@ export interface Specialty {
   fields: {
     name: string // Display name (e.g., "General Medicine")
     slug: string // URL-friendly slug (e.g., "general-medicine")
-    type: 'medical' | 'surgical' // Specialty type
+    type: 'medical' | 'surgical' // Specialty type (category)
     description: string // Full description
-    shortDescription?: string // Brief description for cards
-    icon?: ContentfulAsset // Specialty icon
-    doctors?: string[] // Array of doctor IDs (references)
-    services?: string[] // List of services offered
+    icon: {
+      fields: {
+        file: {
+          url: string
+        }
+        title: string
+      }
+    }
+    images: Array<{
+      fields: {
+        file: {
+          url: string
+        }
+        title?: string // Optional image title
+      }
+    }>
+    services?: Array<{
+      title?: string // Optional service title
+      images?: Array<{
+        fields: {
+          file: {
+            url: string
+          }
+          title?: string // Optional image title
+        }
+      }> // Optional service images (can be single or multiple)
+      content?: string | string[] // Optional service description/content (can be string or array of strings)
+    }> | string[] // Can be array of objects or strings (for backward compatibility)
+    facilities?: string[] // Facilities of the specialty
+    hod?: string // Head of Department name (will be matched with Doctor content type)
+    hodSectionTitle?: string // Optional custom title for the doctors/HOD section (defaults to "Head of Department")
     order?: number // For sorting within type
-    active?: boolean // Whether specialty is currently active
   }
 }
 

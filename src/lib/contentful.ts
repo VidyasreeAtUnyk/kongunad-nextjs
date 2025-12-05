@@ -119,7 +119,7 @@ export async function getFacilityCategories() {
 export async function getSpecialties(type?: 'medical' | 'surgical', limit?: number) {
   const client = getClient()
   const query: any = {
-    content_type: 'specialty',
+    content_type: 'speciality',
     limit: limit || 100,
     order: ['fields.order'],
   }
@@ -142,25 +142,92 @@ export function getSpecialtiesCached(type?: 'medical' | 'surgical', limit?: numb
   )()
 }
 
-export async function getSpecialtyByTypeAndSlug(type: 'medical' | 'surgical', slug: string) {
+// Helper to convert type to URL slug
+function typeToSlug(type: 'medical' | 'surgical'): string {
+  return type === 'medical' ? 'medical-specialties' : 'surgical-specialties'
+}
+
+// Helper to convert URL slug to type
+function slugToType(slug: string): 'medical' | 'surgical' | null {
+  if (slug === 'medical-specialties' || slug === 'medical') return 'medical'
+  if (slug === 'surgical-specialties' || slug === 'surgical') return 'surgical'
+  return null
+}
+
+// Get specialties by type (accepts both 'medical'/'surgical' or 'medical-specialties'/'surgical-specialties')
+export async function getSpecialtiesByType(typeSlug: string) {
   const client = getClient()
+  const type = slugToType(typeSlug)
+  
+  if (!type) {
+    return []
+  }
+  
   const entries = await client.getEntries({
-    content_type: 'specialty',
+    content_type: 'speciality',
+    'fields.type': type,
+    limit: 100,
+    order: ['fields.order'],
+  })
+  return entries.items
+}
+
+export function getSpecialtiesByTypeCached(typeSlug: string) {
+  return nextCache(
+    async () => {
+      return await getSpecialtiesByType(typeSlug)
+    },
+    ['contentful:specialties:type', typeSlug],
+    { revalidate: 300, tags: ['specialties', `specialties:${typeSlug}`] }
+  )()
+}
+
+// Get specialty by type slug and specialty slug
+export async function getSpecialtyByTypeAndSlug(typeSlug: string, slug: string) {
+  const client = getClient()
+  const type = slugToType(typeSlug)
+  
+  if (!type) {
+    return null
+  }
+  
+  const entries = await client.getEntries({
+    content_type: 'speciality',
     'fields.type': type,
     'fields.slug': slug,
     limit: 1,
+    include: 2,
   })
   return entries.items[0] || null
 }
 
-export function getSpecialtyByTypeAndSlugCached(type: 'medical' | 'surgical', slug: string) {
+export function getSpecialtyByTypeAndSlugCached(typeSlug: string, slug: string) {
   return nextCache(
     async () => {
-      return await getSpecialtyByTypeAndSlug(type, slug)
+      return await getSpecialtyByTypeAndSlug(typeSlug, slug)
     },
-    ['contentful:specialty', type, slug],
-    { revalidate: 300, tags: ['specialties', `specialties:${type}`, `specialty:${type}:${slug}`] }
+    ['contentful:speciality', typeSlug, slug],
+    { revalidate: 300, tags: ['specialties', `specialties:${typeSlug}`, `speciality:${typeSlug}:${slug}`] }
   )()
+}
+
+// Get specialty types (similar to facility categories)
+export async function getSpecialtyTypes() {
+  const specialties = await getSpecialtiesCached()
+  const types = new Map<string, { name: string; slug: string }>()
+  
+  specialties.forEach((speciality: any) => {
+    if (speciality.fields.type) {
+      const typeName = speciality.fields.type === 'medical' ? 'Medical Specialties' : 'Surgical Specialties'
+      const typeSlug = typeToSlug(speciality.fields.type)
+      types.set(typeSlug, {
+        name: typeName,
+        slug: typeSlug,
+      })
+    }
+  })
+  
+  return Array.from(types.values()).sort((a, b) => a.name.localeCompare(b.name))
 }
 
 export async function getHealthPackages(limit?: number) {
