@@ -348,6 +348,26 @@ export function getTestimonialsCached(limit?: number) {
   )()
 }
 
+// Cashless Treatment
+export async function getCashlessTreatment() {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'cashlessTreatment',
+    limit: 1,
+  })
+  return entries.items[0] || null
+}
+
+export function getCashlessTreatmentCached() {
+  return nextCache(
+    async () => {
+      return await getCashlessTreatment()
+    },
+    ['contentful:cashlessTreatment'],
+    { revalidate: 300, tags: ['cashlessTreatment'] }
+  )()
+}
+
 export async function getNavigation() {
   const client = getClient()
   const response = await client.getEntries({

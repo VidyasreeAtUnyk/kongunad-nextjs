@@ -199,6 +199,25 @@ export interface SpecialtyType {
   }
 }
 
+// Cashless Treatment (Singleton)
+export interface CashlessTreatment {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    heroTitle: string
+    heroDescription?: string
+    insuranceCompanies: string[] // List of empanelled insurance companies and TPAs
+    requiredDocuments: string[] // Required documents for private insurance
+    chiefMinisterSchemeDescription?: string // Description of Chief Minister Scheme
+    contactMobile?: string
+    contactPhone?: string
+    contactEmail?: string
+  }
+}
+
 export interface BuildingImage {
   sys: {
     id: string

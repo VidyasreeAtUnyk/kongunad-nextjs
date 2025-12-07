@@ -73,32 +73,62 @@ export default async function SpecialitiesPage() {
           <Paper
             elevation={0}
             sx={{
-              p: { xs: 4, md: 6 },
-              mb: 4,
-              borderRadius: 4,
+              p: { xs: 3, sm: 4, md: 6 },
+              mb: { xs: 4, md: 4 },
+              borderRadius: { xs: 2, md: 4 },
               background: 'linear-gradient(135deg, #ebf5ff 0%, #f0f7ff 100%)',
+              textAlign: 'center',
+              position: 'relative',
+              overflow: 'hidden',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: { xs: -30, md: -50 },
+                right: { xs: -30, md: -50 },
+                width: { xs: 120, md: 200 },
+                height: { xs: 120, md: 200 },
+                borderRadius: '50%',
+                background: 'rgba(25, 118, 210, 0.1)',
+                zIndex: 0,
+              },
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: { xs: -20, md: -30 },
+                left: { xs: -20, md: -30 },
+                width: { xs: 100, md: 150 },
+                height: { xs: 100, md: 150 },
+                borderRadius: '50%',
+                background: 'rgba(25, 118, 210, 0.08)',
+                zIndex: 0,
+              },
             }}
           >
-            <Typography 
-              variant="h1" 
-              color="primary" 
-              sx={{ 
-                fontWeight: 700, 
-                mb: 2,
-                fontSize: { xs: '2rem', md: '2.5rem' }
-              }}
-            >
-              Specialities
-            </Typography>
-            <Typography 
-              variant="h6" 
-              color="text.secondary" 
-              sx={{ 
-                fontSize: { xs: '1.1rem', md: '1.25rem' }
-              }}
-            >
-              Comprehensive medical and surgical specialties delivered by experienced specialists.
-            </Typography>
+            <Box sx={{ position: 'relative', zIndex: 1 }}>
+              <Typography 
+                variant="h1" 
+                color="primary" 
+                sx={{ 
+                  fontWeight: 700, 
+                  mb: { xs: 1.5, md: 2 },
+                  fontSize: { xs: '1.75rem', sm: '2.25rem', md: '2.5rem' }
+                }}
+              >
+                Specialities
+              </Typography>
+              <Typography 
+                variant="h6" 
+                color="text.secondary" 
+                sx={{ 
+                  fontSize: { xs: '0.95rem', sm: '1.125rem', md: '1.25rem' },
+                  lineHeight: 1.6,
+                  maxWidth: 800,
+                  mx: 'auto',
+                }}
+              >
+                Comprehensive medical and surgical specialties delivered by experienced specialists.
+              </Typography>
+            </Box>
           </Paper>
 
           {/* Types Grid - 2 cards per row */}
