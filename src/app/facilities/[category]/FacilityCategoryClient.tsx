@@ -8,9 +8,6 @@ import {
   TextField,
   InputAdornment,
   Paper,
-  Grid,
-  Card,
-  CardContent,
   Chip,
   Link,
 } from '@mui/material'
@@ -108,13 +105,24 @@ export const FacilityCategoryClient: React.FC<FacilityCategoryClientProps> = ({
         </Typography>
 
         {/* Facilities Grid - 4 columns */}
-        <Grid container spacing={3} sx={{ mb: 6 }}>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            },
+            gap: 3,
+            mb: 6,
+          }}
+        >
           {filteredFacilities.map((facility) => (
-            <Grid item xs={12} sm={6} md={3} key={facility.sys.id}>
+            <Box key={facility.sys.id}>
               <FacilityCard facility={facility} />
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
 
         {filteredFacilities.length === 0 && (
           <Box sx={{ textAlign: 'center', py: 8 }}>

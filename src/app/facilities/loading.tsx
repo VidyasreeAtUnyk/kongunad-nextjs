@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Skeleton, Paper, Grid, Card, CardContent } from '@mui/material'
+import { Box, Container, Skeleton, Paper, Card, CardContent } from '@mui/material'
 
 export default function FacilitiesLoading() {
   return (
@@ -22,20 +22,29 @@ export default function FacilitiesLoading() {
           <Skeleton variant="text" width="80%" height={32} />
         </Paper>
 
-        <Grid container spacing={3} sx={{ mb: 6 }}>
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <Grid item xs={12} sm={6} md={4} key={i}>
-              <Card>
-                <CardContent sx={{ p: 3 }}>
-                  <Skeleton variant="rectangular" width={60} height={60} sx={{ mb: 2, mx: 'auto', borderRadius: 1 }} />
-                  <Skeleton variant="text" width="80%" height={32} sx={{ mb: 1, mx: 'auto' }} />
-                  <Skeleton variant="text" width="100%" height={24} sx={{ mb: 2 }} />
-                  <Skeleton variant="text" width="60%" height={20} sx={{ mx: 'auto' }} />
-                </CardContent>
-              </Card>
-            </Grid>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            },
+            gap: 3,
+            mb: 6,
+          }}
+        >
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <Card key={i}>
+              <CardContent sx={{ p: 3 }}>
+                <Skeleton variant="rectangular" width={60} height={60} sx={{ mb: 2, mx: 'auto', borderRadius: 1 }} />
+                <Skeleton variant="text" width="80%" height={32} sx={{ mb: 1, mx: 'auto' }} />
+                <Skeleton variant="text" width="100%" height={24} sx={{ mb: 2 }} />
+                <Skeleton variant="text" width="60%" height={20} sx={{ mx: 'auto' }} />
+              </CardContent>
+            </Card>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   )

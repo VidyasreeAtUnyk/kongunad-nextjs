@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material'
-import React from 'react'
+import React, { useMemo, useCallback } from 'react'
 import { maxWidth } from '@/lib/constants'
+import { OfferErrorBoundary } from './OfferErrorBoundary'
 
 interface OfferItemType {
     title: string
@@ -11,12 +12,14 @@ interface OfferProps {
     lists: OfferItemType[]
 }
 
-export const Offer: React.FC<OfferProps> = ({ lists }) => {
-    // Don't render if no offers
-    if (!lists || lists.length === 0) return null
+// Memoized Offer Item Component
+const OfferItem: React.FC<{ item: OfferItemType; index: number; isLast: boolean }> = React.memo(({ item, index, isLast }) => {
+    if (!item || !item.title) {
+        console.warn('Invalid offer item:', item)
+        return null
+    }
 
-    // Create a reusable offer item component
-    const OfferItem = ({ item, index, isLast }: { item: OfferItemType; index: number; isLast: boolean }) => (
+    return (
         <Typography
             variant="body1"
             sx={{
@@ -55,9 +58,34 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
             )}
         </Typography>
     )
+}, (prevProps, nextProps) => {
+    return prevProps.item.title === nextProps.item.title &&
+           prevProps.item.flash === nextProps.item.flash &&
+           prevProps.index === nextProps.index &&
+           prevProps.isLast === nextProps.isLast
+})
 
-    // Create marquee content with multiple sets for seamless looping
-    const createMarqueeSets = () => {
+OfferItem.displayName = 'OfferItem'
+
+export const Offer: React.FC<OfferProps> = ({ lists }) => {
+    // Validate and filter lists
+    const validLists = useMemo(() => {
+        if (!Array.isArray(lists)) {
+            console.warn('Offer lists is not an array:', lists)
+            return []
+        }
+        return lists.filter((item): item is OfferItemType => {
+            if (!item || typeof item !== 'object') return false
+            if (!item.title || typeof item.title !== 'string') return false
+            return true
+        })
+    }, [lists])
+
+    // Don't render if no valid offers
+    if (!validLists || validLists.length === 0) return null
+
+    // Create marquee content with multiple sets for seamless looping - memoized
+    const createMarqueeSets = useCallback(() => {
         const sets = []
         // Create 3 sets for smooth infinite scroll
         for (let setIndex = 0; setIndex < 3; setIndex++) {
@@ -72,12 +100,12 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
                     >
                         EXCLUSIVE OFFERS:
                     </Typography>
-                    {lists.map((item, index) => (
+                    {validLists.map((item, index) => (
                         <OfferItem 
                             key={`${setIndex}-${index}`}
                             item={item} 
                             index={index} 
-                            isLast={index === lists.length - 1} 
+                            isLast={index === validLists.length - 1} 
                         />
                     ))}
                 </Box>
@@ -91,9 +119,12 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
             }
         }
         return sets
-    }
+    }, [validLists])
+
+    const marqueeSets = useMemo(() => createMarqueeSets(), [createMarqueeSets])
 
     return (
+        <OfferErrorBoundary>
         <Box
             sx={{
                 backgroundColor: 'info.light',
@@ -125,12 +156,12 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
                     >
                         EXCLUSIVE OFFERS:
                     </Typography>
-                    {lists.map((item, index) => (
+                    {validLists.map((item, index) => (
                         <OfferItem 
-                            key={index}
+                            key={`desktop-${index}-${item.title}`}
                             item={item} 
                             index={index} 
-                            isLast={index === lists.length - 1} 
+                            isLast={index === validLists.length - 1} 
                         />
                     ))}
                 </Box>
@@ -145,23 +176,27 @@ export const Offer: React.FC<OfferProps> = ({ lists }) => {
                         overflow: 'hidden',
                     },
                 }}>
-                    <Box sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        animation: 'marquee 20s linear infinite',
-                        '@keyframes marquee': {
-                            '0%': {
-                                transform: 'translateX(0%)',
+                    <Box 
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            animation: 'marquee 20s linear infinite',
+                            willChange: 'transform',
+                            '@keyframes marquee': {
+                                '0%': {
+                                    transform: 'translateX(0%)',
+                                },
+                                '100%': {
+                                    transform: 'translateX(-33.333%)', // Move by 1/3 since we have 3 sets
+                                },
                             },
-                            '100%': {
-                                transform: 'translateX(-33.333%)', // Move by 1/3 since we have 3 sets
-                            },
-                        },
-                    }}>
-                        {createMarqueeSets()}
+                        }}
+                    >
+                        {marqueeSets}
                     </Box>
                 </Box>
             </Box>
         </Box>
+        </OfferErrorBoundary>
     )
 }

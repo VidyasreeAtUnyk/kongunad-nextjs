@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import {
   Box,
   Container,
@@ -26,10 +26,12 @@ const LogoWithSkeleton: React.FC<{
   width: number
   height: number
   preserveAspectRatio?: boolean
-}> = ({ src, alt, width, height, preserveAspectRatio = false }) => {
-  if (!src) {
+}> = React.memo(({ src, alt, width, height, preserveAspectRatio = false }) => {
+  const [imageError, setImageError] = useState(false)
+
+  if (!src || imageError) {
     // Reserve space even if no image
-    return <Box sx={{ width, height, flexShrink: 0 }} />
+    return <Box sx={{ width, height, flexShrink: 0 }} aria-label={alt} />
   }
 
   return (
@@ -49,6 +51,7 @@ const LogoWithSkeleton: React.FC<{
         alt={alt}
         loading="eager"
         fetchPriority="high"
+        onError={() => setImageError(true)}
         style={{
           width: preserveAspectRatio ? 'auto' : '100%',
           height: '100%',
@@ -58,7 +61,15 @@ const LogoWithSkeleton: React.FC<{
       />
     </Box>
   )
-}
+}, (prevProps, nextProps) => {
+  return prevProps.src === nextProps.src &&
+         prevProps.alt === nextProps.alt &&
+         prevProps.width === nextProps.width &&
+         prevProps.height === nextProps.height &&
+         prevProps.preserveAspectRatio === nextProps.preserveAspectRatio
+})
+
+LogoWithSkeleton.displayName = 'LogoWithSkeleton'
 
 const normalizePath = (href?: string | null): string | undefined => {
   if (!href) return href as any
@@ -80,7 +91,7 @@ interface NavigationClientProps {
   currentPage?: string
 }
 
-export const NavigationClient: React.FC<NavigationClientProps> = ({ 
+export const NavigationClient: React.FC<NavigationClientProps> = React.memo(({ 
   navigationData, 
   currentPage 
 }) => {
@@ -90,24 +101,34 @@ export const NavigationClient: React.FC<NavigationClientProps> = ({
   const [expandedDropdown, setExpandedDropdown] = useState<string | null>(null)
   const [expandedSubmenu, setExpandedSubmenu] = useState<string | null>(null)
 
-  const handleMobileToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
+  const handleMobileToggle = useCallback(() => {
+    setMobileOpen(prev => !prev)
+  }, [])
 
-  const handleDropdownToggle = (itemId: string) => {
-    setExpandedDropdown(expandedDropdown === itemId ? null : itemId)
-  }
+  const handleDropdownToggle = useCallback((itemId: string) => {
+    setExpandedDropdown(prev => prev === itemId ? null : itemId)
+  }, [])
 
-  const handleSubmenuToggle = (itemId: string) => {
-    setExpandedSubmenu(expandedSubmenu === itemId ? null : itemId)
-  }
+  const handleSubmenuToggle = useCallback((itemId: string) => {
+    setExpandedSubmenu(prev => prev === itemId ? null : itemId)
+  }, [])
 
-  // Group navigation data by type and position
-  const groupedNav = React.useMemo(() => {
+  // Group navigation data by type and position - memoized for performance
+  const groupedNav = useMemo(() => {
+    if (!Array.isArray(navigationData) || navigationData.length === 0) {
+      return {}
+    }
+
     const groups: Record<string, Navigation[]> = {}
     navigationData.forEach(nav => {
+      if (!nav?.fields?.type || !nav?.fields?.position) {
+        console.warn('Invalid navigation item missing type or position:', nav)
+        return
+      }
       const key = `${nav.fields.type}-${nav.fields.position}`
-      groups[key] = groups[key] || []
+      if (!groups[key]) {
+        groups[key] = []
+      }
       groups[key].push(nav)
     })
     return groups
@@ -167,50 +188,62 @@ export const NavigationClient: React.FC<NavigationClientProps> = ({
               <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 {/* Primary Left */}
                 <Box sx={{ display: 'flex', gap: 3.75 }}>
-                  {groupedNav['primary-left']?.[0]?.fields.items.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={normalizePath(item.linkTo)}
-                      sx={{
-                        color: 'white',
-                        fontSize: 12,
-                        lineHeight: '16px',
-                        textDecoration: 'none',
-                        '&:hover': {
-                          textDecoration: 'underline',
-                        },
-                        ...(currentPage === item.linkTo && {
-                          textDecoration: 'underline',
-                        }),
-                      }}
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
+                  {groupedNav['primary-left']?.[0]?.fields.items.map((item, index) => {
+                    const href = normalizePath(item.linkTo)
+                    const isExternal = isExternalUrl(href)
+                    return (
+                      <Link
+                        key={index}
+                        href={href}
+                        target={isExternal ? '_blank' : undefined}
+                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                        sx={{
+                          color: 'white',
+                          fontSize: 12,
+                          lineHeight: '16px',
+                          textDecoration: 'none',
+                          '&:hover': {
+                            textDecoration: 'underline',
+                          },
+                          ...(currentPage === item.linkTo && {
+                            textDecoration: 'underline',
+                          }),
+                        }}
+                      >
+                        {item.title}
+                      </Link>
+                    )
+                  })}
                 </Box>
 
                 {/* Primary Right */}
                 <Box sx={{ display: 'flex', gap: 3.75 }}>
-                  {groupedNav['primary-right']?.[0]?.fields.items.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={normalizePath(item.linkTo)}
-                      sx={{
-                        color: 'white',
-                        fontSize: 12,
-                        lineHeight: '16px',
-                        textDecoration: 'none',
-                        '&:hover': {
-                          textDecoration: 'underline',
-                        },
-                        ...(currentPage === item.linkTo && {
-                          textDecoration: 'underline',
-                        }),
-                      }}
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
+                  {groupedNav['primary-right']?.[0]?.fields.items.map((item, index) => {
+                    const href = normalizePath(item.linkTo)
+                    const isExternal = isExternalUrl(href)
+                    return (
+                      <Link
+                        key={index}
+                        href={href}
+                        target={isExternal ? '_blank' : undefined}
+                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                        sx={{
+                          color: 'white',
+                          fontSize: 12,
+                          lineHeight: '16px',
+                          textDecoration: 'none',
+                          '&:hover': {
+                            textDecoration: 'underline',
+                          },
+                          ...(currentPage === item.linkTo && {
+                            textDecoration: 'underline',
+                          }),
+                        }}
+                      >
+                        {item.title}
+                      </Link>
+                    )
+                  })}
                 </Box>
               </Box>
             </Container>
@@ -334,7 +367,22 @@ export const NavigationClient: React.FC<NavigationClientProps> = ({
       />
     </Box>
   )
-}
+}, (prevProps, nextProps) => {
+  // Custom comparison for memoization
+  if (prevProps.currentPage !== nextProps.currentPage) return false
+  if (prevProps.navigationData.length !== nextProps.navigationData.length) return false
+  
+  // Deep comparison of navigation data structure
+  return prevProps.navigationData.every((nav, index) => {
+    const nextNav = nextProps.navigationData[index]
+    if (!nextNav) return false
+    return nav.sys.id === nextNav.sys.id &&
+           nav.fields.type === nextNav.fields.type &&
+           nav.fields.position === nextNav.fields.position
+  })
+})
+
+NavigationClient.displayName = 'NavigationClient'
 
 // Desktop Navigation Item Component
 const NavigationItemComponent: React.FC<{
@@ -342,18 +390,28 @@ const NavigationItemComponent: React.FC<{
   currentPage?: string
   onDropdownToggle: (id: string) => void
   expandedDropdown: string | null
-}> = ({ item, currentPage, onDropdownToggle, expandedDropdown }) => {
+}> = React.memo(({ item, currentPage, onDropdownToggle, expandedDropdown }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const itemId = `${item.title}-${item.linkTo}`
+  const itemId = useMemo(() => `${item.title}-${item.linkTo}`, [item.title, item.linkTo])
+
+  const handleMouseEnter = useCallback(() => setIsHovered(true), [])
+  const handleMouseLeave = useCallback(() => setIsHovered(false), [])
+
+  if (!item || !item.title) {
+    console.warn('Invalid navigation item:', item)
+    return null
+  }
 
   return (
     <Box
       sx={{ position: 'relative' }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Link
         href={normalizePath(item.linkTo)}
+        target={isExternalUrl(item.linkTo) ? '_blank' : undefined}
+        rel={isExternalUrl(item.linkTo) ? 'noopener noreferrer' : undefined}
         sx={{
           color: 'text.primary',
           fontSize: 18,
@@ -392,51 +450,112 @@ const NavigationItemComponent: React.FC<{
           sx={{
             position: 'absolute',
             top: '100%',
-            left: 0,
             backgroundColor: 'white',
             boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
             borderRadius: 3,
             py: 2,
             px: 3,
-            width: 'min(1200px, 70vw)',
+            width: item.title === 'Specialities' 
+              ? 'min(800px, 60vw)' 
+              : 'min(1200px, 70vw)',
             maxWidth: 'calc(100vw - 40px)',
             zIndex: 1000,
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: 2,
-            transform: 'translateX(-70%)',
+            // Special layout for Specialities (2 items) vs Facilities (8 items)
+            gridTemplateColumns: item.title === 'Specialities' 
+              ? 'repeat(2, 1fr)' 
+              : 'repeat(4, 1fr)',
+            gap: item.title === 'Specialities' ? 4 : 2,
+            // For Specialities (near right edge), align to right edge of trigger
+            // For Facilities (more centered), use translateX
+            ...(item.title === 'Specialities' 
+              ? {
+                  right: 0,
+                  left: 'auto',
+                  transform: 'none',
+                }
+              : {
+                  left: 0,
+                  right: 'auto',
+                  transform: 'translateX(-70%)',
+                }
+            ),
+            // Ensure grid items don't overflow
+            gridAutoRows: 'min-content',
+            overflow: 'hidden',
             border: '1px solid',
             borderColor: 'divider',
           }}
         >
           {item.dropdown.map((dropdownItem, index) => (
-            <DesktopDropdownItem key={index} item={dropdownItem} />
+            <DesktopDropdownItem 
+              key={index} 
+              item={dropdownItem} 
+              isSpecialities={item.title === 'Specialities'}
+            />
           ))}
         </Box>
       )}
     </Box>
   )
+}, (prevProps, nextProps) => {
+  return prevProps.item.title === nextProps.item.title &&
+         prevProps.item.linkTo === nextProps.item.linkTo &&
+         prevProps.currentPage === nextProps.currentPage &&
+         prevProps.expandedDropdown === nextProps.expandedDropdown
+})
+
+NavigationItemComponent.displayName = 'NavigationItemComponent'
+
+// Helper to check if URL is external
+const isExternalUrl = (url?: string | null): boolean => {
+  if (!url) return false
+  return url.startsWith('http://') || url.startsWith('https://')
 }
 
 // Desktop Dropdown Item Component - 4-column grid layout
-const DesktopDropdownItem: React.FC<{ item: any }> = ({ item }) => {
+const DesktopDropdownItem: React.FC<{ item: any; isSpecialities?: boolean }> = React.memo(({ item, isSpecialities = false }) => {
+  const href = useMemo(() => normalizePath(item.to), [item.to])
+  const isExternal = useMemo(() => isExternalUrl(href), [href])
+
+  if (!item || !item.title) {
+    console.warn('Invalid dropdown item:', item)
+    return null
+  }
+
+  // For Specialities, organize sub-items in columns if there are many
+  const shouldUseColumns = isSpecialities && item.sec && item.sec.length > 10
+  const columnCount = shouldUseColumns ? 2 : 1
+
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      minWidth: 0, 
+      maxWidth: '100%',
+      overflow: 'hidden',
+      wordBreak: 'break-word',
+    }}>
       <Link
-        href={normalizePath(item.to)}
+        href={href}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
         sx={{
           color: 'text.primary',
           fontSize: 15,
           fontWeight: 700,
           textDecoration: 'none',
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           mb: item.sec && item.sec.length > 0 ? 0.5 : 0,
           py: item.sec && item.sec.length > 0 ? 0.75 : 0.25,
           px: 1,
           borderRadius: 1.5,
           backgroundColor: item.sec && item.sec.length > 0 ? 'grey.50' : 'transparent',
           transition: 'all 0.2s ease',
+          wordBreak: 'break-word',
+          overflowWrap: 'break-word',
+          hyphens: 'auto',
           '&:hover': {
             color: 'primary.main',
             backgroundColor: item.sec && item.sec.length > 0 ? 'grey.100' : 'grey.50',
@@ -447,51 +566,86 @@ const DesktopDropdownItem: React.FC<{ item: any }> = ({ item }) => {
           <img
             src={(item.icon as any).resolvedUrl}
             alt={item.iconAlt}
-            style={{ width: 18, height: 18, marginRight: 6 }}
+            style={{ width: 18, height: 18, marginRight: 6, flexShrink: 0, marginTop: 2 }}
           />
         )}
-        {item.title}
+        <Box component="span" sx={{ lineHeight: 1.4, minWidth: 0 }}>
+          {item.title}
+        </Box>
       </Link>
       
       {/* Show all submenu items directly below the main item */}
-          {item.sec && (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25, ml: 0.5 }}>
-          {item.sec.map((subItem: any, index: number) => (
-                <Link
-              key={index}
-                  href={normalizePath(subItem.to)}
-              sx={{
-                color: 'text.secondary',
-                fontSize: 13,
-                textDecoration: 'none',
-                display: 'block',
-                py: 0.25,
-                px: 1,
-                borderRadius: 1,
-                transition: 'all 0.2s ease',
-                '&:hover': {
-                  color: 'primary.main',
-                  backgroundColor: 'grey.50',
-                  px: 1.25,
-                },
-              }}
-            >
-              {subItem.title}
-            </Link>
-          ))}
+      {item.sec && (
+        <Box 
+          sx={{ 
+            display: shouldUseColumns ? 'grid' : 'flex',
+            gridTemplateColumns: shouldUseColumns ? 'repeat(2, 1fr)' : 'none',
+            flexDirection: shouldUseColumns ? 'row' : 'column',
+            gap: 0.25,
+            ml: 0.5,
+            columnGap: shouldUseColumns ? 2 : 0,
+          }}
+        >
+          {item.sec.map((subItem: any, index: number) => {
+            const subHref = normalizePath(subItem.to)
+            const subIsExternal = isExternalUrl(subHref)
+            return (
+              <Link
+                key={index}
+                href={subHref}
+                target={subIsExternal ? '_blank' : undefined}
+                rel={subIsExternal ? 'noopener noreferrer' : undefined}
+                sx={{
+                  color: 'text.secondary',
+                  fontSize: 13,
+                  textDecoration: 'none',
+                  display: 'block',
+                  py: 0.25,
+                  px: 1,
+                  borderRadius: 1,
+                  transition: 'all 0.2s ease',
+                  wordBreak: 'break-word',
+                  overflowWrap: 'break-word',
+                  hyphens: 'auto',
+                  lineHeight: 1.4,
+                  '&:hover': {
+                    color: 'primary.main',
+                    backgroundColor: 'grey.50',
+                    px: 1.25,
+                  },
+                }}
+              >
+                {subItem.title}
+              </Link>
+            )
+          })}
         </Box>
       )}
     </Box>
   )
-}
+}, (prevProps, nextProps) => {
+  return prevProps.item.title === nextProps.item.title &&
+         prevProps.item.to === nextProps.item.to &&
+         prevProps.isSpecialities === nextProps.isSpecialities
+})
+
+DesktopDropdownItem.displayName = 'DesktopDropdownItem'
 
 // Mobile Navigation Item Component (LinkAndDropdown equivalent)
 const MobileNavigationItem: React.FC<{
   item: NavigationItem
   currentPage?: string
   isLast: boolean
-}> = ({ item, currentPage, isLast }) => {
+}> = React.memo(({ item, currentPage, isLast }) => {
   const [showSubmenu, setShowSubmenu] = useState(false)
+
+  const handleShowSubmenu = useCallback(() => setShowSubmenu(true), [])
+  const handleHideSubmenu = useCallback(() => setShowSubmenu(false), [])
+
+  if (!item || !item.title) {
+    console.warn('Invalid mobile navigation item:', item)
+    return null
+  }
 
   return (
     <>
@@ -500,6 +654,8 @@ const MobileNavigationItem: React.FC<{
         <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
           <Link
             href={item.linkTo}
+            target={isExternalUrl(item.linkTo) ? '_blank' : undefined}
+            rel={isExternalUrl(item.linkTo) ? 'noopener noreferrer' : undefined}
             sx={{
               color: 'primary.main',
               fontSize: 18,
@@ -534,7 +690,8 @@ const MobileNavigationItem: React.FC<{
 
           {item.hasDropdown && (
             <IconButton
-              onClick={() => setShowSubmenu(true)}
+              onClick={handleShowSubmenu}
+              aria-label={`Open ${item.title} submenu`}
               sx={{
                 backgroundColor: 'divider',
                 color: 'primary.main',
@@ -582,7 +739,8 @@ const MobileNavigationItem: React.FC<{
             {/* Back Button */}
             <Box sx={{ mb: 1 }}>
               <IconButton
-                onClick={() => setShowSubmenu(false)}
+                onClick={handleHideSubmenu}
+                aria-label="Back to main menu"
                 sx={{
                   color: 'primary.main',
                   p: 0,
@@ -613,11 +771,27 @@ const MobileNavigationItem: React.FC<{
         )}
     </>
   )
-}
+}, (prevProps, nextProps) => {
+  return prevProps.item.title === nextProps.item.title &&
+         prevProps.item.linkTo === nextProps.item.linkTo &&
+         prevProps.currentPage === nextProps.currentPage &&
+         prevProps.isLast === nextProps.isLast
+})
+
+MobileNavigationItem.displayName = 'MobileNavigationItem'
 
 // Mobile Dropdown Item Component
-const MobileDropdownItem: React.FC<{ item: any }> = ({ item }) => {
+const MobileDropdownItem: React.FC<{ item: any }> = React.memo(({ item }) => {
   const [showTertiary, setShowTertiary] = useState(false)
+
+  const handleToggleTertiary = useCallback(() => {
+    setShowTertiary(prev => !prev)
+  }, [])
+
+  if (!item || !item.title) {
+    console.warn('Invalid mobile dropdown item:', item)
+    return null
+  }
 
   return (
     <>
@@ -625,6 +799,8 @@ const MobileDropdownItem: React.FC<{ item: any }> = ({ item }) => {
         <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', position: 'relative', paddingRight: 4.5 }}>
           <Link
             href={item.to}
+            target={isExternalUrl(item.to) ? '_blank' : undefined}
+            rel={isExternalUrl(item.to) ? 'noopener noreferrer' : undefined}
             sx={{
               color: 'primary.main',
               fontSize: 18,
@@ -646,7 +822,9 @@ const MobileDropdownItem: React.FC<{ item: any }> = ({ item }) => {
 
           {item.sec && (
             <IconButton
-              onClick={() => setShowTertiary(!showTertiary)}
+              onClick={handleToggleTertiary}
+              aria-label={`Toggle ${item.title} submenu`}
+              aria-expanded={showTertiary}
               sx={{
                 backgroundColor: 'divider',
                 color: 'primary.main',
@@ -685,26 +863,37 @@ const MobileDropdownItem: React.FC<{ item: any }> = ({ item }) => {
               transition: 'all 0.3s ease-in',
             }}
           >
-            {item.sec.map((secItem: any, index: number) => (
-              <Link
-                key={index}
-                href={secItem.to}
-                sx={{
-                  color: 'primary.main',
-                  textDecoration: 'none',
-                  cursor: 'pointer',
-                  fontSize: 16,
-                  '&:hover': {
-                    color: 'secondary.main',
-                  },
-                }}
-              >
-                {secItem.title}
-              </Link>
-            ))}
+            {item.sec.map((secItem: any, index: number) => {
+              const secHref = normalizePath(secItem.to)
+              const secIsExternal = isExternalUrl(secHref)
+              return (
+                <Link
+                  key={index}
+                  href={secHref}
+                  target={secIsExternal ? '_blank' : undefined}
+                  rel={secIsExternal ? 'noopener noreferrer' : undefined}
+                  sx={{
+                    color: 'primary.main',
+                    textDecoration: 'none',
+                    cursor: 'pointer',
+                    fontSize: 16,
+                    '&:hover': {
+                      color: 'secondary.main',
+                    },
+                  }}
+                >
+                  {secItem.title}
+                </Link>
+              )
+            })}
           </Box>
         )}
       </Box>
     </>
   )
-}
+}, (prevProps, nextProps) => {
+  return prevProps.item.title === nextProps.item.title &&
+         prevProps.item.to === nextProps.item.to
+})
+
+MobileDropdownItem.displayName = 'MobileDropdownItem'

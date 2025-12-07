@@ -28,7 +28,7 @@
             },
             {
               "title": "Education Institution",
-              "linkTo": "/education-institution/"
+              "linkTo": "https://www.kongunaducollege.com/"
             }
           ]
         }
@@ -63,6 +63,201 @@
             {
               "title": "Find a Doctor",
               "linkTo": "/find-a-doctor/"
+            },
+            {
+              "title": "Specialities",
+              "linkTo": "/specialities/",
+              "hasDropdown": true,
+              "dropdown": [
+                {
+                  "title": "Medical Specialties",
+                  "to": "/specialities/medical-specialties/",
+                  "iconAlt": "Medical Specialties",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "General Medicine",
+                      "to": "/specialities/medical-specialties/general-medicine/"
+                    },
+                    {
+                      "title": "Critical Care Medicine",
+                      "to": "/specialities/medical-specialties/critical-care-medicine/"
+                    },
+                    {
+                      "title": "Emergency Medicine",
+                      "to": "/specialities/medical-specialties/emergency-medicine/"
+                    },
+                    {
+                      "title": "Neurology",
+                      "to": "/specialities/medical-specialties/neurology/"
+                    },
+                    {
+                      "title": "Dental",
+                      "to": "/specialities/medical-specialties/dental/"
+                    },
+                    {
+                      "title": "Cardiology",
+                      "to": "/specialities/medical-specialties/cardiology/"
+                    },
+                    {
+                      "title": "Nephrology",
+                      "to": "/specialities/medical-specialties/nephrology/"
+                    },
+                    {
+                      "title": "Hepatology",
+                      "to": "/specialities/medical-specialties/hepatology/"
+                    },
+                    {
+                      "title": "Medical Gastro Enterology",
+                      "to": "/specialities/medical-specialties/medical-gastro-enterology/"
+                    },
+                    {
+                      "title": "Respiratory Medicine",
+                      "to": "/specialities/medical-specialties/respiratory-medicine/"
+                    },
+                    {
+                      "title": "Rheumatology",
+                      "to": "/specialities/medical-specialties/rheumatology/"
+                    },
+                    {
+                      "title": "Oncology",
+                      "to": "/specialities/medical-specialties/oncology/"
+                    },
+                    {
+                      "title": "Pediatrics",
+                      "to": "/specialities/medical-specialties/pediatrics/"
+                    },
+                    {
+                      "title": "Dermatology",
+                      "to": "/specialities/medical-specialties/dermatology/"
+                    },
+                    {
+                      "title": "Psychology",
+                      "to": "/specialities/medical-specialties/psychology/"
+                    },
+                    {
+                      "title": "Diabetology",
+                      "to": "/specialities/medical-specialties/diabetology/"
+                    },
+                    {
+                      "title": "Radiology",
+                      "to": "/specialities/medical-specialties/radiology/"
+                    },
+                    {
+                      "title": "Hematology",
+                      "to": "/specialities/medical-specialties/hematology/"
+                    },
+                    {
+                      "title": "Pathology",
+                      "to": "/specialities/medical-specialties/pathology/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Surgical Specialties",
+                  "to": "/specialities/surgical-specialties/",
+                  "iconAlt": "Surgical Specialties",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Plastic Surgeries",
+                      "to": "/specialities/surgical-specialties/plastic-surgeries/"
+                    },
+                    {
+                      "title": "General & Laparoscopy Surgery",
+                      "to": "/specialities/surgical-specialties/general-laparoscopy-surgery/"
+                    },
+                    {
+                      "title": "Anesthesiology",
+                      "to": "/specialities/surgical-specialties/anesthesiology/"
+                    },
+                    {
+                      "title": "Neuro Surgery",
+                      "to": "/specialities/surgical-specialties/neuro-surgery/"
+                    },
+                    {
+                      "title": "Eye Surgery",
+                      "to": "/specialities/surgical-specialties/eye-surgery/"
+                    },
+                    {
+                      "title": "ENT Surgery",
+                      "to": "/specialities/surgical-specialties/ent-surgery/"
+                    },
+                    {
+                      "title": "Dental & Facio Maxillary Surgery",
+                      "to": "/specialities/surgical-specialties/dental-facio-maxillary-surgery/"
+                    },
+                    {
+                      "title": "Endocrine Surgeries",
+                      "to": "/specialities/surgical-specialties/endocrine-surgeries/"
+                    },
+                    {
+                      "title": "Cardio Thoracic Surgery",
+                      "to": "/specialities/surgical-specialties/cardio-thoracic-surgery/"
+                    },
+                    {
+                      "title": "Interventional Cardiology",
+                      "to": "/specialities/surgical-specialties/interventional-cardiology/"
+                    },
+                    {
+                      "title": "Surgical Gastro Enterology",
+                      "to": "/specialities/surgical-specialties/surgical-gastro-enterology/"
+                    },
+                    {
+                      "title": "Hepato Biliary Surgeries",
+                      "to": "/specialities/surgical-specialties/hepato-biliary-surgeries/"
+                    },
+                    {
+                      "title": "Genito Urinary Surgery",
+                      "to": "/specialities/surgical-specialties/genito-urinary-surgery/"
+                    },
+                    {
+                      "title": "Orthopedic Surgeries",
+                      "to": "/specialities/surgical-specialties/orthopedic-surgeries/"
+                    },
+                    {
+                      "title": "Spine Surgeries",
+                      "to": "/specialities/surgical-specialties/spine-surgeries/"
+                    },
+                    {
+                      "title": "Obstetrics & Gynaecology Surgeries",
+                      "to": "/specialities/surgical-specialties/obstetrics-gynaecology-surgeries/"
+                    },
+                    {
+                      "title": "Pediatric Surgeries",
+                      "to": "/specialities/surgical-specialties/pediatric-surgeries/"
+                    },
+                    {
+                      "title": "Vascular Surgeries",
+                      "to": "/specialities/surgical-specialties/vascular-surgeries/"
+                    },
+                    {
+                      "title": "Cancer Surgeries",
+                      "to": "/specialities/surgical-specialties/cancer-surgeries/"
+                    },
+                    {
+                      "title": "Transplant Surgeries",
+                      "to": "/specialities/surgical-specialties/transplant-surgeries/"
+                    },
+                    {
+                      "title": "Bariatric Surgery",
+                      "to": "/specialities/surgical-specialties/bariatric-surgery/"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "title": "Cashless Treatment",
@@ -425,7 +620,7 @@
                   "sec": [
                     {
                       "title": "Main opd",
-                      "to": "/facilities/out-patient-services/main-opd"
+                      "to": "/facilities/out-patient-services/main-opd/"
                     },
                     {
                       "title": "Emergency OPD (Casualty)",
@@ -525,11 +720,202 @@
             },
             {
               "title": "Specialities",
-              "linkTo": "/specialities/"
+              "linkTo": "/specialities/",
+              "hasDropdown": true,
+              "dropdown": [
+                {
+                  "title": "Medical Specialties",
+                  "to": "/specialities/medical-specialties/",
+                  "iconAlt": "Medical Specialties",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "General Medicine",
+                      "to": "/specialities/medical-specialties/general-medicine/"
+                    },
+                    {
+                      "title": "Critical Care Medicine",
+                      "to": "/specialities/medical-specialties/critical-care-medicine/"
+                    },
+                    {
+                      "title": "Emergency Medicine",
+                      "to": "/specialities/medical-specialties/emergency-medicine/"
+                    },
+                    {
+                      "title": "Neurology",
+                      "to": "/specialities/medical-specialties/neurology/"
+                    },
+                    {
+                      "title": "Dental",
+                      "to": "/specialities/medical-specialties/dental/"
+                    },
+                    {
+                      "title": "Cardiology",
+                      "to": "/specialities/medical-specialties/cardiology/"
+                    },
+                    {
+                      "title": "Nephrology",
+                      "to": "/specialities/medical-specialties/nephrology/"
+                    },
+                    {
+                      "title": "Hepatology",
+                      "to": "/specialities/medical-specialties/hepatology/"
+                    },
+                    {
+                      "title": "Medical Gastro Enterology",
+                      "to": "/specialities/medical-specialties/medical-gastro-enterology/"
+                    },
+                    {
+                      "title": "Respiratory Medicine",
+                      "to": "/specialities/medical-specialties/respiratory-medicine/"
+                    },
+                    {
+                      "title": "Rheumatology",
+                      "to": "/specialities/medical-specialties/rheumatology/"
+                    },
+                    {
+                      "title": "Oncology",
+                      "to": "/specialities/medical-specialties/oncology/"
+                    },
+                    {
+                      "title": "Pediatrics",
+                      "to": "/specialities/medical-specialties/pediatrics/"
+                    },
+                    {
+                      "title": "Dermatology",
+                      "to": "/specialities/medical-specialties/dermatology/"
+                    },
+                    {
+                      "title": "Psychology",
+                      "to": "/specialities/medical-specialties/psychology/"
+                    },
+                    {
+                      "title": "Diabetology",
+                      "to": "/specialities/medical-specialties/diabetology/"
+                    },
+                    {
+                      "title": "Radiology",
+                      "to": "/specialities/medical-specialties/radiology/"
+                    },
+                    {
+                      "title": "Hematology",
+                      "to": "/specialities/medical-specialties/hematology/"
+                    },
+                    {
+                      "title": "Pathology",
+                      "to": "/specialities/medical-specialties/pathology/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Surgical Specialties",
+                  "to": "/specialities/surgical-specialties/",
+                  "iconAlt": "Surgical Specialties",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Plastic Surgeries",
+                      "to": "/specialities/surgical-specialties/plastic-surgeries/"
+                    },
+                    {
+                      "title": "General & Laparoscopy Surgery",
+                      "to": "/specialities/surgical-specialties/general-laparoscopy-surgery/"
+                    },
+                    {
+                      "title": "Anesthesiology",
+                      "to": "/specialities/surgical-specialties/anesthesiology/"
+                    },
+                    {
+                      "title": "Neuro Surgery",
+                      "to": "/specialities/surgical-specialties/neuro-surgery/"
+                    },
+                    {
+                      "title": "Eye Surgery",
+                      "to": "/specialities/surgical-specialties/eye-surgery/"
+                    },
+                    {
+                      "title": "ENT Surgery",
+                      "to": "/specialities/surgical-specialties/ent-surgery/"
+                    },
+                    {
+                      "title": "Dental & Facio Maxillary Surgery",
+                      "to": "/specialities/surgical-specialties/dental-facio-maxillary-surgery/"
+                    },
+                    {
+                      "title": "Endocrine Surgeries",
+                      "to": "/specialities/surgical-specialties/endocrine-surgeries/"
+                    },
+                    {
+                      "title": "Cardio Thoracic Surgery",
+                      "to": "/specialities/surgical-specialties/cardio-thoracic-surgery/"
+                    },
+                    {
+                      "title": "Interventional Cardiology",
+                      "to": "/specialities/surgical-specialties/interventional-cardiology/"
+                    },
+                    {
+                      "title": "Surgical Gastro Enterology",
+                      "to": "/specialities/surgical-specialties/surgical-gastro-enterology/"
+                    },
+                    {
+                      "title": "Hepato Biliary Surgeries",
+                      "to": "/specialities/surgical-specialties/hepato-biliary-surgeries/"
+                    },
+                    {
+                      "title": "Genito Urinary Surgery",
+                      "to": "/specialities/surgical-specialties/genito-urinary-surgery/"
+                    },
+                    {
+                      "title": "Orthopedic Surgeries",
+                      "to": "/specialities/surgical-specialties/orthopedic-surgeries/"
+                    },
+                    {
+                      "title": "Spine Surgeries",
+                      "to": "/specialities/surgical-specialties/spine-surgeries/"
+                    },
+                    {
+                      "title": "Obstetrics & Gynaecology Surgeries",
+                      "to": "/specialities/surgical-specialties/obstetrics-gynaecology-surgeries/"
+                    },
+                    {
+                      "title": "Pediatric Surgeries",
+                      "to": "/specialities/surgical-specialties/pediatric-surgeries/"
+                    },
+                    {
+                      "title": "Vascular Surgeries",
+                      "to": "/specialities/surgical-specialties/vascular-surgeries/"
+                    },
+                    {
+                      "title": "Cancer Surgeries",
+                      "to": "/specialities/surgical-specialties/cancer-surgeries/"
+                    },
+                    {
+                      "title": "Transplant Surgeries",
+                      "to": "/specialities/surgical-specialties/transplant-surgeries/"
+                    },
+                    {
+                      "title": "Bariatric Surgery",
+                      "to": "/specialities/surgical-specialties/bariatric-surgery/"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "title": "Research",
-              "linkTo": "/research/"
+              "linkTo": "/medical-studies-research/"
             }
           ]
         }
@@ -580,7 +966,7 @@
                   "sec": [
                     {
                       "title": "Main opd",
-                      "to": "/facilities/out-patient-services/main-opd"
+                      "to": "/facilities/out-patient-services/main-opd/"
                     },
                     {
                       "title": "Emergency OPD (Casualty)",
@@ -922,11 +1308,202 @@
             },
             {
               "title": "Specialities",
-              "linkTo": "/specialities/"
+              "linkTo": "/specialities/",
+              "hasDropdown": true,
+              "dropdown": [
+                {
+                  "title": "Medical Specialties",
+                  "to": "/specialities/medical-specialties/",
+                  "iconAlt": "Medical Specialties",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "General Medicine",
+                      "to": "/specialities/medical-specialties/general-medicine/"
+                    },
+                    {
+                      "title": "Critical Care Medicine",
+                      "to": "/specialities/medical-specialties/critical-care-medicine/"
+                    },
+                    {
+                      "title": "Emergency Medicine",
+                      "to": "/specialities/medical-specialties/emergency-medicine/"
+                    },
+                    {
+                      "title": "Neurology",
+                      "to": "/specialities/medical-specialties/neurology/"
+                    },
+                    {
+                      "title": "Dental",
+                      "to": "/specialities/medical-specialties/dental/"
+                    },
+                    {
+                      "title": "Cardiology",
+                      "to": "/specialities/medical-specialties/cardiology/"
+                    },
+                    {
+                      "title": "Nephrology",
+                      "to": "/specialities/medical-specialties/nephrology/"
+                    },
+                    {
+                      "title": "Hepatology",
+                      "to": "/specialities/medical-specialties/hepatology/"
+                    },
+                    {
+                      "title": "Medical Gastro Enterology",
+                      "to": "/specialities/medical-specialties/medical-gastro-enterology/"
+                    },
+                    {
+                      "title": "Respiratory Medicine",
+                      "to": "/specialities/medical-specialties/respiratory-medicine/"
+                    },
+                    {
+                      "title": "Rheumatology",
+                      "to": "/specialities/medical-specialties/rheumatology/"
+                    },
+                    {
+                      "title": "Oncology",
+                      "to": "/specialities/medical-specialties/oncology/"
+                    },
+                    {
+                      "title": "Pediatrics",
+                      "to": "/specialities/medical-specialties/pediatrics/"
+                    },
+                    {
+                      "title": "Dermatology",
+                      "to": "/specialities/medical-specialties/dermatology/"
+                    },
+                    {
+                      "title": "Psychology",
+                      "to": "/specialities/medical-specialties/psychology/"
+                    },
+                    {
+                      "title": "Diabetology",
+                      "to": "/specialities/medical-specialties/diabetology/"
+                    },
+                    {
+                      "title": "Radiology",
+                      "to": "/specialities/medical-specialties/radiology/"
+                    },
+                    {
+                      "title": "Hematology",
+                      "to": "/specialities/medical-specialties/hematology/"
+                    },
+                    {
+                      "title": "Pathology",
+                      "to": "/specialities/medical-specialties/pathology/"
+                    }
+                  ]
+                },
+                {
+                  "title": "Surgical Specialties",
+                  "to": "/specialities/surgical-specialties/",
+                  "iconAlt": "Surgical Specialties",
+                  "icon": {
+                    "sys": {
+                      "type": "Link",
+                      "linkType": "Asset",
+                      "id": "3goaONHvLF8V6Ia7NiMXM4"
+                    }
+                  },
+                  "sec": [
+                    {
+                      "title": "Plastic Surgeries",
+                      "to": "/specialities/surgical-specialties/plastic-surgeries/"
+                    },
+                    {
+                      "title": "General & Laparoscopy Surgery",
+                      "to": "/specialities/surgical-specialties/general-laparoscopy-surgery/"
+                    },
+                    {
+                      "title": "Anesthesiology",
+                      "to": "/specialities/surgical-specialties/anesthesiology/"
+                    },
+                    {
+                      "title": "Neuro Surgery",
+                      "to": "/specialities/surgical-specialties/neuro-surgery/"
+                    },
+                    {
+                      "title": "Eye Surgery",
+                      "to": "/specialities/surgical-specialties/eye-surgery/"
+                    },
+                    {
+                      "title": "ENT Surgery",
+                      "to": "/specialities/surgical-specialties/ent-surgery/"
+                    },
+                    {
+                      "title": "Dental & Facio Maxillary Surgery",
+                      "to": "/specialities/surgical-specialties/dental-facio-maxillary-surgery/"
+                    },
+                    {
+                      "title": "Endocrine Surgeries",
+                      "to": "/specialities/surgical-specialties/endocrine-surgeries/"
+                    },
+                    {
+                      "title": "Cardio Thoracic Surgery",
+                      "to": "/specialities/surgical-specialties/cardio-thoracic-surgery/"
+                    },
+                    {
+                      "title": "Interventional Cardiology",
+                      "to": "/specialities/surgical-specialties/interventional-cardiology/"
+                    },
+                    {
+                      "title": "Surgical Gastro Enterology",
+                      "to": "/specialities/surgical-specialties/surgical-gastro-enterology/"
+                    },
+                    {
+                      "title": "Hepato Biliary Surgeries",
+                      "to": "/specialities/surgical-specialties/hepato-biliary-surgeries/"
+                    },
+                    {
+                      "title": "Genito Urinary Surgery",
+                      "to": "/specialities/surgical-specialties/genito-urinary-surgery/"
+                    },
+                    {
+                      "title": "Orthopedic Surgeries",
+                      "to": "/specialities/surgical-specialties/orthopedic-surgeries/"
+                    },
+                    {
+                      "title": "Spine Surgeries",
+                      "to": "/specialities/surgical-specialties/spine-surgeries/"
+                    },
+                    {
+                      "title": "Obstetrics & Gynaecology Surgeries",
+                      "to": "/specialities/surgical-specialties/obstetrics-gynaecology-surgeries/"
+                    },
+                    {
+                      "title": "Pediatric Surgeries",
+                      "to": "/specialities/surgical-specialties/pediatric-surgeries/"
+                    },
+                    {
+                      "title": "Vascular Surgeries",
+                      "to": "/specialities/surgical-specialties/vascular-surgeries/"
+                    },
+                    {
+                      "title": "Cancer Surgeries",
+                      "to": "/specialities/surgical-specialties/cancer-surgeries/"
+                    },
+                    {
+                      "title": "Transplant Surgeries",
+                      "to": "/specialities/surgical-specialties/transplant-surgeries/"
+                    },
+                    {
+                      "title": "Bariatric Surgery",
+                      "to": "/specialities/surgical-specialties/bariatric-surgery/"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "title": "Research",
-              "linkTo": "/research/"
+              "linkTo": "/medical-studies-research/"
             },
             {
               "title": "Find a Doctor",

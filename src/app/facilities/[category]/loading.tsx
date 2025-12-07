@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Skeleton, Paper, Grid } from '@mui/material'
+import { Box, Container, Skeleton, Paper } from '@mui/material'
 
 export default function FacilityCategoryLoading() {
   return (
@@ -24,13 +24,24 @@ export default function FacilityCategoryLoading() {
 
         <Skeleton variant="text" width={200} height={24} sx={{ mb: 3 }} />
 
-        <Grid container spacing={3} sx={{ mb: 6 }}>
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <Grid item xs={12} sm={6} md={4} key={i}>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            },
+            gap: 3,
+            mb: 6,
+          }}
+        >
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <Box key={i}>
               <Skeleton variant="rectangular" width="100%" height={300} sx={{ borderRadius: 2 }} />
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   )
