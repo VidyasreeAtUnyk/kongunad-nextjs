@@ -1,9 +1,10 @@
 import React from 'react'
-import { Box, Container, Typography, Link as MuiLink, Button, Divider } from '@mui/material'
+import { Box, Container, Typography, Link as MuiLink, Button, Divider, IconButton } from '@mui/material'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import FacebookIcon from '@mui/icons-material/Facebook'
 
 export const Footer: React.FC = () => {
   return (
@@ -86,8 +87,27 @@ export const Footer: React.FC = () => {
           </Box>
 
           <Divider sx={{ my: 3, borderColor: 'rgba(255,255,255,0.2)' }} />
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'rgba(255,255,255,0.8)' }}>
-            <Typography variant="caption">© {new Date().getFullYear()} Kongunad Hospitals. All rights reserved.</Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'rgba(255,255,255,0.8)', flexWrap: 'wrap', gap: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Typography variant="caption">© {new Date().getFullYear()} Kongunad Hospitals. All rights reserved.</Typography>
+              <IconButton
+                component="a"
+                href="https://www.facebook.com/kongunad"
+                target="_blank"
+                rel="noopener noreferrer"
+                size="small"
+                sx={{
+                  color: 'rgba(255,255,255,0.8)',
+                  '&:hover': {
+                    color: 'common.white',
+                    backgroundColor: 'rgba(255,255,255,0.1)',
+                  },
+                }}
+                aria-label="Visit our Facebook page"
+              >
+                <FacebookIcon fontSize="small" />
+              </IconButton>
+            </Box>
             <Box sx={{ display: 'flex', gap: 2 }}>
               <MuiLink href="#" color="inherit" underline="hover" variant="caption">Privacy</MuiLink>
               <MuiLink href="#" color="inherit" underline="hover" variant="caption">Terms</MuiLink>

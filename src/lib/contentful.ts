@@ -557,3 +557,26 @@ export function getJobVacancyBySlugCached(slug: string) {
     { revalidate: 300, tags: ['jobVacancy', `jobVacancy:${slug}`] }
   )()
 }
+
+// Campaign Poster
+export async function getCampaignPoster() {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'campaignPoster',
+    'fields.active': true,
+    order: ['fields.order', '-sys.createdAt'],
+    limit: 1,
+    include: 2,
+  })
+  return entries.items[0] || null
+}
+
+export function getCampaignPosterCached() {
+  return nextCache(
+    async () => {
+      return await getCampaignPoster()
+    },
+    ['contentful:campaignPoster'],
+    { revalidate: 300, tags: ['campaignPoster'] }
+  )()
+}

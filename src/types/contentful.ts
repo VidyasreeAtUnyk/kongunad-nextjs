@@ -457,6 +457,22 @@ export interface JobVacancy {
   }
 }
 
+// Campaign Poster
+export interface CampaignPoster {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    image: ContentfulAsset // Poster image
+    link?: string // Optional link URL
+    linkText?: string // Optional link text/alt text
+    active: boolean // Whether poster is currently active
+    order?: number // For sorting multiple posters (lower = higher priority)
+  }
+}
+
 
 
 

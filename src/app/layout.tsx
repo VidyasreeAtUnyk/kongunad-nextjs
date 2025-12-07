@@ -9,7 +9,10 @@ import { Offer } from '@/components/content/Offer'
 import { ModalContainer } from '@/components/modals/ModalContainer'
 import { BottomSheetContainer } from '@/components/ui/BottomSheetContainer'
 import { FacilitiesProvider } from '@/components/providers/FacilitiesProvider'
-import { getOffers, getFacilitiesCached } from '@/lib/contentful'
+import { CampaignPoster } from '@/components/content/CampaignPoster'
+import { Chatbot } from '@/components/content/Chatbot'
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
+import { getOffers, getFacilitiesCached, getCampaignPosterCached } from '@/lib/contentful'
 import { Facility } from '@/types/contentful'
 import './globals.css'
 
@@ -68,10 +71,19 @@ export default async function RootLayout({
   } catch (error) {
     console.error('Error fetching facilities in layout:', error)
   }
+
+  // Fetch campaign poster
+  let campaignPoster = null
+  try {
+    campaignPoster = await getCampaignPosterCached()
+  } catch (error) {
+    console.error('Error fetching campaign poster in layout:', error)
+  }
   
   return (
     <html lang="en">
       <body className={inter.className}>
+        <GoogleAnalytics />
         <ReduxProvider>
           <ThemeProvider>
             <ToastProvider>
@@ -80,6 +92,8 @@ export default async function RootLayout({
                 <Offer lists={offers} />
                 {children}
                 <Footer />
+                <CampaignPoster poster={campaignPoster} />
+                <Chatbot />
                 <ModalContainer />
                 <BottomSheetContainer />
               </FacilitiesProvider>
