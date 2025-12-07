@@ -96,7 +96,7 @@ export const MultiItemCarousel: React.FC<MultiItemCarouselProps> = ({
   return (
     <Box sx={{ position: 'relative' }}>
       <Box ref={emblaRef} sx={{ overflow: 'hidden' }}>
-        <Box sx={{ display: 'flex', gap: `${itemGap}px`, px: `${sidePadding}px`, willChange: 'transform', transform: 'translateZ(0)' }}>
+        <Box sx={{ display: 'flex', alignItems: 'stretch', gap: `${itemGap}px`, px: `${sidePadding}px`, willChange: 'transform', transform: 'translateZ(0)' }}>
           {React.Children.map(children, (child, index) => {
             const isNext = (selectedIndex + 1) % React.Children.count(children) === index
             const loadingPriority = index === 0 || isNext ? 'eager' : 'lazy'
@@ -104,6 +104,8 @@ export const MultiItemCarousel: React.FC<MultiItemCarouselProps> = ({
               <Box
                 sx={{
                   flex: '0 0 auto',
+                  display: 'flex',
+                  flexDirection: 'column',
                   width: {
                     xs: `calc((100% - ${itemGap}px) / 1)`,
                     sm: `calc((100% - ${itemGap * 2}px) / 2)`,

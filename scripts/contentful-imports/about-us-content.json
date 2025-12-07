@@ -1,0 +1,118 @@
+{
+  "aboutContent": {
+    "heroTitle": "Specialized Hospital with a human touch.",
+    "heroBadge": "NABH Entry Level Certified Hospital",
+    "stats": [
+      {
+        "value": "100+",
+        "label": "Qualified Doctors",
+        "icon": "doctors"
+      },
+      {
+        "value": "2,00,000+",
+        "label": "Satisfied Patients",
+        "icon": "patients"
+      },
+      {
+        "value": "24 Hours",
+        "label": "Service",
+        "icon": "hours"
+      }
+    ],
+    "hospitalHistory": [
+      "Founder of Hospital – Dr. P. Raju",
+      "Dr. P. Raju M.S is the Managing Director and Chief General surgeon of the Hospital",
+      "Dr. Karthikeyan M.S is the Medical Director and Chief Laparoscopic Surgeon of the Hospital",
+      "KNH is a multi specialty hospital located in Tatabad, Gandhipuram which is at heart of the city.",
+      "Kongunad hospital is one of the modern hospital, it has electronic case sheet, electronic employee attendance, PACS system and mobile software for patient comfort and satisfaction.",
+      "KNH is very well designed for patient safety, employee safety and environment safety."
+    ],
+    "founderTimeline": [
+      {
+        "year": "1974",
+        "text": "Completed MBBS"
+      },
+      {
+        "year": "1974-1981",
+        "text": "Worked as RMO in KG Hospital"
+      },
+      {
+        "year": "1981-83",
+        "text": "He did his MS SURGERY"
+      },
+      {
+        "year": "1983",
+        "text": "Started Surgical Clinic (10 Beds)"
+      },
+      {
+        "year": "1991",
+        "text": "Founded Kongunad Hospital – 4 Floors"
+      },
+      {
+        "year": "1996",
+        "text": "Expanded Kongunad Hospital – 2 Floors"
+      },
+      {
+        "year": "1996+",
+        "text": "Expanded Kongunad Hospital – Opposite Block"
+      },
+      {
+        "year": "2015",
+        "text": "Expanded to add Kongunad MRI Centre – First Digital & Silent MRI in Coimbatore"
+      },
+      {
+        "year": "2016",
+        "text": "Expanded to form Kongunad Kidney Centre (50Bedded) a world class centre for Nephrology & Urology problems."
+      },
+      {
+        "year": "Present",
+        "text": "Now the hospital is functioning as major referral hospital in this part of the country with all diagnostic & Treatment Facilities. It is a referral centre for Tertiary care in this part of the country."
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "name": "Vishnu VR",
+      "role": "Patient",
+      "content": "Both my mom, dad were tested positive of COVID 19 and got themselves admitted in Kongunad Hospital (Theeran Chinnamalai Valagam) where they were taken care extremely good by the doctors and working staffs. Kudos to the management. Their options for selection of food was good. My mom was discharged in 10 days and dad in 6 days 🙌🏻 Thanks to Kongunad Hospital",
+      "order": 1,
+      "active": true
+    },
+    {
+      "name": "Jaya Kumar",
+      "role": "Patient",
+      "content": "Excellent Hospital. Not Money minded, Doctors and staffs are professional and Kind manner. God bless them!",
+      "order": 2,
+      "active": true
+    },
+    {
+      "name": "Shiny Wilson",
+      "role": "Patient",
+      "content": "My dad was admitted because of stroke, he was in very serious condition. Within a week he absolutely alright. The treatment was awesome, my dad perfectly alright. …best treatment…",
+      "order": 3,
+      "active": true
+    },
+    {
+      "name": "Anie Daniel",
+      "role": "Patient",
+      "content": "My dad is 70, he was covid positive… Kongunadu hospital gave the best care and treatment. I would definitely recommend this hospital. Thanks Dr. Karthik.",
+      "order": 4,
+      "active": true
+    },
+    {
+      "name": "Sampath Kumar Sanjana",
+      "role": "Patient",
+      "content": "The best hospital that I've been to Excellent service by the doctors and the nurses, especially Dr.Karthik Raju. We had to bring my husband at the middle of the night due to an emergency, still Dr.Karthik Raju ensured to give the best possible treatment. We were taken very good care. Though the infrastructure is very old, their quality of service is excellent.",
+      "order": 5,
+      "active": true
+    },
+    {
+      "name": "Mr. Parijatham",
+      "role": "Patient",
+      "content": "All Doctors & Nurses care was highly satisfactory Best services is Mobile App which I did not see even in bigger hospitals.",
+      "order": 6,
+      "active": true
+    }
+  ]
+}
+

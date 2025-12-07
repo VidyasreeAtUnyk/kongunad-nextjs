@@ -306,6 +306,48 @@ export function getAboutContentCached() {
   )()
 }
 
+// About Us Page
+export async function getAboutUsPage() {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'aboutUsPage',
+    limit: 1,
+  })
+  return entries.items[0] || null
+}
+
+export function getAboutUsPageCached() {
+  return nextCache(
+    async () => {
+      return await getAboutUsPage()
+    },
+    ['contentful:aboutUsPage'],
+    { revalidate: 300, tags: ['aboutUsPage'] }
+  )()
+}
+
+// Testimonials
+export async function getTestimonials(limit?: number) {
+  const client = getClient()
+  const entries = await client.getEntries({
+    content_type: 'testimonial',
+    'fields.active': true,
+    limit: limit || 100,
+    order: ['fields.order', '-sys.createdAt'],
+  })
+  return entries.items
+}
+
+export function getTestimonialsCached(limit?: number) {
+  return nextCache(
+    async () => {
+      return await getTestimonials(limit)
+    },
+    ['contentful:testimonials', String(limit || 100)],
+    { revalidate: 300, tags: ['testimonials'] }
+  )()
+}
+
 export async function getNavigation() {
   const client = getClient()
   const response = await client.getEntries({

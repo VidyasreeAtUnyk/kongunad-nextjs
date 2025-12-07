@@ -255,6 +255,47 @@ export interface AboutContent {
   }
 }
 
+export interface AboutUsPage {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    // Hero section
+    heroTitle?: string
+    heroBadge?: string
+    // Stats
+    stats?: Array<{
+      value: string
+      label: string
+      icon?: 'doctors' | 'patients' | 'hours'
+    }>
+    // History of the Hospital
+    hospitalHistory?: string[] // Array of bullet points
+    // Founder timeline
+    founderTimeline?: Array<{
+      year: string
+      text: string
+    }>
+  }
+}
+
+export interface Testimonial {
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    name: string
+    role: string
+    content: string
+    order?: number
+    active?: boolean
+  }
+}
+
 export interface Navigation {
   sys: {
     id: string
