@@ -148,8 +148,8 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
         sx: {
           borderRadius: 3,
           maxWidth: { xs: '95vw', md: '800px' },
-          height: { xs: '90vh', md: '50vh' },
-          maxHeight: { xs: '90vh', md: '50vh' },
+          height: { xs: '90vh', sm: '85vh', md: '75vh' },
+          maxHeight: { xs: '90vh', sm: '85vh', md: '75vh' },
           display: 'flex',
           flexDirection: 'column',
         },
@@ -282,17 +282,20 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
             }}>
             <Box sx={{ 
               display: 'flex', 
-              flexDirection: { xs: 'column', md: 'row' },
+              flexDirection: { xs: 'column', sm: 'column', md: 'row' },
               gap: 4,
               flex: 1,
               minHeight: 0,
+              overflow: 'hidden',
             }}>
               {/* Doctor Photo */}
               {doctor.fields.photo?.fields?.file?.url && (
                 <Box sx={{ 
                   flexShrink: 0,
-                  width: { xs: '100%', md: '250px' },
-                  aspectRatio: '3/4',
+                  width: { xs: '100%', sm: '100%', md: '250px' },
+                  height: { xs: 'auto', sm: 'auto', md: 'auto' },
+                  aspectRatio: { xs: '3/4', sm: '4/5', md: '3/4' },
+                  maxHeight: { xs: '300px', sm: '250px', md: 'none' },
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -307,8 +310,8 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
                     sx={{ 
                       width: '100%', 
                       height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center top',
+                      objectFit: { xs: 'cover', sm: 'contain', md: 'cover' },
+                      objectPosition: { xs: 'center top', sm: 'center', md: 'center top' },
                       borderRadius: 2,
                     }}
                   />
@@ -319,8 +322,9 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
               <Box sx={{ 
                 flex: 1, 
                 minHeight: 0,
-                overflowY: 'auto',
+                overflowY: { xs: 'visible', sm: 'visible', md: 'auto' },
                 overflowX: 'hidden',
+                maxHeight: { xs: 'none', sm: 'none', md: '100%' },
                 '&::-webkit-scrollbar': {
                   width: '8px',
                 },
