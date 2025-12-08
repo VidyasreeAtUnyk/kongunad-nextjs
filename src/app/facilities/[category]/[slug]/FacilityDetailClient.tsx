@@ -136,24 +136,18 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
           }}
         >
           {/* Facility Image */}
-          <Card
+          <Box
+            component="img"
+            src={`https:${facility.fields.icon.fields.file.url}`}
+            alt={`${facility.fields.name} - Facility image`}
+            loading="eager"
             sx={{
-              overflow: 'hidden',
+              width: '100%',
+              aspectRatio: '1/1',
+              objectFit: 'cover',
               borderRadius: 3,
             }}
-          >
-            <Box
-              component="img"
-              src={`https:${facility.fields.icon.fields.file.url}`}
-              alt={`${facility.fields.name} - Facility image`}
-              loading="eager"
-              sx={{
-                width: '100%',
-                height: { xs: 300, md: 400 },
-                objectFit: 'cover',
-              }}
-            />
-          </Card>
+          />
 
           {/* Facilities of Department - No Title */}
           {facility.fields.facilities && facility.fields.facilities.length > 0 && (
@@ -246,7 +240,7 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
                           loading="lazy"
                           sx={{
                             width: '100%',
-                            height: { xs: 250, sm: service.images!.length === 1 ? 400 : 250 },
+                            height: { xs: 200, sm: service.images!.length === 1 ? 300 : 200 },
                             objectFit: 'cover',
                             borderRadius: 2,
                             boxShadow: 2,
@@ -327,7 +321,7 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
                       loading="lazy"
                       sx={{
                         width: '100%',
-                        height: 200,
+                        height: 180,
                         objectFit: 'cover',
                         borderRadius: 2,
                       }}
@@ -352,7 +346,7 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
                   xs: '1fr',
                   sm: 'repeat(2, 1fr)',
                   md: 'repeat(3, 1fr)',
-                  lg: 'repeat(4, 1fr)',
+                  lg: 'repeat(3, 1fr)',
                 },
                 gap: 3,
               }}

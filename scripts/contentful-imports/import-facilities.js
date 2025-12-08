@@ -120,7 +120,7 @@ const facilitiesData = [
       { title: 'Physicians OPD (Medical)' },
       { title: 'Pediatric OPD' },
       { title: 'Orthopaedic OPD' },
-      { title: 'Obstetrics & Gynacology OPD' },
+      { title: 'Obstetrics & Gynaecology OPD' },
       { title: 'Speciality OPD' },
     ]
   },

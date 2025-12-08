@@ -1752,7 +1752,7 @@
     },
     {
       "sys": {
-        "id": "facility-obstetrics-gynacology-opd",
+        "id": "facility-obstetrics-gynaecology-opd",
         "contentType": {
           "sys": {
             "type": "Link",
@@ -1763,13 +1763,13 @@
       },
       "fields": {
         "name": {
-          "en-US": "Obstetrics & Gynacology OPD"
+          "en-US": "Obstetrics & Gynaecology OPD"
         },
         "category": {
           "en-US": "Out Patient Services"
         },
         "description": {
-          "en-US": "Learn more about Obstetrics & Gynacology OPD at Kongunad Hospital."
+          "en-US": "Learn more about Obstetrics & Gynaecology OPD at Kongunad Hospital."
         },
         "icon": {
           "en-US": {

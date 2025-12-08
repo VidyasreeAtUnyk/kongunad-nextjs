@@ -647,8 +647,8 @@
                       "to": "/facilities/out-patient-services/orthopaedic-opd/"
                     },
                     {
-                      "title": "Obstetrics & Gynecology OPD",
-                      "to": "/facilities/out-patient-services/obstetrics-gynacology-opd/"
+                      "title": "Obstetrics & Gynaecology OPD",
+                      "to": "/facilities/out-patient-services/obstetrics-gynaecology-opd/"
                     },
                     {
                       "title": "Speciality OPD",
@@ -993,8 +993,8 @@
                       "to": "/facilities/out-patient-services/orthopaedic-opd/"
                     },
                     {
-                      "title": "Obstetrics & Gynacology OPD",
-                      "to": "/facilities/out-patient-services/obstetrics-gynacology-opd/"
+                      "title": "Obstetrics & Gynaecology OPD",
+                      "to": "/facilities/out-patient-services/obstetrics-gynaecology-opd/"
                     },
                     {
                       "title": "Speciality OPD",

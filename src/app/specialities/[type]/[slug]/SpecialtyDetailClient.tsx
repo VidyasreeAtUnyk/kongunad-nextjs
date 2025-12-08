@@ -131,24 +131,18 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
         >
           {/* Specialty Image */}
           {specialty.fields.icon?.fields?.file?.url && (
-            <Card
+            <Box
+              component="img"
+              src={`https:${specialty.fields.icon.fields.file.url}`}
+              alt={`${specialty.fields.name} - Specialty image`}
+              loading="eager"
               sx={{
-                overflow: 'hidden',
+                width: '100%',
+                aspectRatio: '1/1',
+                objectFit: 'cover',
                 borderRadius: 3,
               }}
-            >
-              <Box
-                component="img"
-                src={`https:${specialty.fields.icon.fields.file.url}`}
-                alt={`${specialty.fields.name} - Specialty image`}
-                loading="eager"
-                sx={{
-                  width: '100%',
-                  height: { xs: 300, md: 400 },
-                  objectFit: 'cover',
-                }}
-              />
-            </Card>
+            />
           )}
 
           {/* Facilities - No Title */}
@@ -242,7 +236,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                           loading="lazy"
                           sx={{
                             width: '100%',
-                            height: { xs: 250, sm: service.images!.length === 1 ? 400 : 250 },
+                            height: { xs: 200, sm: service.images!.length === 1 ? 300 : 200 },
                             objectFit: 'cover',
                             borderRadius: 2,
                             boxShadow: 2,
@@ -323,7 +317,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                       loading="lazy"
                       sx={{
                         width: '100%',
-                        height: 200,
+                        height: 180,
                         objectFit: 'cover',
                         borderRadius: 2,
                       }}
@@ -348,7 +342,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                   xs: '1fr',
                   sm: 'repeat(2, 1fr)',
                   md: 'repeat(3, 1fr)',
-                  lg: 'repeat(4, 1fr)',
+                  lg: 'repeat(3, 1fr)',
                 },
                 gap: 3,
               }}
