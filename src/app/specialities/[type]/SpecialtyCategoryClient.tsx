@@ -98,7 +98,7 @@ export const SpecialtyCategoryClient: React.FC<SpecialtyCategoryClientProps> = (
           {debouncedSearchQuery && ` for "${debouncedSearchQuery}"`}
         </Typography>
 
-        {/* Specialties Grid - 4 columns */}
+        {/* Specialties Grid - 3 columns */}
         <Box
           sx={{
             display: 'grid',
@@ -106,7 +106,7 @@ export const SpecialtyCategoryClient: React.FC<SpecialtyCategoryClientProps> = (
               xs: '1fr',
               sm: 'repeat(2, 1fr)',
               md: 'repeat(3, 1fr)',
-              lg: 'repeat(4, 1fr)',
+              lg: 'repeat(3, 1fr)',
             },
             gap: 3,
             mb: 6,

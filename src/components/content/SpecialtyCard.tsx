@@ -97,52 +97,52 @@ export const SpecialtyCard: React.FC<SpecialtyCardProps> = ({ specialty, onClick
                 alignItems: 'center',
                 gap: 1,
                 px: 1.5,
-                py: 0.5,
-                borderRadius: 1,
-                backgroundColor: 'rgba(255,255,255,0.2)',
+                py: 1,
+                borderRadius: 1.5,
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                // border: '1px solid rgba(255,255,255,0.18)',
                 backdropFilter: 'blur(4px)',
-                mb: 1.5,
+                boxShadow: '0 6px 16px rgba(0,0,0,0.25)',
+                transition: 'transform 0.25s ease, background-color 0.25s ease',
+                '.MuiCard-root:hover &': {
+                  backgroundColor: 'rgba(255,255,255,0.12)'
+                }
               }}
             >
               <Typography 
-                variant="caption" 
-                sx={{ 
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: 0.5,
-                  fontSize: '0.7rem',
-                }}
-              >
-                {fields.type === 'medical' ? 'Medical' : 'Surgical'}
-              </Typography>
-            </Box>
-            <Typography 
-              variant="h6" 
-              component="div"
-              sx={{ 
-                fontWeight: 600,
-                mb: 0.5,
-                textShadow: '0 2px 8px rgba(0,0,0,0.6)',
-                lineHeight: 1.3,
-              }}
-            >
-              {fields.name}
-            </Typography>
-            {fields.description && (
-              <Typography 
-                variant="body2" 
-                sx={{ 
-                  opacity: 0.95,
-                  textShadow: '0 2px 6px rgba(0,0,0,0.6)',
+                variant="subtitle1" 
+                component="div"
+                sx={{
+                  fontWeight: 800,
+                  letterSpacing: 0.2,
+                  lineHeight: 1.2,
                   display: '-webkit-box',
                   WebkitLineClamp: 2,
                   WebkitBoxOrient: 'vertical',
                   overflow: 'hidden',
+                  textShadow: '0 2px 8px rgba(0,0,0,0.6)'
                 }}
               >
-                {fields.description}
+                {fields.name}
               </Typography>
-            )}
+              <Box
+                component="span"
+                aria-hidden
+                sx={{
+                  ml: 0.5,
+                  fontSize: 18,
+                  opacity: 0.0,
+                  transform: 'translateX(-4px)',
+                  transition: 'opacity 0.25s ease, transform 0.25s ease',
+                  '.MuiCard-root:hover &': {
+                    opacity: 0.9,
+                    transform: 'translateX(0)'
+                  }
+                }}
+              >
+                →
+              </Box>
+            </Box>
           </Box>
         </Box>
       </Card>

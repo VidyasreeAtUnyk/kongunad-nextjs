@@ -104,14 +104,14 @@ export const FacilityCategoryClient: React.FC<FacilityCategoryClientProps> = ({
           {debouncedSearchQuery && ` for "${debouncedSearchQuery}"`}
         </Typography>
 
-        {/* Facilities Grid - 4 columns */}
+        {/* Facilities Grid - 3 columns */}
         <Box
           sx={{
             display: 'grid',
             gridTemplateColumns: {
               xs: '1fr',
               sm: 'repeat(2, 1fr)',
-              md: 'repeat(4, 1fr)',
+              md: 'repeat(3, 1fr)',
             },
             gap: 3,
             mb: 6,
