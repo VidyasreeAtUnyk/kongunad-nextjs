@@ -73,17 +73,8 @@ LogoWithSkeleton.displayName = 'LogoWithSkeleton'
 
 const normalizePath = (href?: string | null): string | undefined => {
   if (!href) return href as any
-  try {
-    if (href.startsWith('/facilities/')) {
-      const m = href.match(/^\/facilities\/[^\/]+\/([^\/]+)(?:\/?|$)/)
-      if (m && m[1]) {
-        return `/facilities/${m[1]}`
-      }
-    }
-    return href
-  } catch {
-    return href
-  }
+  // Remove trailing slashes for consistency, but preserve the full path structure
+  return href.endsWith('/') && href.length > 1 ? href.slice(0, -1) : href
 }
 
 interface NavigationClientProps {
@@ -798,7 +789,7 @@ const MobileDropdownItem: React.FC<{ item: any }> = React.memo(({ item }) => {
       <Box sx={{ position: 'relative', }}>
         <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', position: 'relative', paddingRight: 4.5 }}>
           <Link
-            href={item.to}
+            href={normalizePath(item.to)}
             target={isExternalUrl(item.to) ? '_blank' : undefined}
             rel={isExternalUrl(item.to) ? 'noopener noreferrer' : undefined}
             sx={{

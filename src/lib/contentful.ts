@@ -191,14 +191,61 @@ export async function getSpecialtyByTypeAndSlug(typeSlug: string, slug: string) 
     return null
   }
   
-  const entries = await client.getEntries({
+  // Normalize slug for matching (lowercase, trim)
+  const normalizedSlug = slug.toLowerCase().trim()
+  
+  // First try exact match
+  let entries = await client.getEntries({
     content_type: 'speciality',
     'fields.type': type,
-    'fields.slug': slug,
-    limit: 1,
+    limit: 100, // Get all specialties of this type to do flexible matching
     include: 2,
   })
-  return entries.items[0] || null
+  
+  // Try exact match first
+  const exactMatch = entries.items.find((item: any) => {
+    const itemSlug = item.fields.slug?.toLowerCase().trim()
+    return itemSlug === normalizedSlug
+  })
+  
+  if (exactMatch) {
+    return exactMatch
+  }
+  
+  // Try flexible matching: check if slug matches when normalized
+  // This handles cases where Contentful slug might differ slightly
+  // (e.g., "obstetrics-gynaecology-surgery" vs "obstetrics-gynaecology-surgeries")
+  const flexibleMatch = entries.items.find((item: any) => {
+    const itemSlug = item.fields.slug?.toLowerCase().trim()
+    if (!itemSlug) return false
+    
+    // Exact match (already checked above, but keeping for clarity)
+    if (itemSlug === normalizedSlug) return true
+    
+    // Check if slugs are very similar (handles plural/singular variations)
+    // Remove common suffixes and compare
+    const normalizeForComparison = (s: string) => s.replace(/-surgery$|-surgeries$|-specialty$|-specialties$/, '')
+    const normalizedItemSlug = normalizeForComparison(itemSlug)
+    const normalizedUrlSlug = normalizeForComparison(normalizedSlug)
+    
+    if (normalizedItemSlug === normalizedUrlSlug) {
+      return true
+    }
+    
+    // Check if one contains the other (for minor variations)
+    if (itemSlug.includes(normalizedSlug) || normalizedSlug.includes(itemSlug)) {
+      // Make sure it's not too different (at least 80% similarity)
+      const longer = itemSlug.length > normalizedSlug.length ? itemSlug : normalizedSlug
+      const shorter = itemSlug.length > normalizedSlug.length ? normalizedSlug : itemSlug
+      if (longer.includes(shorter) && shorter.length / longer.length >= 0.8) {
+        return true
+      }
+    }
+    
+    return false
+  })
+  
+  return flexibleMatch || null
 }
 
 export function getSpecialtyByTypeAndSlugCached(typeSlug: string, slug: string) {

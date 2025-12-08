@@ -74,17 +74,18 @@ export async function GET(request: NextRequest) {
       })),
       
       ...facilitiesResult.items.map((item: any) => {
-        // Generate slug from name (matching the facility page logic)
-        const slug = item.fields.name
-          ? item.fields.name.toLowerCase().replace(/\s+/g, '-')
-          : item.sys.id
+        // Use categorySlug and slug from Contentful, matching FacilityCard logic
+        const categorySlug = item.fields.categorySlug || 
+          (item.fields.category ? item.fields.category.toLowerCase().replace(/\s+/g, '-') : 'facilities')
+        const slug = item.fields.slug || 
+          (item.fields.name ? item.fields.name.toLowerCase().replace(/\s+/g, '-') : item.sys.id)
         return {
           id: item.sys.id,
           type: 'facility' as const,
           title: item.fields.name || 'Unknown Facility',
           subtitle: item.fields.category,
           action: 'navigate' as const, // Navigate to facility page
-          url: `/facilities/${slug}`,
+          url: `/facilities/${categorySlug}/${slug}`,
         }
       }),
       
