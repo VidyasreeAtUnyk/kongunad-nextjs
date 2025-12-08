@@ -22,6 +22,17 @@ export const metadata: Metadata = {
   description: 'Kongunad Hospital is a modern tertiary care center offering comprehensive medical and surgical services in Coimbatore. NABH accredited with 35+ years of service.',
   keywords: 'hospital, healthcare, medical, surgical, Coimbatore, NABH, Kongunad',
   authors: [{ name: 'Kongunad Hospital' }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-16.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+  },
   openGraph: {
     title: 'Kongunad Hospital - Healthcare Excellence',
     description: '35 years of confidence to Coimbatore in Healthcare',
