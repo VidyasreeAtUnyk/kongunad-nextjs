@@ -76,8 +76,8 @@ export default async function CashlessTreatmentPage() {
     } = data.fields
 
     return (
-    <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default' }}>
-      <Container maxWidth="lg" sx={{ py: { xs: 2, sm: 3, md: 4 }, px: { xs: 2, sm: 3 } }}>
+    <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default', overflow: 'hidden' }}>
+      <Container maxWidth="lg" sx={{ width: '100%', maxWidth: '100%', py: { xs: 2, sm: 3, md: 4 }, px: { xs: 2, sm: 3, md: 4 } }}>
         <Breadcrumbs sx={{ mb: { xs: 2, md: 3 } }}>
           <Link href="/" color="inherit">
             Home

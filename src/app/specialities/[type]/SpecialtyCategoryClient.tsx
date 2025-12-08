@@ -110,6 +110,9 @@ export const SpecialtyCategoryClient: React.FC<SpecialtyCategoryClientProps> = (
             },
             gap: 3,
             mb: 6,
+            width: '100%',
+            maxWidth: '100%',
+            overflow: 'hidden',
           }}
         >
           {filteredSpecialties.map((specialty) => (

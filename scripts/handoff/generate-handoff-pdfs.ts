@@ -187,14 +187,108 @@ async function capturePage(
     // Navigate to page
     await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 })
     
-    // Wait a bit for any animations or lazy loading
-    await page.waitForTimeout(2000)
-    
-    // Scroll to bottom to trigger lazy loading
-    await page.evaluate(() => {
-      window.scrollTo(0, document.body.scrollHeight)
+    // Wait for all images to load (including lazy-loaded ones)
+    await page.evaluate(async () => {
+      const images = Array.from(document.querySelectorAll('img')) as HTMLImageElement[]
+      await Promise.all(
+        images.map((img) => {
+          if (img.complete) return Promise.resolve()
+          return new Promise((resolve) => {
+            img.addEventListener('load', resolve, { once: true })
+            img.addEventListener('error', resolve, { once: true }) // Continue even if image fails
+            // Timeout after 5 seconds
+            setTimeout(resolve, 5000)
+          })
+        })
+      )
     })
+    
+    // Wait for fonts to load
+    await page.evaluate(async () => {
+      await document.fonts.ready
+    })
+    
+    // Wait a bit for any remaining lazy loading or animations
     await page.waitForTimeout(1000)
+    
+    // Close campaign poster modal if it's open
+    try {
+      // Wait a bit for modal to potentially appear (it shows after 500ms delay)
+      await page.waitForTimeout(1500)
+      
+      // Check if dialog is visible
+      const dialog = page.locator('[role="dialog"]').first()
+      const isDialogVisible = await dialog.isVisible({ timeout: 500 }).catch(() => false)
+      
+      if (isDialogVisible) {
+        // Try to find and click the close button
+        const closeButton = dialog.locator('button[aria-label="Close campaign poster"]').first()
+        const isButtonVisible = await closeButton.isVisible({ timeout: 500 }).catch(() => false)
+        
+        if (isButtonVisible) {
+          await closeButton.click()
+          await page.waitForTimeout(500) // Wait for modal to close
+          console.log(`  Closed campaign poster modal`)
+        } else {
+          // Fallback: press Escape key
+          await page.keyboard.press('Escape')
+          await page.waitForTimeout(500)
+          console.log(`  Closed campaign poster modal (via Escape key)`)
+        }
+      }
+    } catch (error) {
+      // Modal might not be present, which is fine
+      // Continue with capture
+    }
+    
+    // Scroll slowly to trigger scroll animations (like timeline)
+    // This ensures IntersectionObserver-based animations are triggered
+    const scrollHeight = await page.evaluate(() => document.body.scrollHeight)
+    const viewportHeight = viewport.height
+    const scrollIncrement = viewportHeight * 0.6 // Scroll in 60% viewport increments
+    const scrollSteps = Math.ceil(scrollHeight / scrollIncrement)
+    
+    // Scroll down incrementally to trigger all IntersectionObserver animations
+    for (let i = 0; i <= scrollSteps; i++) {
+      const scrollPosition = Math.min(i * scrollIncrement, scrollHeight)
+      await page.evaluate((pos) => {
+        window.scrollTo(0, pos)
+      }, scrollPosition)
+      await page.waitForTimeout(400) // Wait for IntersectionObserver to trigger and animations to start
+      
+      // Wait for any lazy-loaded images that come into view during scroll
+      await page.evaluate(async () => {
+        const images = Array.from(document.querySelectorAll('img[loading="lazy"]')) as HTMLImageElement[]
+        await Promise.all(
+          images.map((img) => {
+            if (img.complete) return Promise.resolve()
+            return new Promise((resolve) => {
+              img.addEventListener('load', resolve, { once: true })
+              img.addEventListener('error', resolve, { once: true })
+              setTimeout(resolve, 2000) // Timeout after 2 seconds
+            })
+          })
+        )
+      })
+    }
+    
+    // Wait for all animations to complete (timeline uses 0.6s transitions)
+    await page.waitForTimeout(1000)
+    
+    // Final check: ensure all images are loaded before capturing
+    await page.evaluate(async () => {
+      const images = Array.from(document.querySelectorAll('img')) as HTMLImageElement[]
+      await Promise.all(
+        images.map((img) => {
+          if (img.complete) return Promise.resolve()
+          return new Promise((resolve) => {
+            img.addEventListener('load', resolve, { once: true })
+            img.addEventListener('error', resolve, { once: true })
+            setTimeout(resolve, 3000) // Timeout after 3 seconds
+          })
+        })
+      )
+    })
     
     // Scroll back to top
     await page.evaluate(() => {
@@ -202,23 +296,7 @@ async function capturePage(
     })
     await page.waitForTimeout(500)
     
-    // Generate PDF
-    const pdfPath = outputPath.replace('.png', '.pdf')
-    await page.pdf({
-      path: pdfPath,
-      format: 'A4',
-      printBackground: true,
-      margin: {
-        top: '20px',
-        right: '20px',
-        bottom: '20px',
-        left: '20px',
-      },
-    })
-    
-    console.log(`✓ PDF saved: ${pdfPath}`)
-    
-    // Also save screenshot
+    // Generate screenshot only (PDFs will be added later)
     await page.screenshot({
       path: outputPath,
       fullPage: true,

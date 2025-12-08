@@ -115,6 +115,9 @@ export const FacilityCategoryClient: React.FC<FacilityCategoryClientProps> = ({
             },
             gap: 3,
             mb: 6,
+            width: '100%',
+            maxWidth: '100%',
+            overflow: 'hidden',
           }}
         >
           {filteredFacilities.map((facility) => (

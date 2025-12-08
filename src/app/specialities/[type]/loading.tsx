@@ -4,7 +4,7 @@ import { Box, Container, Skeleton, Paper } from '@mui/material'
 export default function SpecialtyTypeLoading() {
   return (
     <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default' }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg" sx={{ width: '100%', maxWidth: '100%', px: { xs: 2, sm: 3, md: 4 } }}>
         <Box sx={{ py: 3 }}>
           <Skeleton variant="text" width={300} height={24} />
         </Box>

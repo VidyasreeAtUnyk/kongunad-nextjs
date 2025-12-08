@@ -89,8 +89,8 @@ export default async function AboutUsPage() {
     const founderTimeline = aboutUsPage?.fields?.founderTimeline || []
 
     return (
-      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default' }}>
-        <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default', overflow: 'hidden' }}>
+        <Container maxWidth="lg" sx={{ width: '100%', maxWidth: '100%', py: 4, px: { xs: 2, sm: 3, md: 4 } }}>
           <Breadcrumbs sx={{ mb: 3 }}>
             <Link href="/" color="inherit">Home</Link>
             <Typography color="text.primary">About Us</Typography>
@@ -169,6 +169,9 @@ export default async function AboutUsPage() {
                 },
                 gap: 3,
                 mb: 6,
+                width: '100%',
+                maxWidth: '100%',
+                overflow: 'hidden',
               }}
             >
               {stats.map((stat, index) => {

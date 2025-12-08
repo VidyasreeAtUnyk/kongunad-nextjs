@@ -85,8 +85,8 @@ export default async function FacilitiesPage() {
       .filter((cat): cat is NonNullable<typeof cat> => cat !== null)
 
     return (
-      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default' }}>
-        <Container maxWidth="lg">
+      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default', overflow: 'hidden' }}>
+        <Container maxWidth="lg" sx={{ width: '100%', maxWidth: '100%', px: { xs: 2, sm: 3, md: 4 } }}>
           <Breadcrumbs sx={{ py: 3 }}>
             <Link href="/" color="inherit">Home</Link>
             <Typography color="text.primary">Facilities</Typography>
@@ -165,6 +165,9 @@ export default async function FacilitiesPage() {
               },
               gap: 3,
               mb: 6,
+              width: '100%',
+              maxWidth: '100%',
+              overflow: 'hidden',
             }}
           >
             {enrichedCategories.map((category) => {

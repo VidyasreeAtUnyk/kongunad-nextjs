@@ -62,8 +62,8 @@ export default async function SpecialitiesPage() {
       .filter((type): type is NonNullable<typeof type> => type !== null)
 
     return (
-      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default' }}>
-        <Container maxWidth="lg">
+      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default', overflow: 'hidden' }}>
+        <Container maxWidth="lg" sx={{ width: '100%', maxWidth: '100%', px: { xs: 2, sm: 3, md: 4 } }}>
           <Breadcrumbs sx={{ py: 3 }}>
             <Link href="/" color="inherit">Home</Link>
             <Typography color="text.primary">Specialities</Typography>
@@ -141,6 +141,9 @@ export default async function SpecialitiesPage() {
               },
               gap: 3,
               mb: 6,
+              width: '100%',
+              maxWidth: '100%',
+              overflow: 'hidden',
             }}
           >
             {enrichedTypes.map((type) => {

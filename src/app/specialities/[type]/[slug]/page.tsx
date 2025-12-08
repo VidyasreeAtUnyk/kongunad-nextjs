@@ -170,8 +170,8 @@ export default async function SpecialtyPage({ params }: SpecialtyPageProps) {
     const typeName = TYPE_NAMES[type] || type
 
     return (
-      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default' }}>
-        <Container maxWidth="xl" sx={{ py: 4 }}>
+      <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default', overflow: 'hidden' }}>
+        <Container maxWidth="lg" sx={{ width: '100%', maxWidth: '100%', py: 4, px: { xs: 2, sm: 3, md: 4 } }}>
           <Breadcrumbs sx={{ mb: 3 }}>
             <Link href="/" color="inherit">Home</Link>
             <Link href="/specialities" color="inherit">Specialities</Link>

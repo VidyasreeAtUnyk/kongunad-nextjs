@@ -4,7 +4,7 @@ import { Box, Container, Skeleton, Paper, Breadcrumbs } from '@mui/material'
 export default function SpecialtyDetailLoading() {
   return (
     <Box sx={{ minHeight: '60vh', backgroundColor: 'background.default' }}>
-      <Container maxWidth="xl" sx={{ py: 4 }}>
+      <Container maxWidth="lg" sx={{ width: '100%', maxWidth: '100%', py: 4, px: { xs: 2, sm: 3, md: 4 } }}>
         {/* Breadcrumbs Skeleton */}
         <Breadcrumbs sx={{ mb: 3 }}>
           <Skeleton variant="text" width={60} height={20} />
