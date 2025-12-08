@@ -148,10 +148,11 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
         sx: {
           borderRadius: 3,
           maxWidth: { xs: '95vw', md: '800px' },
-          height: { xs: '90vh', sm: '85vh', md: '75vh' },
-          maxHeight: { xs: '90vh', sm: '85vh', md: '75vh' },
+          height: { xs: 'auto', sm: '85vh', md: '75vh' },
+          maxHeight: { xs: '95vh', sm: '85vh', md: '75vh' },
           display: 'flex',
           flexDirection: 'column',
+          overflow: { xs: 'auto', sm: 'hidden', md: 'hidden' },
         },
       }}
     >
@@ -180,8 +181,8 @@ export const DoctorDetailModal: React.FC<DoctorDetailModalProps> = ({
           {/* Main Content Skeleton */}
           <Box sx={{ 
             p: { xs: 2, md: 4 },
-            flex: 1,
-            overflow: 'hidden',
+            flex: { xs: 'none', sm: 1, md: 1 },
+            overflow: { xs: 'visible', sm: 'hidden', md: 'hidden' },
             minHeight: 0,
             display: 'flex',
             flexDirection: 'column',
