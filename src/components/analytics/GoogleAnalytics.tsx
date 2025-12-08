@@ -2,11 +2,11 @@
 
 import Script from 'next/script'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
-export const GoogleAnalytics: React.FC = () => {
+function GoogleAnalyticsContent() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -46,6 +46,18 @@ export const GoogleAnalytics: React.FC = () => {
         }}
       />
     </>
+  )
+}
+
+export const GoogleAnalytics: React.FC = () => {
+  if (!GA_MEASUREMENT_ID) {
+    return null
+  }
+
+  return (
+    <Suspense fallback={null}>
+      <GoogleAnalyticsContent />
+    </Suspense>
   )
 }
 

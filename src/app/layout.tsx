@@ -10,10 +10,9 @@ import { ModalContainer } from '@/components/modals/ModalContainer'
 import { BottomSheetContainer } from '@/components/ui/BottomSheetContainer'
 import { FacilitiesProvider } from '@/components/providers/FacilitiesProvider'
 import { CampaignPoster } from '@/components/content/CampaignPoster'
-import { Chatbot } from '@/components/content/Chatbot'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
 import { getOffers, getFacilitiesCached, getCampaignPosterCached } from '@/lib/contentful'
-import { Facility } from '@/types/contentful'
+import { Facility, CampaignPoster as CampaignPosterType } from '@/types/contentful'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -73,9 +72,9 @@ export default async function RootLayout({
   }
 
   // Fetch campaign poster
-  let campaignPoster = null
+  let campaignPoster: CampaignPosterType | null = null
   try {
-    campaignPoster = await getCampaignPosterCached()
+    campaignPoster = (await getCampaignPosterCached()) as unknown as CampaignPosterType | null
   } catch (error) {
     console.error('Error fetching campaign poster in layout:', error)
   }
@@ -93,7 +92,6 @@ export default async function RootLayout({
                 {children}
                 <Footer />
                 <CampaignPoster poster={campaignPoster} />
-                <Chatbot />
                 <ModalContainer />
                 <BottomSheetContainer />
               </FacilitiesProvider>
