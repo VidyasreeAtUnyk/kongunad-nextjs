@@ -37,7 +37,6 @@ export const makeAppointmentConfig = {
       name: 'email',
       label: 'Email Address',
       type: 'email' as const,
-      required: true,
       placeholder: 'your.email@example.com',
       gridProps: { xs: 12, sm: 6 },
     },

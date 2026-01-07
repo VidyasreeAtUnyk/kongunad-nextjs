@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5, maxWidth: 420, flexBasis: 420 }}>
               <PlaceOutlinedIcon sx={{ color: 'secondary.main' }} />
               <Typography variant="body2" sx={{ lineHeight: 1.5 }}>
-                Kongunad Hospitals, 11th Street, Tatabad, Gandhipuram, Coimbatore, Tamil Nadu 641012
+                Kongunad Hospitals, 11th Street, Tatabad, Coimbatore, Tamil Nadu 641012
               </Typography>
             </Box>
           </Box>

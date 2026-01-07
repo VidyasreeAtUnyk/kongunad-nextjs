@@ -56,7 +56,12 @@ export const DoctorsSection: React.FC<DoctorsSectionProps> = ({ doctors, leaders
           )}
         </Box>
         <Box sx={{ flex: { xs: '1 1 auto', md: '1 1 0' }, display: 'flex', flexDirection: 'column', gap: 1 }}>
-          <Typography variant="overline" sx={{ letterSpacing: 1.5, color: 'text.secondary' }}>{title}</Typography>
+          <Typography
+            variant="subtitle2"
+            sx={{ letterSpacing: 1.5, textTransform: 'uppercase', color: 'text.secondary', fontWeight: 700 }}
+          >
+            {title}
+          </Typography>
           <Typography variant="h3" color="primary" sx={{ fontWeight: 800 }}>{name}</Typography>
           <Box sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
             {bio && typeof bio === 'object' && (bio as Document).nodeType ? (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getNavigationCached } from '@/lib/contentful'
+import { getNavigationCached, getSpecialtiesCached } from '@/lib/contentful'
 import { NavigationClient } from './NavigationClient'
 import { NavigationErrorBoundary } from './NavigationErrorBoundary'
 import type { Navigation } from '@/types/contentful'
@@ -39,8 +39,46 @@ const validateNavigationData = (nav: any): boolean => {
   return true
 }
 
+// Helper function to build specialty dropdown items from specialty content type
+const buildSpecialtyDropdownItems = (specialties: any[], typeSlug: 'medical-specialties' | 'surgical-specialties', typeName: string, iconAssetId?: string): any => {
+  // Filter specialties by type and order
+  const filteredSpecialties = specialties
+    .filter((specialty: any) => {
+      const specialtyType = specialty.fields?.type
+      const order = specialty.fields?.order
+      // Match type and exclude order 0
+      return specialtyType === (typeSlug === 'medical-specialties' ? 'medical' : 'surgical') &&
+             order !== undefined && order !== null && order !== 0
+    })
+    .sort((a: any, b: any) => {
+      const orderA = a.fields?.order || 999999
+      const orderB = b.fields?.order || 999999
+      return orderA - orderB
+    })
+
+  // Build sec array from specialties
+  const sec = filteredSpecialties.map((specialty: any) => ({
+    title: specialty.fields?.name || '',
+    to: `/specialities/${typeSlug}/${specialty.fields?.slug || ''}/`
+  }))
+
+  return {
+    title: typeName,
+    to: `/specialities/${typeSlug}/`,
+    iconAlt: typeName,
+    icon: iconAssetId ? {
+      sys: {
+        type: 'Link',
+        linkType: 'Asset',
+        id: iconAssetId
+      }
+    } : null,
+    sec: sec
+  }
+}
+
 // Helper function to resolve all assets in navigation data with validation
-const resolveNavigationAssets = (navigationData: any[], includes: any): Navigation[] => {
+const resolveNavigationAssets = (navigationData: any[], includes: any, specialties: any[]): Navigation[] => {
   if (!Array.isArray(navigationData)) {
     console.warn('Navigation data is not an array, returning empty array')
     return []
@@ -48,32 +86,65 @@ const resolveNavigationAssets = (navigationData: any[], includes: any): Navigati
 
   return navigationData
     .filter(validateNavigationData)
-    .map(nav => {
+    .map((nav) => {
       try {
-        return {
-          ...nav,
-          fields: {
-            ...nav.fields,
-            items: (nav.fields.items || [])
-              .filter((item: any) => item && item.title) // Filter out invalid items
-              .map((item: any) => ({
+        const items = (nav.fields.items || [])
+          .filter((item: any) => item && item.title)
+          .map((item: any) => {
+            // If this is the Specialities item, rebuild dropdown from specialties
+            if (item.title === 'Specialities' && Array.isArray(item.dropdown)) {
+              // Find icon asset IDs from existing navigation structure (if available)
+              const medicalIconId = item.dropdown.find((d: any) => d.title === 'Medical Specialties')?.icon?.sys?.id
+              const surgicalIconId = item.dropdown.find((d: any) => d.title === 'Surgical Specialties')?.icon?.sys?.id
+              
+              // Build dropdown items dynamically from specialties
+              const dropdown = [
+                buildSpecialtyDropdownItems(specialties, 'medical-specialties', 'Medical Specialties', medicalIconId),
+                buildSpecialtyDropdownItems(specialties, 'surgical-specialties', 'Surgical Specialties', surgicalIconId)
+              ].filter(d => d.sec && d.sec.length > 0) // Only include if there are specialties
+
+              return {
                 ...item,
                 icon: item.icon ? {
                   ...item.icon,
                   resolvedUrl: resolveAssetUrl(item.icon, includes)
                 } : null,
-                dropdown: Array.isArray(item.dropdown)
-                  ? item.dropdown
-                      .filter((dropdownItem: any) => dropdownItem && dropdownItem.title)
-                      .map((dropdownItem: any) => ({
-                        ...dropdownItem,
-                        icon: dropdownItem.icon ? {
-                          ...dropdownItem.icon,
-                          resolvedUrl: resolveAssetUrl(dropdownItem.icon, includes)
-                        } : null
-                      }))
-                  : []
-              }))
+                dropdown: dropdown.map((dropdownItem: any) => ({
+                  ...dropdownItem,
+                  icon: dropdownItem.icon ? {
+                    ...dropdownItem.icon,
+                    resolvedUrl: resolveAssetUrl(dropdownItem.icon, includes)
+                  } : null
+                }))
+              }
+            }
+
+            // For non-Specialities items, use existing structure
+            return {
+              ...item,
+              icon: item.icon ? {
+                ...item.icon,
+                resolvedUrl: resolveAssetUrl(item.icon, includes)
+              } : null,
+              dropdown: Array.isArray(item.dropdown)
+                ? item.dropdown
+                    .filter((dropdownItem: any) => dropdownItem && dropdownItem.title)
+                    .map((dropdownItem: any) => ({
+                      ...dropdownItem,
+                      icon: dropdownItem.icon ? {
+                        ...dropdownItem.icon,
+                        resolvedUrl: resolveAssetUrl(dropdownItem.icon, includes)
+                      } : null
+                    }))
+                : []
+            }
+          })
+
+        return {
+          ...nav,
+          fields: {
+            ...nav.fields,
+            items: items
           }
         }
       } catch (error) {
@@ -100,7 +171,16 @@ export async function Navigation({ currentPage }: NavigationProps) {
       )
     }
 
-    const resolvedNavigationData = resolveNavigationAssets(response.items, response.includes)
+    // Fetch specialties to build navigation dynamically
+    let specialties: any[] = []
+    try {
+      specialties = await getSpecialtiesCached()
+    } catch (error) {
+      console.warn('Error fetching specialties for navigation:', error)
+      // Continue without specialties - navigation will use static data
+    }
+
+    const resolvedNavigationData = resolveNavigationAssets(response.items, response.includes, specialties)
     
     return (
       <NavigationErrorBoundary>

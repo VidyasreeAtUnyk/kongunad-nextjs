@@ -190,8 +190,9 @@ export const NavigationClient: React.FC<NavigationClientProps> = React.memo(({
                         rel={isExternal ? 'noopener noreferrer' : undefined}
                         sx={{
                           color: 'white',
-                          fontSize: 12,
+                          fontSize: 13,
                           lineHeight: '16px',
+                          fontWeight: 700,
                           textDecoration: 'none',
                           '&:hover': {
                             textDecoration: 'underline',
@@ -220,8 +221,9 @@ export const NavigationClient: React.FC<NavigationClientProps> = React.memo(({
                         rel={isExternal ? 'noopener noreferrer' : undefined}
                         sx={{
                           color: 'white',
-                          fontSize: 12,
+                          fontSize: 13,
                           lineHeight: '16px',
+                          fontWeight: 700,
                           textDecoration: 'none',
                           '&:hover': {
                             textDecoration: 'underline',

@@ -129,7 +129,17 @@ export async function getSpecialties(type?: 'medical' | 'surgical', limit?: numb
   }
   
   const entries = await client.getEntries(query)
+  // Filter out entries with order 0 and sort by order (ascending)
   return entries.items
+    .filter((item: any) => {
+      const order = item.fields?.order
+      return order !== undefined && order !== null && order !== 0
+    })
+    .sort((a: any, b: any) => {
+      const orderA = a.fields?.order || 999999
+      const orderB = b.fields?.order || 999999
+      return orderA - orderB
+    })
 }
 
 export function getSpecialtiesCached(type?: 'medical' | 'surgical', limit?: number) {
@@ -169,7 +179,17 @@ export async function getSpecialtiesByType(typeSlug: string) {
     limit: 100,
     order: ['fields.order'],
   })
+  // Filter out entries with order 0 and sort by order (ascending)
   return entries.items
+    .filter((item: any) => {
+      const order = item.fields?.order
+      return order !== undefined && order !== null && order !== 0
+    })
+    .sort((a: any, b: any) => {
+      const orderA = a.fields?.order || 999999
+      const orderB = b.fields?.order || 999999
+      return orderA - orderB
+    })
 }
 
 export function getSpecialtiesByTypeCached(typeSlug: string) {

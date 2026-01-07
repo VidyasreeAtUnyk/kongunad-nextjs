@@ -66,7 +66,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ buildingImages }) => {
                     color: 'primary.main',
                   }}
                 >
-                  Welcome to Kongunad{'\u00A0'}Hospital
+                  Welcome to Kongunad{'\u00A0'}Hospitals
                 </Typography>
                 
                 <Typography 
@@ -77,7 +77,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ buildingImages }) => {
                     opacity: 0.9,
                   }}
                 >
-                  35 years of confidence to Coimbatore in Healthcare
+                  35+ years of confidence to Coimbatore in Healthcare
                 </Typography>
 
                     {/* Search Bar */}
@@ -246,7 +246,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ buildingImages }) => {
               { label: 'Expert Doctors', value: '100+' },
               { label: 'Years Experience', value: '35+' },
               { label: 'Specialties', value: '25+' },
-              { label: 'Patients Served', value: '50K+' },
+              { label: 'Patients Served', value: '10L+' },
             ].map((stat, index) => (
               <Box key={index} sx={{ textAlign: 'center' }}>
                 <Typography 
