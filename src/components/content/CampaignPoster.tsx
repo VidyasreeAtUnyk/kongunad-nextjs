@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { Box, Dialog, IconButton, Link as MuiLink, Button } from '@mui/material'
+import React, { useEffect, useState, useRef } from 'react'
+import { Box, Dialog, IconButton, Link as MuiLink, Button, Skeleton } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { CampaignPoster as CampaignPosterType } from '@/types/contentful'
@@ -12,6 +12,9 @@ interface CampaignPosterProps {
 
 export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
   const [open, setOpen] = useState(false)
+  const [imageLoading, setImageLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
     if (!poster || !poster.fields.active) {
@@ -23,15 +26,47 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
     const hasBeenShown = sessionStorage.getItem(sessionKey)
 
     if (!hasBeenShown) {
-      // Small delay to ensure page is loaded
-      const timer = setTimeout(() => {
-        setOpen(true)
-        sessionStorage.setItem(sessionKey, 'true')
-      }, 500)
-
-      return () => clearTimeout(timer)
+      // Open immediately - no delay needed
+      setOpen(true)
+      sessionStorage.setItem(sessionKey, 'true')
     }
   }, [poster])
+
+  // Reset image loading state when dialog opens
+  useEffect(() => {
+    if (open) {
+      setImageLoading(true)
+      setImageError(false)
+    }
+  }, [open])
+
+  // Check if image is already loaded (e.g., from cache) after dialog opens
+  useEffect(() => {
+    if (!open || !imgRef.current) {
+      return
+    }
+
+    const checkImageLoaded = () => {
+      if (imgRef.current) {
+        // If image is complete and has dimensions, it loaded successfully
+        if (imgRef.current.complete && imgRef.current.naturalHeight > 0) {
+          setImageLoading(false)
+          setImageError(false)
+        }
+        // Only mark as error if image is complete but has no dimensions (actual error)
+        else if (imgRef.current.complete && imgRef.current.naturalHeight === 0 && imgRef.current.naturalWidth === 0) {
+          setImageLoading(false)
+          setImageError(true)
+        }
+      }
+    }
+    
+    // Check immediately and also after a short delay
+    checkImageLoaded()
+    const timeout = setTimeout(checkImageLoaded, 50)
+    
+    return () => clearTimeout(timeout)
+  }, [open])
 
   const handleClose = () => {
     setOpen(false)
@@ -107,15 +142,51 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
           {poster.fields.link && poster.fields.linkText ? (
             <>
               <Box
-                component="img"
-                src={fullImageUrl}
-                alt="Campaign poster"
                 sx={{
+                  position: 'relative',
                   width: '100%',
-                  height: 'auto',
-                  display: 'block',
+                  aspectRatio: 1, // Square aspect ratio
+                  overflow: 'hidden',
+                  backgroundColor: 'grey.200',
                 }}
-              />
+              >
+                {imageLoading && (
+                  <Skeleton
+                    variant="rectangular"
+                    width="100%"
+                    height="100%"
+                    sx={{ position: 'absolute', top: 0, left: 0, zIndex: 0 }}
+                  />
+                )}
+                {!imageError && (
+                  <Box
+                    component="img"
+                    ref={imgRef}
+                    src={fullImageUrl}
+                    alt="Campaign poster"
+                    loading="eager"
+                    fetchPriority="high"
+                    onLoad={() => {
+                      setImageLoading(false)
+                      setImageError(false)
+                    }}
+                    onError={() => {
+                      setImageLoading(false)
+                      setImageError(true)
+                    }}
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                      opacity: imageLoading ? 0 : 1,
+                      transition: 'opacity 0.3s ease-in-out',
+                      position: 'relative',
+                      zIndex: 1,
+                    }}
+                  />
+                )}
+              </Box>
               <Box
                 sx={{
                   p: 3,
@@ -159,29 +230,99 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
               }}
             >
               <Box
-                component="img"
-                src={fullImageUrl}
-                alt="Campaign poster"
                 sx={{
+                  position: 'relative',
                   width: '100%',
-                  height: 'auto',
-                  display: 'block',
-                  cursor: 'pointer',
+                  aspectRatio: '3/4',
+                  minHeight: 500,
+                  overflow: 'hidden',
+                  backgroundColor: 'grey.200',
                 }}
-              />
+              >
+                {imageLoading && (
+                  <Skeleton
+                    variant="rectangular"
+                    width="100%"
+                    height="100%"
+                    sx={{ position: 'absolute', top: 0, left: 0, zIndex: 0 }}
+                  />
+                )}
+                {!imageError && (
+                  <Box
+                    component="img"
+                    ref={imgRef}
+                    src={fullImageUrl}
+                    alt="Campaign poster"
+                    onLoad={() => {
+                      setImageLoading(false)
+                      setImageError(false)
+                    }}
+                    onError={() => {
+                      setImageLoading(false)
+                      setImageError(true)
+                    }}
+                    sx={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      display: 'block',
+                      cursor: 'pointer',
+                      opacity: imageLoading ? 0 : 1,
+                      transition: 'opacity 0.3s ease-in-out',
+                      position: 'relative',
+                      zIndex: 1,
+                    }}
+                  />
+                )}
+              </Box>
             </MuiLink>
           ) : (
             // No link, just show image
             <Box
-              component="img"
-              src={fullImageUrl}
-              alt="Campaign poster"
               sx={{
+                position: 'relative',
                 width: '100%',
-                height: 'auto',
-                display: 'block',
+                aspectRatio: '4/3',
+                minHeight: 400,
+                overflow: 'hidden',
+                backgroundColor: 'grey.200',
               }}
-            />
+            >
+              {imageLoading && (
+                <Skeleton
+                  variant="rectangular"
+                  width="100%"
+                  height="100%"
+                  sx={{ position: 'absolute', top: 0, left: 0, zIndex: 0 }}
+                />
+              )}
+              {!imageError && (
+                <Box
+                  component="img"
+                  ref={imgRef}
+                  src={fullImageUrl}
+                  alt="Campaign poster"
+                  onLoad={() => {
+                    setImageLoading(false)
+                    setImageError(false)
+                  }}
+                  onError={() => {
+                    setImageLoading(false)
+                    setImageError(true)
+                  }}
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    display: 'block',
+                    opacity: imageLoading ? 0 : 1,
+                    transition: 'opacity 0.3s ease-in-out',
+                    position: 'relative',
+                    zIndex: 1,
+                  }}
+                />
+              )}
+            </Box>
           )}
         </Box>
       </Box>
