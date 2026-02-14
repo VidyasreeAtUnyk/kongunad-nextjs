@@ -40,8 +40,14 @@ export async function getFacilities(limit?: number) {
   const entries = await client.getEntries({
     content_type: 'facility',
     limit: limit || 100,
+    order: ['fields.order'],
   })
-  return entries.items
+  // Sort by order (ascending), entries with order 0, null, or undefined go last
+  return entries.items.sort((a: any, b: any) => {
+    const orderA = a.fields?.order || 999999
+    const orderB = b.fields?.order || 999999
+    return orderA - orderB
+  })
 }
 
 export function getFacilitiesCached(limit?: number) {
@@ -63,7 +69,12 @@ export async function getFacilitiesByCategory(categorySlug: string) {
     limit: 100,
     order: ['fields.order'],
   })
-  return entries.items
+  // Sort by order (ascending), entries with order 0, null, or undefined go last
+  return entries.items.sort((a: any, b: any) => {
+    const orderA = a.fields?.order || 999999
+    const orderB = b.fields?.order || 999999
+    return orderA - orderB
+  })
 }
 
 export function getFacilitiesByCategoryCached(categorySlug: string) {

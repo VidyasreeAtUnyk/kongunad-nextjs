@@ -22,6 +22,7 @@ import { HealthPackageCard } from '@/components/content/HealthPackageCard'
 import { useAppDispatch } from '@/store/hooks'
 import { openModal } from '@/store/modalSlice'
 import { openBottomSheet } from '@/store/bottomSheetSlice'
+import { theme } from '@/lib/mui-theme'
 
 interface FacilityDetailClientProps {
   facility: Facility
@@ -136,18 +137,20 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
           }}
         >
           {/* Facility Image */}
-          <Box
-            component="img"
-            src={`https:${facility.fields.icon.fields.file.url}`}
-            alt={`${facility.fields.name} - Facility image`}
-            loading="eager"
-            sx={{
-              width: '100%',
-              aspectRatio: '1/1',
-              objectFit: 'cover',
-              borderRadius: 3,
-            }}
-          />
+          {facility.fields.icon?.fields?.file?.url && (
+            <Box
+              component="img"
+              src={`https:${facility.fields.icon.fields.file.url}`}
+              alt={`${facility.fields.name} - Facility image`}
+              loading="eager"
+              sx={{
+                width: { xs: '100%', sm: '50%', md: '100%' },
+                aspectRatio: '1/1',
+                objectFit: 'cover',
+                borderRadius: 3,
+              }}
+            />
+          )}
 
           {/* Facilities of Department - No Title */}
           {facility.fields.facilities && facility.fields.facilities.length > 0 && (
@@ -166,7 +169,7 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
                   sx={{
                     mb: 2,
                     lineHeight: 1.8,
-                    color: 'text.secondary',
+                    color: 'text.primary',
                     '&:last-child': {
                       mb: 0,
                     },
@@ -181,13 +184,16 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
 
         {/* Services Section - No Title, Different Layout */}
         {validServices.length > 0 && (
-          <Paper
-            elevation={0}
+          <Box
             sx={{
-              p: 4,
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: '1fr',
+                sm: 'repeat(2, 1fr)',
+                md: 'repeat(3, 1fr)',
+              },
+              gap: 3,
               mb: 6,
-              borderRadius: 3,
-              background: 'linear-gradient(135deg, rgba(25, 118, 210, 0.05) 0%, rgba(25, 118, 210, 0.02) 100%)',
             }}
           >
             {validServices.map((item, index) => {
@@ -198,40 +204,45 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
                 : { content: item as string };
 
               // Skip if no title, content, or images
-              const hasImages = service.images && Array.isArray(service.images) && service.images.length > 0;
+              const hasImages = service.images && Array.isArray(service.images) && service.images.some((img: any) => img?.fields?.file?.url);
               if (!service.title && !service.content && !hasImages) {
                 return null;
               }
 
               return (
-                <Box key={index} sx={{ mb: 4, '&:last-child': { mb: 0 } }}>
+                <Paper
+                  key={index}
+                  elevation={0}
+                  sx={{
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                    border: '1px solid',
+                    borderColor: 'grey.200',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transition: 'box-shadow 0.2s ease-in-out',
+                    '&:hover': {
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                    },
+                  }}
+                >
                   {/* Service Title */}
                   {service.title && (
-                    <Typography 
-                      variant="h6" 
-                      fontWeight={600} 
-                      color="primary"
-                      gutterBottom={!!service.content || hasImages}
-                      sx={{ mb: 2 }}
-                    >
-                      {service.title}
-                    </Typography>
+                    <Box sx={{ px: 2.5, pt: 2.5, pb: hasImages ? 1.5 : 2.5 }}>
+                      <Typography 
+                        variant="subtitle1" 
+                        fontWeight={700} 
+                        color="primary"
+                      >
+                        {service.title}
+                      </Typography>
+                    </Box>
                   )}
 
-                  {/* Service Images */}
+                  {/* Service Image */}
                   {hasImages && (
-                    <Box
-                      sx={{
-                        display: 'grid',
-                        gridTemplateColumns: {
-                          xs: '1fr',
-                          sm: service.images!.length === 1 ? '1fr' : 'repeat(2, 1fr)',
-                        },
-                        gap: 2,
-                        mb: service.content ? 2 : 0,
-                      }}
-                    >
-                      {service.images!.map((image, imgIndex) => (
+                    <Box>
+                      {service.images!.filter((image) => image?.fields?.file?.url).slice(0, 1).map((image, imgIndex) => (
                         <Box
                           key={imgIndex}
                           component="img"
@@ -240,10 +251,9 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
                           loading="lazy"
                           sx={{
                             width: '100%',
-                            height: { xs: 200, sm: service.images!.length === 1 ? 300 : 200 },
+                            height: 180,
                             objectFit: 'cover',
-                            borderRadius: 2,
-                            boxShadow: 2,
+                            display: 'block',
                           }}
                         />
                       ))}
@@ -252,46 +262,49 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
 
                   {/* Service Content */}
                   {service.content && (
-                    Array.isArray(service.content) ? (
-                      <List sx={{ py: 0, pl: 2 }}>
-                        {service.content.map((item, idx) => (
-                          <ListItem key={idx} disablePadding sx={{ py: 0.5 }}>
-                            <Typography 
-                              variant="body1" 
-                              component="span"
-                              sx={{ 
-                                color: 'text.secondary',
-                                lineHeight: 1.8,
-                                '&::before': {
-                                  content: '"• "',
-                                  color: 'primary.main',
-                                  fontWeight: 'bold',
-                                  marginRight: 1,
-                                },
-                              }}
-                            >
-                              {item}
-                            </Typography>
-                          </ListItem>
-                        ))}
-                      </List>
-                    ) : (
-                      <Typography 
-                        variant="body1" 
-                        sx={{ 
-                          color: 'text.secondary',
-                          lineHeight: 1.8,
-                          whiteSpace: 'pre-line',
-                        }}
-                      >
-                        {service.content}
-                      </Typography>
-                    )
+                  <Box sx={{ px: 2.5, pb: 2.5, pt: service.title && !hasImages ? 0 : 2, flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    {Array.isArray(service.content) ? (
+                        <List sx={{ py: 0, pl: 0 }}>
+                          {service.content.map((contentItem, idx) => (
+                            <ListItem key={idx} disablePadding sx={{ py: 0.3 }}>
+                              <Typography 
+                                variant="body2" 
+                                component="span"
+                                sx={{ 
+                                  color: 'text.primary',
+                                  lineHeight: 1.7,
+                                  '&::before': {
+                                    content: '"• "',
+                                    color: 'primary.main',
+                                    fontWeight: 'bold',
+                                    marginRight: 0.5,
+                                  },
+                                }}
+                              >
+                                {contentItem}
+                              </Typography>
+                            </ListItem>
+                          ))}
+                        </List>
+                      ) : (
+                        <Typography 
+                          variant="body2" 
+                          sx={{ 
+                            color: 'text.primary',
+                            lineHeight: 1.7,
+                            whiteSpace: 'pre-line',
+                          }}
+                        >
+                          {service.content}
+                        </Typography>
+                      )
+                    }
+                  </Box>
                   )}
-                </Box>
+                </Paper>
               );
             })}
-          </Paper>
+          </Box>
         )}
 
         {/* Additional Images Gallery */}
@@ -311,21 +324,47 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
                 gap: 2,
               }}
             >
-              {facility.fields.images.map((image, index) => (
+              {facility.fields.images.filter((image) => image?.fields?.file?.url).map((image, index) => (
                 <Card key={index}>
-                  <CardContent sx={{ p: 0 }}>
-                    <Box
-                      component="img"
-                      src={`https:${image.fields.file.url}`}
-                      alt={image.fields.title || `${facility.fields.name} - Gallery image ${index + 1}`}
-                      loading="lazy"
-                      sx={{
-                        width: '100%',
-                        height: 180,
-                        objectFit: 'cover',
-                        borderRadius: 2,
-                      }}
-                    />
+                  <CardContent sx={{ 
+                    p: 0, 
+                    '&:last-child': { pb: 0 }
+                  }}>
+                    <Box sx={{ position: 'relative' }}>
+                      <Box
+                        component="img"
+                        src={`https:${image.fields.file.url}`}
+                        alt={image.fields.title || `${facility.fields.name} - Gallery image ${index + 1}`}
+                        loading="lazy"
+                        sx={{
+                          width: '100%',
+                          height: 180,
+                          objectFit: 'cover',
+                          borderRadius: 2,
+                          display: 'block',
+                        }}
+                      />
+                      {facility.fields.showImageTitles && image.fields.title && (
+                        <Box
+                          sx={{
+                            position: 'absolute',
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                            color: 'white',
+                            px: 1.5,
+                            py: 1,
+                            borderBottomLeftRadius: 8,
+                            borderBottomRightRadius: 8,
+                          }}
+                        >
+                          <Typography variant="body2" fontWeight={600}>
+                            {image.fields.title}
+                          </Typography>
+                        </Box>
+                      )}
+                    </Box>
                   </CardContent>
                 </Card>
               ))}
@@ -445,7 +484,7 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
             <Typography variant="h6" fontWeight={600} gutterBottom color="primary">
               Other {categoryName}
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            <Typography variant="body2" color="text.primary" sx={{ mb: 2 }}>
               Explore more facilities in this category
             </Typography>
             <List sx={{ p: 0 }}>
@@ -508,7 +547,7 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
           <Typography variant="h6" fontWeight={600} gutterBottom color="primary">
             Browse Categories
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+          <Typography variant="body2" color="text.primary" sx={{ mb: 3 }}>
             Switch to other facility categories
           </Typography>
 

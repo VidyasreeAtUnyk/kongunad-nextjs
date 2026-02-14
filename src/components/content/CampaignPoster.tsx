@@ -233,8 +233,7 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
                 sx={{
                   position: 'relative',
                   width: '100%',
-                  aspectRatio: '3/4',
-                  minHeight: 500,
+                  aspectRatio: 1, // Square aspect ratio
                   overflow: 'hidden',
                   backgroundColor: 'grey.200',
                 }}
@@ -253,6 +252,8 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
                     ref={imgRef}
                     src={fullImageUrl}
                     alt="Campaign poster"
+                    loading="eager"
+                    fetchPriority="high"
                     onLoad={() => {
                       setImageLoading(false)
                       setImageError(false)
@@ -264,7 +265,7 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
                     sx={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'contain',
+                      objectFit: 'cover',
                       display: 'block',
                       cursor: 'pointer',
                       opacity: imageLoading ? 0 : 1,
@@ -282,8 +283,7 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
               sx={{
                 position: 'relative',
                 width: '100%',
-                aspectRatio: '4/3',
-                minHeight: 400,
+                aspectRatio: 1, // Square aspect ratio
                 overflow: 'hidden',
                 backgroundColor: 'grey.200',
               }}
@@ -302,6 +302,8 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
                   ref={imgRef}
                   src={fullImageUrl}
                   alt="Campaign poster"
+                  loading="eager"
+                  fetchPriority="high"
                   onLoad={() => {
                     setImageLoading(false)
                     setImageError(false)
@@ -313,7 +315,7 @@ export const CampaignPoster: React.FC<CampaignPosterProps> = ({ poster }) => {
                   sx={{
                     width: '100%',
                     height: '100%',
-                    objectFit: 'contain',
+                    objectFit: 'cover',
                     display: 'block',
                     opacity: imageLoading ? 0 : 1,
                     transition: 'opacity 0.3s ease-in-out',

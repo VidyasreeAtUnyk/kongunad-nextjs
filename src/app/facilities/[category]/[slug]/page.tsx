@@ -9,8 +9,74 @@ import {
   Link,
 } from '@mui/material'
 import { FacilityDetailClient } from './FacilityDetailClient'
-import { getFacilityByCategoryAndSlugCached, getFacilitiesByCategoryCached, getFacilityCategories, getDoctorsCached, getHealthPackagesCached } from '@/lib/contentful'
+import { getFacilityByCategoryAndSlugCached, getFacilitiesByCategoryCached, getFacilityCategories, getDoctorsCached, getHealthPackagesCached, getClient } from '@/lib/contentful'
 import { Facility, Doctor, HealthPackage } from '@/types/contentful'
+
+// Resolve unresolved asset links in service images
+async function resolveServiceImages(facility: Facility): Promise<Facility> {
+  if (!facility.fields.services || !Array.isArray(facility.fields.services)) {
+    return facility
+  }
+
+  // Collect all unresolved asset IDs from service images
+  const assetIds = new Set<string>()
+  facility.fields.services.forEach((service: any) => {
+    if (typeof service === 'object' && service !== null && Array.isArray(service.images)) {
+      service.images.forEach((img: any) => {
+        if (img?.sys?.type === 'Link' && img?.sys?.linkType === 'Asset' && img?.sys?.id && !img.fields) {
+          assetIds.add(img.sys.id)
+        }
+      })
+    }
+  })
+
+  if (assetIds.size === 0) {
+    return facility
+  }
+
+  // Fetch all assets in one request
+  try {
+    const client = getClient()
+    const assets = await client.getAssets({
+      'sys.id[in]': Array.from(assetIds),
+      limit: 100,
+    })
+
+    // Build a lookup map
+    const assetMap = new Map<string, any>()
+    assets.items.forEach((asset: any) => {
+      assetMap.set(asset.sys.id, asset)
+    })
+
+    // Replace unresolved links with resolved assets
+    const resolvedServices = facility.fields.services.map((service: any) => {
+      if (typeof service !== 'object' || service === null || !Array.isArray(service.images)) {
+        return service
+      }
+      return {
+        ...service,
+        images: service.images.map((img: any) => {
+          if (img?.sys?.id && !img.fields) {
+            const resolved = assetMap.get(img.sys.id)
+            return resolved || img
+          }
+          return img
+        }),
+      }
+    })
+
+    return {
+      ...facility,
+      fields: {
+        ...facility.fields,
+        services: resolvedServices,
+      },
+    }
+  } catch (error) {
+    console.warn('Error resolving service images:', error)
+    return facility
+  }
+}
 
 interface FacilityPageProps {
   params: Promise<{
@@ -84,11 +150,14 @@ export const revalidate = 300
 export default async function FacilityPage({ params }: FacilityPageProps) {
   try {
     const { category, slug } = await params
-    const facility = await getFacilityByCategoryAndSlugCached(category, slug) as unknown as Facility | null
+    let facility = await getFacilityByCategoryAndSlugCached(category, slug) as unknown as Facility | null
 
     if (!facility) {
       notFound()
     }
+
+    // Resolve unresolved asset links in service images
+    facility = await resolveServiceImages(facility)
 
     // Fetch all doctors and health packages in parallel with error handling
     const [allDoctors, allHealthPackages, allCategoryFacilities, categories] = await Promise.allSettled([
@@ -158,11 +227,14 @@ export default async function FacilityPage({ params }: FacilityPageProps) {
     const relatedDoctors = regularDoctors
 
     // Filter health packages by category matching facility category (case-insensitive)
-    const relatedHealthPackages = allHealthPackages.filter(pkg => {
-      const pkgCategory = pkg.fields.category?.toLowerCase().trim()
-      const facilityCategory = facility.fields.category?.toLowerCase().trim()
-      return pkgCategory === facilityCategory || pkgCategory?.includes(facilityCategory || '') || facilityCategory?.includes(pkgCategory || '')
-    })
+    const facilityCategory = facility.fields.category?.toLowerCase().trim()
+    const relatedHealthPackages = facilityCategory
+      ? allHealthPackages.filter(pkg => {
+          const pkgCategory = pkg.fields.category?.toLowerCase().trim()
+          if (!pkgCategory) return false
+          return pkgCategory === facilityCategory || pkgCategory.includes(facilityCategory) || facilityCategory.includes(pkgCategory)
+        })
+      : []
 
     // Get other facilities in the same category (excluding current)
     const otherFacilities = allCategoryFacilities.filter(f => f.sys.id !== facility.sys.id)

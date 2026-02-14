@@ -69,6 +69,7 @@ async function generateTemplate() {
         return {
           name: fields.name?.['en-US'] || '',
           category: fields.category?.['en-US'] || '',
+          order: fields.order?.['en-US'] ?? 0,
           // Existing content (for reference)
           currentDescription: fields.description?.['en-US'] || '',
           // New content to add (fill these in from existing site)
@@ -108,6 +109,7 @@ async function generateTemplate() {
     console.log('      - hod: Array of HOD objects: [{ name: "Dr. Name", title: "Head of Department" }]');
     console.log('        Or simple strings: ["Dr. Name"] (backward compatible)');
     console.log('      - hodSectionTitle: Custom title for doctors section (defaults to "Our Doctors")');
+    console.log('      - order: Number for display order (lower = first). Facilities with order 0 appear last.');
     console.log('   3. Run: node update-facilities-content.js update');
   } catch (error) {
     console.error('❌ Error generating template:', error.message);
@@ -144,7 +146,7 @@ async function updateFacilities() {
 
     for (const facilityData of content.facilities) {
       try {
-        const { name, category, description, services, facilities, hod, hodSectionTitle } = facilityData;
+        const { name, category, order, description, services, facilities, hod, hodSectionTitle, showImageTitles } = facilityData;
         
         if (!name || !category) {
           console.log(`⏭️  Skipping: Missing name or category`);
@@ -305,6 +307,20 @@ async function updateFacilities() {
         if (hodSectionTitle && hodSectionTitle.trim()) {
           updatedFields.hodSectionTitle = {
             'en-US': hodSectionTitle.trim(),
+          };
+        }
+
+        // Update order if provided (number, for sorting)
+        if (order !== undefined && order !== null && typeof order === 'number') {
+          updatedFields.order = {
+            'en-US': order,
+          };
+        }
+
+        // Update showImageTitles if provided (boolean)
+        if (showImageTitles !== undefined && typeof showImageTitles === 'boolean') {
+          updatedFields.showImageTitles = {
+            'en-US': showImageTitles,
           };
         }
 

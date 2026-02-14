@@ -15,7 +15,8 @@
     "test:e2e:install": "playwright install",
     "postinstall": "if [ -z \"$VERCEL\" ]; then playwright install --with-deps; else echo 'Skipping Playwright install on Vercel'; fi",
     "contentful:update:facility-icons": "node scripts/contentful-imports/update-facility-icons.js",
-    "handoff:generate": "npx tsx scripts/handoff/generate-handoff-pdfs.ts"
+    "handoff:generate": "npx tsx scripts/handoff/generate-handoff-pdfs.ts",
+    "handoff:facilities-pdf": "npx tsx scripts/handoff/screenshot-facilities-pdf.ts"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.1.5",
@@ -58,6 +59,7 @@
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
     "msw": "^2.11.6",
+    "pdf-lib": "^1.17.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

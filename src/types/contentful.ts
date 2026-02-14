@@ -117,6 +117,7 @@ export interface Facility {
     hod?: string // Head of Department name (will be matched with Doctor content type)
     hodSectionTitle?: string // Optional custom title for the doctors/HOD section (defaults to "Head of Department")
     order?: number // For sorting within category
+    showImageTitles?: boolean // Whether to display image titles as overlays in the gallery
   }
 }
 

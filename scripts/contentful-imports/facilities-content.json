@@ -10,7 +10,8 @@
         "Our bronchoscopy suite effectively diagnoses a wide range of respiratory infections and airway diseases.",
         "Three specialist pulmonologists operate the advanced equipment to ensure safe, accurate procedures."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 1
     },
     {
       "name": "Colonoscopy",
@@ -22,7 +23,8 @@
         "A colonoscopy lets your doctor examine your large intestine to investigate symptoms such as abdominal pain, rectal bleeding, or changes in bowel habits.",
         "It also helps prevent colorectal cancer, and our expert gastroenterologists and surgeons perform colonoscopy for both diagnosis and treatment."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 2
     },
     {
       "name": "ERCP",
@@ -33,7 +35,8 @@
       "facilities": [
         "We use advanced ERCP equipment, and all procedures are performed by experienced specialist surgeons."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 3
     },
     {
       "name": "Upper GI Scopy",
@@ -45,27 +48,33 @@
         "Upper GI endoscopy is a non-surgical test that uses a flexible tube with a light and camera to view the oesophagus, stomach, and upper intestine.",
         "Our expert gastroenterologists and surgeons perform endoscopic procedures for accurate diagnosis and effective treatment."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 4
     },
     {
       "name": "Dialysis Services",
       "category": "Inpatient Services",
       "currentDescription": "Learn more about Dialysis Services at Kongunad Hospital.",
       "description": "",
-      "services": [{
-        "title": "Hemodialysis Unit",
-        "image": "",
-        "content": "Our Dialysis Department is one of the leading modern dialysis units in India. It is overseen by a full-time nephrologist and has a separate unit for zero-positive cases. Our technicians are fully trained in critical care, advanced dialysis techniques, and safety practices."
-      },{
-        "title": "Peritoneal Dialysis Unit",
-        "image": "",
-        "content": "Our specialists are highly experienced in peritoneal dialysis, which plays a vital role in saving many critically ill patients."
-      },{
-        "title": "CRRT Unit",
-        "image": ""
-      }],
+      "services": [
+        {
+          "title": "Hemodialysis Unit",
+          "image": "",
+          "content": "Our Dialysis Department is one of the leading modern dialysis units in India. It is overseen by a full-time nephrologist and has a separate unit for zero-positive cases. Our technicians are fully trained in critical care, advanced dialysis techniques, and safety practices."
+        },
+        {
+          "title": "Peritoneal Dialysis Unit",
+          "image": "",
+          "content": "Our specialists are highly experienced in peritoneal dialysis, which plays a vital role in saving many critically ill patients."
+        },
+        {
+          "title": "CRRT Unit",
+          "image": ""
+        }
+      ],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 5
     },
     {
       "name": "Emergency Services",
@@ -86,7 +95,12 @@
         {
           "title": "Emergency Medical & Surgical Services",
           "image": "",
-          "content": ["Our casualty has adequate space, emergency instruments, infusion pumps, ventilators, monitors, oxygen and suction support.", "Although we have every emergency medicine to treat emergencies.", "We are strictly following triage system to separate critical cases and treat them depending on their needs.", "Our casualty medical officers and staff nurses are regularly updated with evidence based practice."]
+          "content": [
+            "Our casualty has adequate space, emergency instruments, infusion pumps, ventilators, monitors, oxygen and suction support.",
+            "Although we have every emergency medicine to treat emergencies.",
+            "We are strictly following triage system to separate critical cases and treat them depending on their needs.",
+            "Our casualty medical officers and staff nurses are regularly updated with evidence based practice."
+          ]
         },
         {
           "title": "Pediatric Emergencies",
@@ -103,8 +117,12 @@
           "content": "Our ambulance is considered as a MINI INTENSIVE CARE UNIT which has ventilators, monitors, oxygen supply, infusion pump emergency medicine and needed emergency equipments."
         }
       ],
-      "facilities": ["Kongunad Emergency services and rescue department is organized well to ensure advanced and quick emergency services for public by addressing different emergencies.", "Kongunad emergency department (ED), well facilitated in advanced medical and surgical specialization in emergency medicine, the acute care of patients who present without prior appointment; either by their own means or by that of an ambulance."],
-      "imageUrls": []
+      "facilities": [
+        "Kongunad Emergency services and rescue department is organized well to ensure advanced and quick emergency services for public by addressing different emergencies.",
+        "Kongunad emergency department (ED), well facilitated in advanced medical and surgical specialization in emergency medicine, the acute care of patients who present without prior appointment; either by their own means or by that of an ambulance."
+      ],
+      "imageUrls": [],
+      "order": 6
     },
     {
       "name": "Intensive Care Services",
@@ -157,7 +175,8 @@
         "We maintain dedicated cupboards for emergency and non-emergency medicines.",
         "Our intensivists and staff nurses are trained and regularly updated on evidence-based critical-care practices."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 7
     },
     {
       "name": "Operation Theatre Services",
@@ -196,7 +215,8 @@
         }
       ],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 8
     },
     {
       "name": "Room Services",
@@ -205,7 +225,9 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 9,
+      "showImageTitles": true
     },
     {
       "name": "Biochemistry",
@@ -218,7 +240,8 @@
         "Equipment is regularly calibrated, and critical results are communicated promptly.",
         "The department is staffed by qualified M.Sc. and B.Sc. professionals."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 10
     },
     {
       "name": "Haematology",
@@ -230,7 +253,8 @@
         "The Haematology Department is equipped with automated 3-part and 5-part analyzers.",
         "We have certified DMLT technicians available 24 hours a day."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 11
     },
     {
       "name": "Histopathology",
@@ -242,7 +266,8 @@
         "The Histopathology Department is staffed by qualified pathologists and trained technicians.",
         "The department has dedicated facilities and equipment for grossing and slide preparation."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 12
     },
     {
       "name": "Microbiology",
@@ -255,7 +280,8 @@
         "Automated CLIA, GeneXpert, culture analyzers, and ELISA readers are available.",
         "All systems are integrated with our Hospital Information System (HIS)."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 13
     },
     {
       "name": "Administrative Director",
@@ -264,7 +290,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 14
     },
     {
       "name": "Admission Department",
@@ -276,7 +303,8 @@
         "We have a dedicated wing for admissions and room allotment.",
         "The tariff and fee structure for planned treatments are clearly explained at the time of admission."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 15
     },
     {
       "name": "Biomedical Waste Management",
@@ -288,7 +316,8 @@
         "Our hospital strictly follows biomedical waste management guidelines.",
         "We have a dedicated department that regularly supervises and ensures adherence to biomedical waste rules."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 16
     },
     {
       "name": "Canteen",
@@ -297,7 +326,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 17
     },
     {
       "name": "CEO – Chief Excecutive Officer",
@@ -306,7 +336,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 18
     },
     {
       "name": "Coffee Bar & Fruit Stall",
@@ -315,7 +346,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 19
     },
     {
       "name": "Fire Safety Department",
@@ -327,7 +359,8 @@
         "Kongunad Hospital has a dedicated department to handle all types of fire emergencies.",
         "Our staff are well trained and educated in fire safety measures."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 20
     },
     {
       "name": "House Keeping",
@@ -336,7 +369,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 21
     },
     {
       "name": "HRD – Human Resources Department",
@@ -350,7 +384,8 @@
         "We provide induction training for all employees during their month of joining.",
         "We have a well-structured recruitment process, making it easy for prospective employees to approach us."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 22
     },
     {
       "name": "Lift Service",
@@ -359,7 +394,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 23
     },
     {
       "name": "Maintenance Department",
@@ -370,7 +406,8 @@
       "facilities": [
         "Our hospital has an excellent maintenance team that ensures a clean and safe environment."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 24
     },
     {
       "name": "Office",
@@ -379,7 +416,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 25
     },
     {
       "name": "PRO – Public Relation Officer",
@@ -390,7 +428,8 @@
       "facilities": [
         "Kongunad Public Relations (PR) focuses on managing the hospital’s reputation by building understanding and support, and by positively influencing public opinion and behaviour."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 26
     },
     {
       "name": "Reception / Front Office",
@@ -403,7 +442,8 @@
         "We have a 24-hour emergency registration counter.",
         "There are separate inpatient and outpatient registration counters for patient convenience and satisfaction."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 27
     },
     {
       "name": "Security",
@@ -412,7 +452,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 28
     },
     {
       "name": "ECG",
@@ -426,7 +467,8 @@
         "ECG reports are dispatched within a defined time frame."
       ],
       "hod": "Dr Balaji Sundharesan",
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 29
     },
     {
       "name": "EEG",
@@ -435,7 +477,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 30
     },
     {
       "name": "EMG",
@@ -444,7 +487,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 31
     },
     {
       "name": "Holder Monitor",
@@ -455,7 +499,8 @@
       "facilities": [
         "Our hospital has a dedicated department for Holter monitoring, overseen by three full-time cardiologists."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 32
     },
     {
       "name": "PPG",
@@ -467,7 +512,8 @@
         "We have a dedicated room and full-time experienced staff to perform PPG.",
         "PPG is an effective tool for diagnosing various blood flow–related conditions."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 33
     },
     {
       "name": "Spirometry",
@@ -478,7 +524,8 @@
       "facilities": [
         "Kongunad Hospital has an advanced spirometry system integrated with specialised diagnostic software."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 34
     },
     {
       "name": "TMT",
@@ -491,7 +538,8 @@
         "We also have full-time technicians available round the clock to perform TMT procedures."
       ],
       "hod": "Dr Balaji Sundharesan",
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 35
     },
     {
       "name": "Uroflow Studies",
@@ -503,7 +551,8 @@
         "We provide high-quality uroflowmetry in dedicated procedure rooms.",
         "Our results are integrated with computer software to ensure accurate reporting."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 36
     },
     {
       "name": "Cardiac OPD",
@@ -512,17 +561,31 @@
       "description": "",
       "services": [
         {
-            "title": "Facilities",
-            "image": "",
-            "content": ["Cath Lab Services", "CT Angiogram Services", "Coronary Intensive Care Unit", "Separate Consultation OPD", "ECHO Services", "Trans Esophageal ECHO", "TMT Machine", "ECG Room", "Defibrillator & Crash Cart", "Ventilators", "CPAP Machines", "Well Trained Health Care Providers"]
+          "title": "Facilities",
+          "image": "",
+          "content": [
+            "Cath Lab Services",
+            "CT Angiogram Services",
+            "Coronary Intensive Care Unit",
+            "Separate Consultation OPD",
+            "ECHO Services",
+            "Trans Esophageal ECHO",
+            "TMT Machine",
+            "ECG Room",
+            "Defibrillator & Crash Cart",
+            "Ventilators",
+            "CPAP Machines",
+            "Well Trained Health Care Providers"
+          ]
         }
       ],
       "facilities": [
         "Our Cardiac OPD is run by three full-time cardiologists and is supported by advanced equipment, a cardiac ICU, and cath lab facilities.",
         "We also have a dedicated reception and nurses’ station for cardiac patients, and all cardiac investigations and treatments are available under one roof at the Kongunad Heart Centre."
       ],
-      "hod":  "Dr Balaji Sundharesan",
-      "imageUrls": []
+      "hod": "Dr Balaji Sundharesan",
+      "imageUrls": [],
+      "order": 37
     },
     {
       "name": "Emergency OPD (Casualty)",
@@ -533,8 +596,19 @@
         {
           "title": "Facilities of the Department",
           "image": "",
-          "content": ["Crash Cart Trolley", "Defebrillator", "Ventilators", "Syringe Pump", "Infusion Pump", "Advanced Cot", "Separate Emergency Procedure Room", "Intubation Facilities", "Pediatric Emergency Kit", "Emergency Medicines"]
-      }
+          "content": [
+            "Crash Cart Trolley",
+            "Defebrillator",
+            "Ventilators",
+            "Syringe Pump",
+            "Infusion Pump",
+            "Advanced Cot",
+            "Separate Emergency Procedure Room",
+            "Intubation Facilities",
+            "Pediatric Emergency Kit",
+            "Emergency Medicines"
+          ]
+        }
       ],
       "facilities": [
         "Our casualty unit has adequate space, emergency instruments, infusion pumps, ventilators, monitors, oxygen, and suction support.",
@@ -543,22 +617,31 @@
         "Our casualty medical officers and staff nurses are regularly updated on evidence-based practices."
       ],
       "hod": "Dr Senthil Kumar",
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 38
     },
     {
       "name": "Main opd",
       "category": "Out Patient Services",
       "currentDescription": "Learn more about Main opd at Kongunad Hospital.",
       "description": "",
-      "services": [{
-        "title": "Facilities",
-        "image": "",
-        "content": ["OPD Waiting Hall", "Injection OPD", "Crash Cart", "Pediatric Emergency Kid"]
-    },{
-      "title": "OPD Waiting Hall",
-      "image": "",
-      "content": "Our OPD waiting hall has adequate space, light, ventilation, television, announcement and drinking water facilities and toilet facilities for patients and their relatives convenience."
-    }],
+      "services": [
+        {
+          "title": "Facilities",
+          "image": "",
+          "content": [
+            "OPD Waiting Hall",
+            "Injection OPD",
+            "Crash Cart",
+            "Pediatric Emergency Kid"
+          ]
+        },
+        {
+          "title": "OPD Waiting Hall",
+          "image": "",
+          "content": "Our OPD waiting hall has adequate space, light, ventilation, television, announcement and drinking water facilities and toilet facilities for patients and their relatives convenience."
+        }
+      ],
       "facilities": [
         "The OPD wing is spacious, with separate cabins, adequate instruments, and private areas for physical examination.",
         "A separate OPD nursing room is available for injections and dressings.",
@@ -566,27 +649,57 @@
         "There is a dedicated private room for injection administration.",
         "Separate toilet facilities are available for patients and employees."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 39
     },
     {
       "name": "Obstetrics & Gynaecology OPD",
       "category": "Out Patient Services",
       "currentDescription": "Learn more about Obstetrics & Gynaecology OPD at Kongunad Hospital.",
       "description": "",
-      "services": [{
-        "title": "Services Are Offered",
-        "image": "",
-        "content": ["Pre–Pregnancy Counselling", "Regular Antenatal Care", "Care of High Risk Pregnancies"]
-    }, {
-      "title": "Well Woman Clinic For All Age Groups, Including:",
-      "image": "",
-      "content": ["Breast Exam", "Pelvic Exam", "Screening For Genital Infections", "PAP Smear", "Colposcopy", "Ultrasound For Pelvis", "Ultrasound For Breasts", "Family Planning", "Contraceptive Advice", "Treatment of Common Gynaecological Infections", "Advanced & Innovative Technology Under One Roof", "Evaluation of Menstrual Irregularities by Hormonal Assessment", "Ultrasound and Diagnostic Laparoscopy", "Evaluation of Infertile Couples by Semen Analysis", "HSG", "Hormonal Assay", "Diagnostic Laparoscopy and Chromopertubation", "Induction of Ovulation", "Treatment of Peri and Postmenopausal Conditions i.e. Hormone Replacement Therapy, Prevention of Osteoporosis", "IUCD Insertion and Removal., etc"]
-  }],
+      "services": [
+        {
+          "title": "Services Are Offered",
+          "image": "",
+          "content": [
+            "Pre–Pregnancy Counselling",
+            "Regular Antenatal Care",
+            "Care of High Risk Pregnancies"
+          ]
+        },
+        {
+          "title": "Well Woman Clinic For All Age Groups, Including:",
+          "image": "",
+          "content": [
+            "Breast Exam",
+            "Pelvic Exam",
+            "Screening For Genital Infections",
+            "PAP Smear",
+            "Colposcopy",
+            "Ultrasound For Pelvis",
+            "Ultrasound For Breasts",
+            "Family Planning",
+            "Contraceptive Advice",
+            "Treatment of Common Gynaecological Infections",
+            "Advanced & Innovative Technology Under One Roof",
+            "Evaluation of Menstrual Irregularities by Hormonal Assessment",
+            "Ultrasound and Diagnostic Laparoscopy",
+            "Evaluation of Infertile Couples by Semen Analysis",
+            "HSG",
+            "Hormonal Assay",
+            "Diagnostic Laparoscopy and Chromopertubation",
+            "Induction of Ovulation",
+            "Treatment of Peri and Postmenopausal Conditions i.e. Hormone Replacement Therapy, Prevention of Osteoporosis",
+            "IUCD Insertion and Removal., etc"
+          ]
+        }
+      ],
       "facilities": [
         "The Obstetrics and Gynaecology Department specialises in antenatal care, gynaecological problems, issues related to menarche and menopause, infertility, and procedures such as loop insertion and removal.",
         "An experienced team of doctors manage normal and operative deliveries and perform surgeries such as hysterectomy, ovarian cystectomy, surgery for ectopic pregnancy, tubal ligation, D & C, cervical biopsy, and excision of vulval or vaginal cysts."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 40
     },
     {
       "name": "Orthopaedic OPD",
@@ -600,7 +713,8 @@
         "The department provides state-of-the-art treatment in trauma and accident surgery, joint replacements, sports medicine and arthroscopy, spine surgery, and deformity correction.",
         "A well-equipped physiotherapy and rehabilitation unit in the OPD complex is staffed by experienced physiotherapists who help rehabilitate patients after surgical correction of deformities."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 41
     },
     {
       "name": "Pediatric OPD",
@@ -617,7 +731,8 @@
         "Neonates receive special attention immediately after birth in our neonatal unit near the labour room and obstetric theatres.",
         "A paediatrician supports the trained nurses during delivery, and all difficult or operative births are attended by a paediatric doctor."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 42
     },
     {
       "name": "Physicians OPD (Medical)",
@@ -630,73 +745,94 @@
         "We also have a separate wing to safely manage infectious cases."
       ],
       "hod": "Dr Sadhasivam",
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 43
     },
     {
       "name": "Speciality OPD",
       "category": "Out Patient Services",
       "currentDescription": "Learn more about Speciality OPD at Kongunad Hospital.",
       "description": "",
-      "services": [{
-        "title": "Neurology OPD",
-        "image": ""
-      },{
-        "title": "Neuro Surgery OPD",
-        "image": ""
-      },{
-        "title": "Eye OPD",
-        "image": ""
-      },{
-        "title": "ENT OPD",
-        "image": ""
-      },{
-        "title": "Dental OPD",
-        "image": ""
-      },{
-        "title": "Pulmonology OPD",
-        "image": ""
-      },{
-        "title": "Urology OPD",
-        "image": ""
-      },{
-        "title": "Cardio Thoracic OPD",
-        "image": ""
-      },{
-        "title": "Gastro Enterology OPD",
-        "image": ""
-      },{
-        "title": "Nephrology OPD",
-        "image": ""
-      },{
-        "title": "Rheumatology OPD",
-        "image": ""
-      },{
-        "title": "Plastic Surgery OPD",
-        "image": ""
-      },{
-        "title": "Vascular Surgery OPD",
-        "image": ""
-      },{
-        "title": "Diabetology OPD",
-        "image": ""
-      },{
-        "title": "Medical Oncology OPD",
-        "image": ""
-      },{
-        "title": "Psycology OPD",
-        "image": ""
-      },{
-        "title": "Surgical Oncology OPD",
-        "image": ""
-      },{
-        "title": "Dermatology OPD",
-        "image": ""
-      },{
-        "title": "Gastro Surgery OPD",
-        "image": ""
-      }],
+      "services": [
+        {
+          "title": "Neurology OPD"
+        },
+        {
+          "title": "Neuro Surgery OPD",
+          "image": ""
+        },
+        {
+          "title": "Eye OPD",
+          "image": ""
+        },
+        {
+          "title": "ENT OPD",
+          "image": ""
+        },
+        {
+          "title": "Dental OPD",
+          "imageId": "12NA9uCukCTd4j4bWYd68h"
+        },
+        {
+          "title": "Pulmonology OPD",
+          "imageId": "7B6GEpHVlmF1qJgnbOUMMy"
+        },
+        {
+          "title": "Urology OPD",
+          "image": ""
+        },
+        {
+          "title": "Cardio Thoracic OPD",
+          "image": ""
+        },
+        {
+          "title": "Gastro Enterology OPD",
+          "image": ""
+        },
+        {
+          "title": "Nephrology OPD",
+          "image": ""
+        },
+        {
+          "title": "Rheumatology OPD",
+          "image": ""
+        },
+        {
+          "title": "Plastic Surgery OPD",
+          "image": ""
+        },
+        {
+          "title": "Vascular Surgery OPD",
+          "image": ""
+        },
+        {
+          "title": "Diabetology OPD",
+          "image": ""
+        },
+        {
+          "title": "Medical Oncology OPD",
+          "image": ""
+        },
+        {
+          "title": "Psycology OPD",
+          "image": ""
+        },
+        {
+          "title": "Surgical Oncology OPD",
+          "image": ""
+        },
+        {
+          "title": "Dermatology OPD",
+          "image": ""
+        },
+        {
+          "title": "Gastro Surgery OPD",
+          "image": ""
+        }
+      ],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 44
     },
     {
       "name": "Surgeons OPD (Surgical)",
@@ -711,7 +847,8 @@
         "Our surgical team comprises highly experienced surgeons.",
         "We also provide a modern day-care unit for short-stay procedures."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 45
     },
     {
       "name": "C-Arm",
@@ -723,7 +860,8 @@
         "We are one of the leading centres, equipped with advanced radiological equipment.",
         "Our C-arm machine is a state-of-the-art device that supports a wide range of therapeutic and diagnostic procedures."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 46
     },
     {
       "name": "Cath Lab",
@@ -736,7 +874,8 @@
         "We have well-trained technicians and staff nurses to manage emergency situations."
       ],
       "hod": "Dr Balaji Sundharesan",
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 47
     },
     {
       "name": "CT",
@@ -748,7 +887,8 @@
         "Our CT scan room is spacious and well equipped, featuring a 16-slice BRIVO 385 CT scanner.",
         "We also have an automated pressure injector for safe and precise contrast administration."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 48
     },
     {
       "name": "Digital X-Rays",
@@ -762,7 +902,8 @@
         "Our machines are directly interfaced with the PACS system so radiologists and doctors can view images from anywhere within the network.",
         "Radiology reports are recorded in the HIS and reviewed and approved by a radiologist to minimise errors."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 49
     },
     {
       "name": "ECHO / Transesophageal ECHO",
@@ -775,8 +916,9 @@
         "Our ECHO technicians are well qualified and trained under the guidance of our cardiologists.",
         "Our ECHO machines are advanced, computerised, and integrated with the Hospital Information System (HIS)."
       ],
-     "hod": "Dr Balaji Sundharesan",
-      "imageUrls": []
+      "hod": "Dr Balaji Sundharesan",
+      "imageUrls": [],
+      "order": 50
     },
     {
       "name": "Mobile X-Ray Unit",
@@ -788,7 +930,8 @@
         "We have two advanced mobile X-ray units to diagnose critically ill patients, reducing delays and the need to shift patients from critical care areas to the X-ray unit.",
         "Specialised technicians are available to operate the mobile X-ray units safely and efficiently."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 51
     },
     {
       "name": "MRI",
@@ -800,7 +943,8 @@
         "Our MRI machine is an advanced SIGNA CREATOR 1.5 Tesla system.",
         "Our MRI technicians are qualified and available 24 hours a day."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 52
     },
     {
       "name": "Ultrasound Scan",
@@ -813,21 +957,21 @@
         "Our scan machines are integrated with the PACS system, enabling easy future reference and cross-comparison of studies.",
         "Machines are regularly calibrated, and preventive and corrective maintenance is carried out on a routine basis."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 53
     },
     {
       "name": "Ambulance",
       "category": "Supportive Medical Departments",
       "currentDescription": "Learn more about Ambulance at Kongunad Hospital.",
       "description": "",
-      "services": [
-        {
-          "title": "Ambulance Services – 0422 4316000", 
-          "content": "Our ambulances function as mini intensive care units, equipped with ventilators, monitors, oxygen supply, infusion pumps, essential emergency medicines, and other critical equipment. We also have well-trained doctors, staff nurses, paramedical staff, and drivers. BLS and ACLS training sessions are conducted regularly for our teams."
-        }
+      "services": [],
+      "facilities": [
+        "Our ambulances function as mini intensive care units, equipped with ventilators, monitors, oxygen supply, infusion pumps, essential emergency medicines, and other critical equipment.",
+        "We also have well-trained doctors, staff nurses, paramedical staff, and drivers. BLS and ACLS training sessions are conducted regularly for our teams."
       ],
-      "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 54
     },
     {
       "name": "Biomedical Engineer",
@@ -838,7 +982,8 @@
       "facilities": [
         "We have full-time biomedical engineers available to address issues related to biomedical equipment."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 55
     },
     {
       "name": "Blood Bank",
@@ -847,7 +992,8 @@
       "description": "",
       "services": [],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 56
     },
     {
       "name": "Dietary Department",
@@ -858,16 +1004,17 @@
       "facilities": [
         "Our hospital has a dedicated Dietary Department to provide nutritional support tailored to each patient’s clinical condition."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 57
     },
     {
-      "name": "Medical Insurances Department",
+      "name": "Medical Insurance Department",
       "category": "Supportive Medical Departments",
       "currentDescription": "Learn more about Medical Insurances Department at Kongunad Hospital.",
       "description": "",
       "services": [
         {
-          "title": "List of Empanelled TPAs and Insurance Companies (Public Sector)", 
+          "title": "List of Empanelled TPAs and Insurance Companies (Public Sector)",
           "content": [
             "Chief Minister Comprehensive Health Care",
             "Tamil Nadu Government Employees Scheme",
@@ -916,21 +1063,31 @@
           ]
         },
         {
-          "title": "Required Documents (Private)", 
-          "content": ["Current year Policy Copy", "E-Card", "Aadhaar Card", "Pan Card"]
+          "title": "Required Documents (Private)",
+          "content": [
+            "Current year Policy Copy",
+            "E-Card",
+            "Aadhaar Card",
+            "Pan Card"
+          ]
         },
         {
-          "title": "Chief Minister Scheme", 
+          "title": "Chief Minister Scheme",
           "image": ""
         },
         {
-          "title": "Contact Details", 
+          "title": "Contact Details",
           "image": "",
-          "content": ["Mob No: 9944400576", "Phone: 0422 4316000", "Email: kongunad@gmail.com"]
+          "content": [
+            "Mob No: 9944400576",
+            "Phone: 0422 4316000",
+            "Email: kongunad@gmail.com"
+          ]
         }
       ],
       "facilities": [],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 58
     },
     {
       "name": "MRD",
@@ -943,7 +1100,8 @@
         "We use deficiency checklists to review case sheet completion and tracer cards to identify any missing records.",
         "We also maintain a medical audit checklist to periodically review case sheets."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 59
     },
     {
       "name": "Pharmacy",
@@ -958,8 +1116,8 @@
         "Separate cupboards are designated for emergency and high-risk medicines.",
         "All medicines are procured, stocked, and dispensed through a computer-based system to minimise dispensing errors."
       ],
-      "imageUrls": []
+      "imageUrls": [],
+      "order": 60
     }
   ]
 }
-
