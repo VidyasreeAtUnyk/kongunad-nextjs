@@ -189,8 +189,8 @@ const FacilityDetailClientComponent: React.FC<FacilityDetailClientProps> = ({
               display: 'grid',
               gridTemplateColumns: {
                 xs: '1fr',
-                sm: 'repeat(2, 1fr)',
-                md: 'repeat(3, 1fr)',
+                sm: validServices.length === 1 ? '1fr' : 'repeat(2, 1fr)',
+                md: validServices.length === 1 ? '1fr' : validServices.length === 2 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
               },
               gap: 3,
               mb: 6,

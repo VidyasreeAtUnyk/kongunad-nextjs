@@ -12,7 +12,7 @@ import { PDFDocument } from 'pdf-lib'
 import * as fs from 'fs'
 import * as path from 'path'
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
+const BASE_URL = process.env.BASE_URL || 'https://kongunad-nextjs.vercel.app'
 
 const PAGES = [
   // { url: `${BASE_URL}/facilities/endoscopy-services`, name: 'Endoscopy Services' },
@@ -81,7 +81,7 @@ const PAGES = [
    { url: `${BASE_URL}/facilities/laboratory-services/haematology`, name: 'Facility - Haematology' },
    { url: `${BASE_URL}/facilities/laboratory-services/biochemistry`, name: 'Facility - Biochemistry' },
    { url: `${BASE_URL}/facilities/laboratory-services/microbiology`, name: 'Facility - Microbiology' },
-   { url: `${BASE_URL}/facilities/laboratory-services/histopathlogy`, name: 'Facility - Histopathology' },
+   { url: `${BASE_URL}/facilities/laboratory-services/histopathology`, name: 'Facility - Histopathology' },
    
    // Facilities - Detail Pages (Endoscopy Services)
    { url: `${BASE_URL}/facilities/endoscopy-services/upper-gi-scopy`, name: 'Facility - Upper GI Scopy' },
@@ -123,7 +123,7 @@ async function main() {
 
   const browser = await chromium.launch({ headless: true })
   const context = await browser.newContext({
-    viewport: { width: 1920, height: 1080 },
+    viewport: { width: 1280, height: 1080 },
     deviceScaleFactor: 1,
   })
 
@@ -140,13 +140,13 @@ async function main() {
         timeout: 60000,
       })
 
-      // Wait for content to load
+      // Wait for initial content to render
       await page.waitForTimeout(2000)
 
       // Close campaign poster if open
       try {
         const closeBtn = page.locator('button[aria-label="Close campaign poster"]')
-        if (await closeBtn.isVisible({ timeout: 500 }).catch(() => false)) {
+        if (await closeBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
           await closeBtn.click()
           await page.waitForTimeout(500)
         }
@@ -154,20 +154,47 @@ async function main() {
         // ignore
       }
 
-      // Wait for all images to load
+      // Hide any error toasts / overlays that might appear
+      await page.evaluate(() => {
+        // Hide Next.js error overlay
+        const nextError = document.querySelector('nextjs-portal') as HTMLElement
+        if (nextError) nextError.style.display = 'none'
+        // Hide any toast notifications
+        document.querySelectorAll('[role="alert"], [class*="toast"], [class*="Toastify"], [class*="snackbar"], [class*="Snackbar"]').forEach((el) => {
+          ;(el as HTMLElement).style.display = 'none'
+        })
+      })
+
+      // Scroll through the entire page to trigger lazy-loaded images
+      await page.evaluate(async () => {
+        const scrollHeight = document.body.scrollHeight
+        const viewportHeight = window.innerHeight
+        for (let y = 0; y < scrollHeight; y += viewportHeight / 2) {
+          window.scrollTo(0, y)
+          await new Promise((r) => setTimeout(r, 300))
+        }
+        // Scroll to very bottom to catch the last images
+        window.scrollTo(0, scrollHeight)
+        await new Promise((r) => setTimeout(r, 500))
+      })
+
+      // Wait for all images to fully load (with longer timeout)
       await page.evaluate(async () => {
         const images = Array.from(document.querySelectorAll('img')) as HTMLImageElement[]
         await Promise.all(
           images.map((img) => {
-            if (img.complete) return Promise.resolve()
+            if (img.complete && img.naturalHeight > 0) return Promise.resolve()
             return new Promise((resolve) => {
               img.addEventListener('load', resolve, { once: true })
               img.addEventListener('error', resolve, { once: true })
-              setTimeout(resolve, 3000)
+              setTimeout(resolve, 10000) // 10s per image max
             })
           })
         )
       })
+
+      // Wait for skeletons to disappear
+      await page.waitForTimeout(1000)
 
       // Scroll to top for consistent capture
       await page.evaluate(() => window.scrollTo(0, 0))
@@ -205,14 +232,21 @@ async function main() {
       let yOffset = 0
 
       while (yOffset < scaledHeight) {
-        const pageHeight = Math.min(usableHeight, scaledHeight - yOffset)
-        const page = pdfDoc.addPage([A4_WIDTH, pageHeight + MARGIN * 2])
+        const sliceHeight = Math.min(usableHeight, scaledHeight - yOffset)
+        const pageH = sliceHeight + MARGIN * 2
+        const page = pdfDoc.addPage([A4_WIDTH, pageH])
 
-        // Calculate which portion of the image to show on this page
-        // We draw the full image but position it so only the current slice is visible
+        // PDF y=0 is at the bottom of the page.
+        // We draw the full image and shift it so the correct slice is visible.
+        // The visible area on this page is from yOffset to yOffset+sliceHeight (top-down).
+        // In PDF coords the top of the page is at pageH, so the image top should be at:
+        //   MARGIN + sliceHeight (top margin position) which maps to yOffset in image coords.
+        // Image y position = MARGIN + sliceHeight - scaledHeight + yOffset
+        const imageY = MARGIN + sliceHeight - scaledHeight + yOffset
+
         page.drawImage(pngImage, {
           x: MARGIN,
-          y: MARGIN - yOffset,
+          y: imageY,
           width: usableWidth,
           height: scaledHeight,
         })
