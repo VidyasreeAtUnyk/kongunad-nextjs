@@ -193,8 +193,8 @@ async function main() {
         )
       })
 
-      // Wait for skeletons to disappear
-      await page.waitForTimeout(1000)
+      // Wait for skeletons to disappear and content to fully render
+      await page.waitForTimeout(5000)
 
       // Scroll to top for consistent capture
       await page.evaluate(() => window.scrollTo(0, 0))

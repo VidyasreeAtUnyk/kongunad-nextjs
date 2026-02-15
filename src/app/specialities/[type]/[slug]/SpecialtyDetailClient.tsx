@@ -162,7 +162,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                   sx={{
                     mb: 2,
                     lineHeight: 1.8,
-                    color: 'text.secondary',
+                    color: 'text.primary',
                     '&:last-child': {
                       mb: 0,
                     },
@@ -194,7 +194,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                 : { content: item as string };
 
               // Skip if no title, content, or images
-              const hasImages = service.images && Array.isArray(service.images) && service.images.length > 0;
+              const hasImages = service.images && Array.isArray(service.images) && service.images.some((img: any) => img?.fields?.file?.url);
               if (!service.title && !service.content && !hasImages) {
                 return null;
               }
@@ -221,13 +221,13 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                         display: 'grid',
                         gridTemplateColumns: {
                           xs: '1fr',
-                          sm: service.images!.length === 1 ? '1fr' : 'repeat(2, 1fr)',
+                          sm: service.images!.filter((img: any) => img?.fields?.file?.url).length === 1 ? '1fr' : 'repeat(2, 1fr)',
                         },
                         gap: 2,
                         mb: service.content ? 2 : 0,
                       }}
                     >
-                      {service.images!.map((image, imgIndex) => (
+                      {service.images!.filter((image) => image?.fields?.file?.url).map((image, imgIndex) => (
                         <Box
                           key={imgIndex}
                           component="img"
@@ -236,7 +236,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                           loading="lazy"
                           sx={{
                             width: '100%',
-                            height: { xs: 200, sm: service.images!.length === 1 ? 300 : 200 },
+                            height: { xs: 200, sm: service.images!.filter((img: any) => img?.fields?.file?.url).length === 1 ? 300 : 200 },
                             objectFit: 'cover',
                             borderRadius: 2,
                             boxShadow: 2,
@@ -250,13 +250,13 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                   {service.content && (
                     Array.isArray(service.content) && service.content.length > 1 ? (
                       <List sx={{ py: 0, pl: 2 }}>
-                        {service.content.map((item, idx) => (
+                        {service.content.map((contentItem, idx) => (
                           <ListItem key={idx} disablePadding sx={{ py: 0.5 }}>
                             <Typography 
                               variant="body1" 
                               component="span"
                               sx={{ 
-                                color: 'text.secondary',
+                                color: 'text.primary',
                                 lineHeight: 1.8,
                                 '&::before': {
                                   content: '"• "',
@@ -266,7 +266,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                                 },
                               }}
                             >
-                              {item}
+                              {contentItem}
                             </Typography>
                           </ListItem>
                         ))}
@@ -275,7 +275,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                       <Typography 
                         variant="body1" 
                         sx={{ 
-                          color: 'text.secondary',
+                          color: 'text.primary',
                           lineHeight: 1.8,
                           whiteSpace: 'pre-line',
                         }}
@@ -307,9 +307,12 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                 gap: 2,
               }}
             >
-              {specialty.fields.images.map((image, index) => (
+              {specialty.fields.images.filter((image) => image?.fields?.file?.url).map((image, index) => (
                 <Card key={index}>
-                  <CardContent sx={{ p: 0 }}>
+                  <CardContent sx={{ 
+                    p: 0, 
+                    '&:last-child': { pb: 0 }
+                  }}>
                     <Box
                       component="img"
                       src={`https:${image.fields.file.url}`}
@@ -320,6 +323,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
                         height: 180,
                         objectFit: 'cover',
                         borderRadius: 2,
+                        display: 'block',
                       }}
                     />
                   </CardContent>
@@ -441,7 +445,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
             <Typography variant="h6" fontWeight={600} gutterBottom color="primary">
               Other {typeName}
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            <Typography variant="body2" color="text.primary" sx={{ mb: 2 }}>
               Explore more specialties in this category
             </Typography>
             <List sx={{ p: 0 }}>
@@ -504,7 +508,7 @@ const SpecialtyDetailClientComponent: React.FC<SpecialtyDetailClientProps> = ({
           <Typography variant="h6" fontWeight={600} gutterBottom color="primary">
             Browse Types
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+          <Typography variant="body2" color="text.primary" sx={{ mb: 3 }}>
             Switch to other specialty types
           </Typography>
 
